@@ -7,17 +7,69 @@
 		<meta name="description" 	content="APNG quiz"/>
 		<meta name="keywords" 		content="APNG, animated portable network graphics, quiz"/>
 		<meta name="author" 		content="Aly"/>
+		<meta name="viewport" content="width=device-width">
 		<title>APNG quiz</title>
 		
 	</head>
 	
 	<body>
+		
+		<!-- Paste finished menu/navbar here -->
+		<!-- Paste finished header here -->
+
 		<h1>Quiz time!</h1>
         <h2>Test your knowledge by filling out these reinforcement questions!</h2>
-		<p>Can I use .htm instead of .html as my file extension?<br/>
-		<em>Yes.</em></p>
-		<p>Are folder and file names case sensitive on Apache servers?<br/>
-		<em>Yes. </em><strong>Best to use only lower case.</strong></p>
+
+		<!-- Info -->
+		<div>
+			<form>
+				<label for="first_name">First name:</label>
+				<input type="text" id="first_name" name="first_name" placeholder="First name...">
+				<label for="last_name">Last name:</label>
+				<input type="text" id="last_name" name="last_name" placeholder="Last name...">
+				<label for="student_id">Student ID:</label>
+				<input type="text" id="student_id" name="student_id" placeholder="Student ID...">
+			</form>
+		</div>
+
+		<!-- Text input question -->
+		<div>
+			<form>
+				<label for="question">First option</label>
+				<input type="text" id="question" name="answer" placeholder="Your answer...">
+			</form>
+		</div>
+
+		<!-- Radio choice question -->
+		<div>
+			<form>
+				<input type="radio" id="first_option" name="question" value="First option">
+				<label for="first_option">First option</label>
+				<input type="radio" id="second_option" name="question" value="Second option">
+				<label for="second_option">Second option</label>
+				<input type="radio" id="third_option" name="question" value="Third option">
+				<label for="third_option">Third option</label>
+				<input type="radio" id="fourth_option" name="question" value="Fourth option">
+				<label for="fourth_option">Fourth option</label>
+			</form>
+		</div>
+
+		<!-- Checkbox question -->
+		<div>
+			<form>
+				<input type="checkbox" id="first_option" name="question" value="First option">
+				<label for="first_option">First option</label>
+				<input type="checkbox" id="second_option" name="question" value="Second option">
+				<label for="second_option">Second option</label>
+				<input type="checkbox" id="third_option" name="question" value="Third option">
+				<label for="third_option">Third option</label>
+				<input type="checkbox" id="fourth_option" name="question" value="Fourth option">
+				<label for="fourth_option">Fourth option</label>
+			</form>
+		</div>
+
+		<!-- Paste finished footer here -->
+
 	</body>
 	
 </html>
