@@ -13,6 +13,7 @@
 	</head>
 	
 	<body>
+	<form action="https://mercury.swin.edu.au/it000000/formtest.php" method="POST">
 		
 		<!-- Paste finished menu/navbar here -->
 		<!-- Paste finished header here -->
@@ -21,55 +22,80 @@
         <h2>Test your knowledge by filling out these reinforcement questions!</h2>
 
 		<!-- Info -->
-		<div>
-			<form>
-				<label for="first_name">First name:</label>
-				<input type="text" id="first_name" name="first_name" placeholder="First name...">
-				<label for="last_name">Last name:</label>
-				<input type="text" id="last_name" name="last_name" placeholder="Last name...">
-				<label for="student_id">Student ID:</label>
-				<input type="text" id="student_id" name="student_id" placeholder="Student ID...">
-			</form>
-		</div>
+		<fieldset>
+			<legend>Info</legend>
+			<label for="first_name">First name:</label>
+			<input type="text" id="first_name" name="first_name" placeholder="First name...">
+			<label for="last_name">Last name:</label>
+			<input type="text" id="last_name" name="last_name" placeholder="Last name...">
+			<label for="student_id">Student ID:</label>
+			<input type="text" id="student_id" name="student_id" placeholder="Student ID...">
+			<input type="submit" id="submit-info" class="hidden"/>
+		</fieldset>
 
 		<!-- Text input question -->
-		<div>
-			<form>
-				<label for="question">First option</label>
-				<input type="text" id="question" name="answer" placeholder="Your answer...">
-			</form>
-		</div>
+		<fieldset>
+			<legend>Question 1</legend>
+			<label for="question">First option</label>
+			<input type="text" id="question" name="answer" placeholder="Your answer...">
+		</fieldset>
 
 		<!-- Radio choice question -->
-		<div>
-			<form>
-				<input type="radio" id="first_option" name="question" value="First option">
-				<label for="first_option">First option</label>
-				<input type="radio" id="second_option" name="question" value="Second option">
-				<label for="second_option">Second option</label>
-				<input type="radio" id="third_option" name="question" value="Third option">
-				<label for="third_option">Third option</label>
-				<input type="radio" id="fourth_option" name="question" value="Fourth option">
-				<label for="fourth_option">Fourth option</label>
-			</form>
-		</div>
+		<fieldset>
+			<legend>Question 2</legend>
+			<input type="radio" id="first_option" name="question" value="First option">
+			<label for="first_option">First option</label>
+			<input type="radio" id="second_option" name="question" value="Second option">
+			<label for="second_option">Second option</label>
+			<input type="radio" id="third_option" name="question" value="Third option">
+			<label for="third_option">Third option</label>
+			<input type="radio" id="fourth_option" name="question" value="Fourth option">
+			<label for="fourth_option">Fourth option</label>
+		</fieldset>
 
 		<!-- Checkbox question -->
-		<div>
-			<form>
-				<input type="checkbox" id="first_option" name="question" value="First option">
-				<label for="first_option">First option</label>
-				<input type="checkbox" id="second_option" name="question" value="Second option">
-				<label for="second_option">Second option</label>
-				<input type="checkbox" id="third_option" name="question" value="Third option">
-				<label for="third_option">Third option</label>
-				<input type="checkbox" id="fourth_option" name="question" value="Fourth option">
-				<label for="fourth_option">Fourth option</label>
-			</form>
-		</div>
+		<fieldset>
+			<legend>Question 3</legend>
+			<input type="checkbox" id="first_option" name="question" value="First option">
+			<label for="first_option">First option</label>
+			<input type="checkbox" id="second_option" name="question" value="Second option">
+			<label for="second_option">Second option</label>
+			<input type="checkbox" id="third_option" name="question" value="Third option">
+			<label for="third_option">Third option</label>
+			<input type="checkbox" id="fourth_option" name="question" value="Fourth option">
+			<label for="fourth_option">Fourth option</label>
+			<input type="submit" id="submit-checkbox-question" class="hidden"/>
+		</fieldset>
+
+		<!-- Drop-down question -->
+		<fieldset>
+			<legend>Question 4</legend>
+			<label for="question">Question:</label>
+			<select id="question" name="choice">
+				<option value="first_option">First option</option>
+				<option value="second_option">Second option</option>
+				<option value="third_option">Third option</option>
+				<option value="fourth_option">Fourth option</option>
+				<input type="submit" id="submit-drop-down-question" class="hidden"/>
+			</select>
+		</fieldset>
+
+		<!-- Text area question -->
+		<fieldset>
+			<legend>Question 5</legend>
+			<label for="textarea">Question</label>
+			<textarea id="textarea" name="long_answer" rows="10" cols="20">
+				Write your answer...
+			</textarea>
+		</fieldset>
+
+		<!-- Submit button -->
+		<label for="submit">How did I do?</label>
+		<input type="submit" id="submit"/>
 
 		<!-- Paste finished footer here -->
-
+	
+	</form>	
 	</body>
 	
 </html>
