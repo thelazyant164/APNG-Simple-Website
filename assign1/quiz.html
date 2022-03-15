@@ -7,89 +7,113 @@
 		<meta name="description" content="APNG quiz"/>
 		<meta name="keywords" content="APNG, animated portable network graphics, quiz"/>
 		<meta name="author" content="Aly"/>
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width" initial-scale="1">
 		<title>APNG quiz</title>
+		<link href="styles/style.css" rel="stylesheet">
 		
 	</head>
 	
 	<body>
-	<form id="quiz" action="https://mercury.swin.edu.au/it000000/formtest.php" method="POST">
-		
-		<!-- Paste finished menu/navbar here -->
-		<!-- Paste finished header here -->
-
-		<h1>Quiz time!</h1>
-        <h2>Test your knowledge by filling out these reinforcement questions!</h2>
-
-		<!-- Info -->
-		<fieldset>
-			<legend>Info</legend>
-			<label for="first_name">First name:</label>
-			<input type="text" id="first_name" name="first_name" placeholder="First name..." required="required" pattern="[a-z A-Z]{2,20}">
-			<label for="last_name">Last name:</label>
-			<input type="text" id="last_name" name="last_name" placeholder="Last name..." required="required" pattern="[a-z A-Z]{2,20}">
-			<label for="student_id">Student ID:</label>
-			<input type="text" id="student_id" name="student_id" placeholder="Student ID..." required="required" pattern="\d{9}">
-		</fieldset>
-
-		<!-- Text input question -->
-		<fieldset>
-			<legend>Question 1</legend>
-			<label for="question1">First option</label>
-			<input type="text" id="question1" name="answer1" placeholder="Your answer..." pattern="[a-z A-Z]{2,50}">
-		</fieldset>
-
-		<!-- Radio choice question -->
-		<fieldset>
-			<legend>Question 2</legend>
-			<input type="radio" id="first_choice" name="question2" value="Answer1">
-			<label for="first_choice">First option</label>
-			<input type="radio" id="second_choice" name="question2" value="Answer2">
-			<label for="second_choice">Second option</label>
-			<input type="radio" id="third_choice" name="question2" value="Answer3">
-			<label for="third_choice">Third option</label>
-			<input type="radio" id="fourth_choice" name="question2" value="Answer4">
-			<label for="fourth_choice">Fourth option</label>
-		</fieldset>
-
-		<!-- Checkbox question -->
-		<fieldset>
-			<legend>Question 3</legend>
-			<input type="checkbox" id="first_option" name="question3[]" value="Answer1">
-			<label for="first_option">First option</label>
-			<input type="checkbox" id="second_option" name="question3[]" value="Answer2">
-			<label for="second_option">Second option</label>
-			<input type="checkbox" id="third_option" name="question3[]" value="Answer3">
-			<label for="third_option">Third option</label>
-			<input type="checkbox" id="fourth_option" name="question3[]" value="Answer4">
-			<label for="fourth_option">Fourth option</label>
-		</fieldset>
-
-		<!-- Drop-down question -->
-		<fieldset>
-			<legend>Question 4</legend>
-			<label for="question4">Question:</label>
-			<select id="question4" name="choice">
-				<option value="first_option">First option</option>
-				<option value="second_option">Second option</option>
-				<option value="third_option">Third option</option>
-				<option value="fourth_option">Fourth option</option>
-			</select>
-		</fieldset>
-
-		<!-- Text area question -->
-		<fieldset>
-			<legend>Question 5</legend>
-			<label for="textarea">Question</label>
-			<textarea id="textarea" name="answer5" rows="10" cols="50" pattern="[a-z A-Z]{2,200}">Write your answer...</textarea>
-		</fieldset>
-
-		<!-- Submit button -->
-		<label for="submit">How did I do?</label>
-		<input type="submit" id="submit"/>
 	
-	</form>	
+	<!-- Dark mode toggle -->
+	<input type="checkbox" id="toggleMode">
+	<label for="toggleMode" class="toggleDark">Dark Mode</label>
+	<label for="toggleMode" class="toggleLight">Light Mode</label>
+	
+		<form id="container" action="https://mercury.swin.edu.au/it000000/formtest.php" method="POST">
+			
+			<!-- Paste finished menu/navbar here -->
+			<!-- Paste finished header here -->
 
+			<h1>Quiz time!</h1>
+			<h2>Test your knowledge by filling out these reinforcement questions!</h2>
+
+			<!-- Info -->
+			<fieldset class="panel">
+				<div class="content">
+					<legend>Info</legend>
+					<label for="first_name">First name:</label>
+					<input type="text" id="first_name" name="first_name" placeholder="First name..." required="required" pattern="[a-z A-Z]{2,20}">
+					<label for="last_name">Last name:</label>
+					<input type="text" id="last_name" name="last_name" placeholder="Last name..." required="required" pattern="[a-z A-Z]{2,20}">
+					<label for="student_id">Student ID:</label>
+					<input type="text" id="student_id" name="student_id" placeholder="Student ID..." required="required" pattern="\d{9}">
+				</div>
+			</fieldset>
+
+			<!-- Text input question -->
+			<fieldset class="panel">
+				<div class="content">
+					<legend>Question 1</legend>
+					<label for="question1">First option</label>
+					<input type="text" id="question1" name="answer1" placeholder="Your answer..." pattern="[a-z A-Z]{2,50}">
+				</div>
+			</fieldset>
+
+			<!-- Radio choice question -->
+			<fieldset class="panel">
+				<div class="content">
+					<legend>Question 2</legend>
+					<input type="radio" id="first_choice" name="question2" value="Answer1">
+					<label for="first_choice">First option</label>
+					<input type="radio" id="second_choice" name="question2" value="Answer2">
+					<label for="second_choice">Second option</label>
+					<input type="radio" id="third_choice" name="question2" value="Answer3">
+					<label for="third_choice">Third option</label>
+					<input type="radio" id="fourth_choice" name="question2" value="Answer4">
+					<label for="fourth_choice">Fourth option</label>
+				</div>
+			</fieldset>
+
+			<!-- Checkbox question -->
+			<fieldset class="panel">
+				<div class="content">
+					<legend>Question 3</legend>
+					<input type="checkbox" id="first_option" name="question3[]" value="Answer1">
+					<label for="first_option">First option</label>
+					<input type="checkbox" id="second_option" name="question3[]" value="Answer2">
+					<label for="second_option">Second option</label>
+					<input type="checkbox" id="third_option" name="question3[]" value="Answer3">
+					<label for="third_option">Third option</label>
+					<input type="checkbox" id="fourth_option" name="question3[]" value="Answer4">
+					<label for="fourth_option">Fourth option</label>
+				</div>
+			</fieldset>
+
+			<!-- Drop-down question -->
+			<fieldset class="panel">
+				<div class="content">
+					<legend>Question 4</legend>
+					<label for="question4">Question:</label>
+					<select id="question4" name="choice">
+						<option value="first_option">First option</option>
+						<option value="second_option">Second option</option>
+						<option value="third_option">Third option</option>
+						<option value="fourth_option">Fourth option</option>
+					</select>
+				</div>
+			</fieldset>
+
+			<!-- Text area question -->
+			<fieldset class="panel">
+				<div class="content">
+					<legend>Question 5</legend>
+					<label for="textarea">Question</label>
+					<textarea id="textarea" name="answer5" rows="10" cols="50" pattern="[a-z A-Z]{2,200}">Write your answer...</textarea>
+				</div>
+			</fieldset>
+
+			<!-- Submit button -->
+		<div class="panel">
+			<div class="content">
+				<label for="submit">How did I do?</label>
+				<input type="submit" id="submit"/>
+			</div>
+		</div>
+
+			<div style="clear:both"></div>
+		
+		</form>	
 	<!-- Footer -->
 	<footer>
 		<hr/>
