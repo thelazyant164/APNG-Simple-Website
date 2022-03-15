@@ -1,3 +1,64 @@
+
+        /* Navbar */
+        .navbar {
+            overflow:hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        /* navbar links */
+        .navbar a {
+            float: right;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background: rgb(7, 226, 255);
+            color: black;
+        }
+
+        /* Main Content */
+
+        .Main {
+            margin: 50px;
+            
+        }
+        /* background image */
+        body {
+            background-image: url(images/TestStockImage.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        /* Footer */
+        .footer {
+            overflow:hidden;
+            background-color: black;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a:hover {
+            background: rgb(7, 226, 255);
+            color: black;
+        }
+        .footer a {
+            float: right;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        }
 /*VARIABLES*/
  :root{
     --bg: #f8fafc;
@@ -139,4 +200,5 @@
   
   .panel .content input:hover{
     opacity: 0.7;
+  }
   }
