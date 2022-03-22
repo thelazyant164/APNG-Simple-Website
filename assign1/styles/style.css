@@ -102,6 +102,10 @@ p {
   padding-right: 175px;
 }
 
+button {
+  background-color: grey;
+}
+
 /*Dark mode implementation*/
 #bg-container h1{
   margin-top: 20px;
