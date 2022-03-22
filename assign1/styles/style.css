@@ -1,5 +1,6 @@
 /* Navbar */
-.navbar {
+nav {
+    z-index: 9999;
     overflow:hidden;
     background-color: #333;
     position: fixed;
@@ -7,7 +8,8 @@
     width: 100%;
 }
 /* navbar links */
-.navbar a {
+nav ul li {
+    list-style-type: none;
     float: right;
     display: block;
     color: #f2f2f2;
@@ -15,13 +17,13 @@
     padding: 14px 16px;
     text-decoration: none;
 }
-.navbar a:hover {
+nav a:hover {
     background: rgb(7, 226, 255);
     color: black;
 }
 /* Main Content */
-.Main {
-    margin: 50px;
+.main {
+    margin: 20px;
     
 }
 /* background image */
@@ -33,18 +35,17 @@ body {
     overflow-y: scroll;
 }
 /* Footer */
-.footer {
+footer {
+    z-index: 9999;
     overflow:hidden;
-    background-color: black;
-    position: fixed;
+    background-color: #333;
     bottom: 0;
     width: 100%;
 }
-.footer a:hover {
-    background: rgb(7, 226, 255);
-    color: black;
+footer a:hover {
+    color: yellow;
 }
-.footer a {
+footer a {
     float: right;
     display: block;
     color: #f2f2f2;
@@ -53,7 +54,10 @@ body {
     text-decoration: none;
 }
 
-
+*{
+  padding: 0;
+  margin: 0;
+}
 
 
 
@@ -72,24 +76,24 @@ body {
 
 /*Dark mode implementation*/
 /*By default, light mode is picked ("Dark mode" label is displayed and "Light mode" label is hidden)*/
-.toggleDark{
-  display: block;
-  color: #222;
+#toggleDark{
+  display: inline;
+  color: white;
 }
-.toggleLight{
+#toggleLight{
   display: none;
   color: white;
 }
-.toggleDark:hover, .toggleLight:hover{
-  color: blue;
+#toggleDark:hover, #toggleLight:hover{
+  color: yellow;
 }
 
 /*If checked, toggleLight ("Light mode" label) will display and toggleDark ("Dark mode" label) will be hidden*/
-#toggleMode:checked ~ .toggleDark{
+#toggleMode:checked ~ header nav ul li #toggleDark{
   display: none;
 }
-#toggleMode:checked ~ .toggleLight{
-  display: block;
+#toggleMode:checked ~ header nav ul li #toggleLight{
+  display: inline;
 }
 
 /*TOGGLERS*/
@@ -99,7 +103,7 @@ body {
 }
 
 /*Pin to screen*/
-.toggleDark, .toggleLight{
+#toggleDark, #toggleLight{
   cursor: pointer;
   z-index: 2;
 }
@@ -160,11 +164,6 @@ form .bubble:nth-child(2n) {
 .bubble .question{
   border-collapse: separate;
   padding: 20px;
-  /*
-  border-top: 1px solid var(--bubble-border);
-  border-right: 1px solid var(--bubble-border);
-  border-bottom: 1px solid var(--bubble-border);
-  box-sizing: border-box; */
 }
 .bubble .question legend{
   margin-top: 0;
@@ -172,9 +171,8 @@ form .bubble:nth-child(2n) {
   color: var(--bubble-title);
   text-align: left;
 }
-
 .bubble .content label{
-  padding: 10px;
+  padding: 6px;
   color: var(--bubble-title);
 }
 
@@ -190,37 +188,29 @@ form .bubble:nth-child(2n) {
   text-align: left;
 }
 
-/*.bubble .question .content input{
-  float: right;
-  /* margin-top: 10px;
-  font-weight: 300;
-  color: var(--bubble-text);
-  background-color: var(--btn);
-  border: 0;
-  border-radius: 3px;
-  padding: 10px 20px;
-  cursor: pointer;
-  float: right;
-  text-align: right;
-}*/
+.bubble .question .content div:not(.multiple-choice){
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#submit-bubble {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#submit-bubble label{
+  padding: 15px;
+}
 
 .bubble .question .content input:hover{
   opacity: 50%;
 }
-
-/*
-
-
-GENERIC STYLES
-body{
-  position: relative;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
-  font-weight: 600;
-}
-
 
 /*when dark mode is selected, change set of global (color) variables*/
 #toggleMode:checked ~ #container{

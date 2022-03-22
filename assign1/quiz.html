@@ -14,17 +14,21 @@
 	</head>
 	
 	<body>
-
-
-
-		<!-- Dark mode toggle -->
+		<!--Hidden dark mode toggler-->
 		<input type="checkbox" id="toggleMode">
-		<label for="toggleMode" class="toggleDark">Dark Mode</label>
-		<label for="toggleMode" class="toggleLight">Light Mode</label>
-
-
-
-		<div id="container">
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<!-- Dark mode toggler -->
+						<label for="toggleMode" id="toggleDark">Dark Mode</label>
+						<label for="toggleMode" id="toggleLight">Light Mode</label>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		
+		<main id="container">
 			
 
 			<form action="https://mercury.swin.edu.au/it000000/formtest.php" method="POST">
@@ -40,12 +44,18 @@
 					<div class="question">
 						<legend>Info</legend>
 						<div class="content">
-							<label for="first_name">First name:</label>
-							<input type="text" id="first_name" name="first_name" placeholder="First name..." required="required" pattern="[a-z A-Z]{2,20}"><br/>
-							<label for="last_name">Last name:</label>
-							<input type="text" id="last_name" name="last_name" placeholder="Last name..." required="required" pattern="[a-z A-Z]{2,20}"><br/>
-							<label for="student_id">Student ID:</label>
-							<input type="text" id="student_id" name="student_id" placeholder="Student ID..." required="required" pattern="\d{9}">
+							<div>
+								<label for="first_name">First name:</label>
+								<input type="text" id="first_name" name="first_name" placeholder="First name..." required="required" pattern="[a-z A-Z]{2,20}">
+							</div>
+							<div>
+								<label for="last_name">Last name:</label>
+								<input type="text" id="last_name" name="last_name" placeholder="Last name..." required="required" pattern="[a-z A-Z]{2,20}">
+							</div>
+							<div>
+								<label for="student_id">Student ID:</label>
+								<input type="text" id="student_id" name="student_id" placeholder="Student ID..." required="required" pattern="\d{9}">
+							</div>
 						</div>
 					</div>
 				</fieldset>
@@ -55,8 +65,10 @@
 					<div class="question">
 						<legend>Question 1</legend>
 						<div class="content">
-							<label for="question1">First option</label>
-							<input type="text" id="question1" name="answer1" placeholder="Your answer..." pattern="[a-z A-Z]{2,50}">
+							<div>
+								<label for="question1">First option</label>
+								<input type="text" id="question1" name="answer1" placeholder="Your answer..." pattern="[a-z A-Z]{2,50}">
+							</div>
 						</div>
 					</div>
 				</fieldset>
@@ -66,14 +78,22 @@
 					<div class="question">
 						<legend>Question 2</legend>
 						<div class="content">
-							<input type="radio" id="first_choice" name="question2" value="Answer1">
-							<label for="first_choice">First option</label>
-							<input type="radio" id="second_choice" name="question2" value="Answer2">
-							<label for="second_choice">Second option</label>
-							<input type="radio" id="third_choice" name="question2" value="Answer3">
-							<label for="third_choice">Third option</label>
-							<input type="radio" id="fourth_choice" name="question2" value="Answer4">
-							<label for="fourth_choice">Fourth option</label>
+							<div class="multiple-choice">
+								<input type="radio" id="first_choice" name="question2" value="Answer1">
+								<label for="first_choice">First option</label>
+							</div>
+							<div class="multiple-choice">
+								<input type="radio" id="second_choice" name="question2" value="Answer2">
+								<label for="second_choice">Second option</label>
+							</div>
+							<div class="multiple-choice">
+								<input type="radio" id="third_choice" name="question2" value="Answer3">
+								<label for="third_choice">Third option</label>
+							</div>
+							<div class="multiple-choice">
+								<input type="radio" id="fourth_choice" name="question2" value="Answer4">
+								<label for="fourth_choice">Fourth option</label>
+							</div>
 						</div>
 					</div>
 				</fieldset>
@@ -83,14 +103,22 @@
 					<div class="question">
 						<legend>Question 3</legend>
 						<div class="content">
-							<input type="checkbox" id="first_option" name="question3[]" value="Answer1">
-							<label for="first_option">First option</label>
-							<input type="checkbox" id="second_option" name="question3[]" value="Answer2">
-							<label for="second_option">Second option</label>
-							<input type="checkbox" id="third_option" name="question3[]" value="Answer3">
-							<label for="third_option">Third option</label>
-							<input type="checkbox" id="fourth_option" name="question3[]" value="Answer4">
-							<label for="fourth_option">Fourth option</label>
+							<div class="multiple-choice">
+								<input type="checkbox" id="first_option" name="question3[]" value="Answer1">
+								<label for="first_option">First option</label>
+							</div>
+							<div class="multiple-choice">
+								<input type="checkbox" id="second_option" name="question3[]" value="Answer2">
+								<label for="second_option">Second option</label>
+							</div>
+							<div class="multiple-choice">
+								<input type="checkbox" id="third_option" name="question3[]" value="Answer3">
+								<label for="third_option">Third option</label>
+							</div>
+							<div class="multiple-choice">
+								<input type="checkbox" id="fourth_option" name="question3[]" value="Answer4">
+								<label for="fourth_option">Fourth option</label>
+							</div>
 						</div>
 					</div>
 				</fieldset>
@@ -100,13 +128,15 @@
 					<div class="question">
 						<legend>Question 4</legend>
 						<div class="content">
-							<label for="question4">Question:</label>
-							<select id="question4" name="choice">
-								<option value="first_option">First option</option>
-								<option value="second_option">Second option</option>
-								<option value="third_option">Third option</option>
-								<option value="fourth_option">Fourth option</option>
-							</select>
+							<div>
+								<label for="question4">Question:</label>
+								<select id="question4" name="choice">
+									<option value="first_option">First option</option>
+									<option value="second_option">Second option</option>
+									<option value="third_option">Third option</option>
+									<option value="fourth_option">Fourth option</option>
+								</select>
+							</div>
 						</div>
 					</div>
 				</fieldset>
@@ -123,25 +153,25 @@
 				</fieldset>
 
 				<!-- Submit button -->
-				<div class="bubble">
+				<div class="bubble" id="submit-bubble">
 					<div class="content">
 						<label for="submit">How did I do?</label>
 						<input type="submit" id="submit"/>
 					</div>
 				</div>
 			</form>
-		</div>	
+		</main>	
 
 		<!-- Footer -->
 		<footer>
 			<hr/>
-			<p>
+			<a>
 				Jacky Yao 103936755
 				Jack Davies 103622407
 				Thien An Ly 103499753
 				Ravish Randev Kulathanthilage 103800614
 				Jian Jia Ng 103840759
-			</p>
+			</a>
 		</footer>
 
 	</body>
