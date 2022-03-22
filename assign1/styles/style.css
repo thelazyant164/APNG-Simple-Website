@@ -48,24 +48,30 @@ nav ul li#toggler{
 nav a:hover {
     color: yellow;
 }
-/* Main Content */
-.main {
-    margin: 20px;
-    
-}
+
 /* background image */
 body {
     background-image: url(images/TestStockImage.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex;
     overflow-y: scroll;
 }
+
+main{
+  width: 100%;
+  flex: 1;
+}
+
 /* Footer */
-footer {
+footer{
     background-color: #333;
-    /* position: relative;
-    bottom: 0; */
+    position: relative;
+    bottom: 0;
     width: 100%;
 }
 footer a:hover {
@@ -96,7 +102,21 @@ p {
   padding-right: 175px;
 }
 
+/*Dark mode implementation*/
+#bg-container h1{
+  margin-top: 20px;
+  color: var(--title);
+}
 
+#bg-container p{
+  color: var(--text);
+}
+
+#toggleMode:checked ~ #bg-container{
+  --title: #8e9294;
+  --text: #505456;
+  --btn: #2962fe;
+}
 
 
 
@@ -178,8 +198,15 @@ form .bubble:nth-child(2n) {
 }
 
 /*Title*/
-#container h1, h2{
-  margin-top: 20px;
+#container form h1{
+  padding-top: 100px;
+  padding-left: 50px;
+  color: var(--bubble-title);
+}
+
+#container form h2{
+  padding-left: 50px;
+  padding-bottom: 50px;
   color: var(--bubble-title);
 }
 
