@@ -30,6 +30,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
+    overflow-y: scroll;
 }
 /* Footer */
 .footer {
@@ -54,19 +55,163 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Dark mode implementation*/
+/*By default, light mode is picked ("Dark mode" label is displayed and "Light mode" label is hidden)*/
+.toggleDark{
+  display: block;
+  color: #222;
+}
+.toggleLight{
+  display: none;
+  color: white;
+}
+.toggleDark:hover, .toggleLight:hover{
+  color: blue;
+}
+
+/*If checked, toggleLight ("Light mode" label) will display and toggleDark ("Dark mode" label) will be hidden*/
+#toggleMode:checked ~ .toggleDark{
+  display: none;
+}
+#toggleMode:checked ~ .toggleLight{
+  display: block;
+}
+
+/*TOGGLERS*/
+/*Hide square button*/
+#toggleMode{
+  visibility: hidden;
+}
+
+/*Pin to screen*/
+.toggleDark, .toggleLight{
+  cursor: pointer;
+  z-index: 2;
+}
+
+/*CONTAINER*/
+#container{
+  background-color: var(--bg);
+  z-index: 1;
+  height: auto;
+  width: auto;
+}
+
+form{
+  z-index: 2;
+  padding: 50px 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  width: auto;
+}
+
+form .bubble:nth-child(2n) {
+  align-self: flex-end;
+}
+
+/*setup global (color) variables (by default: for light mode)*/
 :root{
   --bg: #f8fafc;
-  --panel-bg: #FFFFFF;
-  --panel-border: #CCCCCC;
-  --panel-title: #343f44;
-  --panel-text: #54666d;
+  --bubble-bg: #FFFFFF;
+  --bubble-border: #CCCCCC;
+  --bubble-title: #343f44;
+  --bubble-text: #54666d;
   --btn: #3eb0ef;
 }
 
-/**
- * GENERIC STYLES 
- */
+/*Title*/
+#container h1, h2{
+  margin-top: 20px;
+  color: var(--bubble-title);
+}
+
+/*BUBBLE*/
+.bubble{
+  z-index: 3;
+  flex-grow: 0;
+  width: 400px;
+  border-radius: 20px;
+  border: 5px solid purple;
+  display: inline-block;
+  height: auto;
+  margin: 10px;
+  justify-content: left;
+  background-color: var(--bubble-bg);
+}
+
+.bubble .question{
+  border-collapse: separate;
+  padding: 20px;
+  /*
+  border-top: 1px solid var(--bubble-border);
+  border-right: 1px solid var(--bubble-border);
+  border-bottom: 1px solid var(--bubble-border);
+  box-sizing: border-box; */
+}
+.bubble .question legend{
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--bubble-title);
+  text-align: left;
+}
+
+.bubble .content label{
+  padding: 10px;
+  color: var(--bubble-title);
+}
+
+.bubble .question .content{
+  display: flex;
+  flex-direction: column;
+  float: right;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  color: var(--bubble-title);
+  float: left;
+  text-align: left;
+}
+
+/*.bubble .question .content input{
+  float: right;
+  /* margin-top: 10px;
+  font-weight: 300;
+  color: var(--bubble-text);
+  background-color: var(--btn);
+  border: 0;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+  float: right;
+  text-align: right;
+}*/
+
+.bubble .question .content input:hover{
+  opacity: 50%;
+}
+
+/*
+
+
+GENERIC STYLES
 body{
   position: relative;
   height: 100vh;
@@ -76,121 +221,15 @@ body{
   font-weight: 600;
 }
 
-/**
- * TOGGLERS 
- */
-#toggleMode{
-  visibility: hidden;
-}
 
-.toggleDark,
-.toggleLight{
-  cursor: pointer;
-  position: absolute;
-  z-index: 2;
-  top: 20px;
-  left: 20px;
-}
-
-.toggleDark{
-  display: block;
-  color: #222;
-}
-
-.toggleDark:hover{
-  color: blue;
-}
-
-.toggleLight{
-  display: none;
-  color: white;
-}
-
-#toggleMode:checked ~ .toggleDark{
-  display: none;
-}
-
-#toggleMode:checked ~ .toggleLight{
-  display: block;
-}
-
-/**
- * CONTAINER 
- */
-#container{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--bg);
-  z-index: 1;
-  padding: 50px 20px;
-}
-
+/*when dark mode is selected, change set of global (color) variables*/
 #toggleMode:checked ~ #container{
   --bg: #020202;
-  --panel-bg: #111413;
-  --panel-border: #1f2322;
-  --panel-title: #8e9294;
-  --panel-text: #505456;
+  --bubble-bg: #111413;
+  --bubble-border: #1f2322;
+  --bubble-title: #8e9294;
+  --bubble-text: #505456;
   --btn: #2962fe;
   
   background-color: var(--bg);
-}
-
-/*Title*/
-h1, h2{
-  margin-top: 50px;
-  margin-bottom: 0;
-  color: var(--panel-title);
-}
-/**
- * PANEL 
- */
-.panel{
-  margin-top: 20px;
-}
-
-.panel .content{
-  width: 70%;
-  float: left;
-  padding: 20px;
-  background-color: var(--panel-bg);
-  height: 300px;
-  border-radius: 0 10px 10px 0;
-  border-top: 1px solid var(--panel-border);
-  border-right: 1px solid var(--panel-border);
-  border-bottom: 1px solid var(--panel-border);
-  box-sizing: border-box;
-}
-.panel .content legend{
-  margin-top: 30px;
-  margin-bottom: 0;
-  color: var(--panel-title);
-}
-
-.panel .content label{
-  margin-top: 20px;
-  margin-bottom: 0;
-  color: var(--panel-title);
-}
-
-.panel .content input{
-  margin-top: 10px;
-  font-weight: 300;
-  color: var(--panel-text);
-}
-
-.panel .content input{
-  border: 0;
-  border-radius: 3px;
-  background-color: var(--btn);
-  padding: 10px 20px;
-  color: white;
-  cursor: pointer;
-}
-
-.panel .content input:hover{
-  opacity: 0.7;
 }
