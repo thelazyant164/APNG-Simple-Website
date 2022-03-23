@@ -81,12 +81,15 @@ footer a {
     text-decoration: none;
     font-size: 0.75em;
 }
-
+footer.parallax-footer{
+  position: fixed;
+  bottom: 0;
+}
 
 
 
 /*For index.html*/
-h1 {
+h1#title {
   padding-top: 100px;
   padding-left: 150px;
   padding-right: 175px;
@@ -94,7 +97,7 @@ h1 {
   font-size: 5em;
 }
 
-p {
+p#subtitle {
   padding-left: 150px;
   padding-right: 175px;
 }
@@ -144,29 +147,144 @@ button {
 
 
 
-
-
-
-
-
-
-
-
-/*For quiz.html*/
-
-/*Parallax scrolling for images*/
-/*sets scroll properties for whole page*/
-.wrapper{
-  height: 100vh;
-  overflow-x: hidden; /*Disable horizontal scrollbar when scale image*/
+/*For topic.html*/
+/*Alternating parallax sections*/
+main#parallax-container{
+  height: 91vh;
+  overflow-x: hidden;
   overflow-y: auto;
-  perspective: 2px;
+  perspective: 1.7px;
+  margin-bottom: 35px;
+}
+
+#parallax-container section {
+  transform-style: preserve-3d;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: black;
+}
+
+.parallax {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-parallax {
+  padding: 50px;
+  flex-direction: column;
+  height: auto;
+  background-color: var(--bubble-bg);
+  z-index: 999;
+}
+
+#parallax-container section.parallax h1 {
+  font-size: 2rem;
+  font-family: sans-serif;
+  margin-left: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#parallax-container section.parallax h2 {
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  margin-left: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.parallax::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px) scale(3.5);
+  background-size: 100%;
+  z-index: -1;
+}
+
+.parallax-bg::after {
+  background: var(--shader);
+  background-size: cover;
+}
+
+/*Dark mode implementation*/
+#parallax-container h1{
+  margin-top: 20px;
+  color: var(--title);
+}
+
+#parallax-container h2, #parallax-container h3, #parallax-container th{
+  color: var(--title);
+  padding: 5px;
+}
+
+#parallax-container p, #parallax-container td{
+  color: var(--text);
+  font-size: 0.8em;
+  padding: 5px;
+}
+
+#toggleMode:checked ~ #parallax-container{
+  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
+  --title: #8e9294;
+  --text: #505456;
+  --bubble-bg: #111413;
+  --bubble-border: #1f2322;
+  --bubble-text: #ffffff;
 }
 
 
 
-/*Dark mode implementation*/
+/*For quiz.html*/
+/*animation*/
+@keyframes floatright {
+  from {right: 0;}
+  to {right: 60vw;}
+}
 
+@keyframes floatleft {
+  from {left: 0;}
+  to {left: 60vw;}
+}
+
+#info, #bubble2, #bubble4, #submit-bubble{
+  animation: floatleft 6s ease-in-out 1s infinite alternate;
+  animation-fill-mode: forwards;
+}
+
+#bubble2 {
+  animation-delay: 3s;
+}
+
+#bubble4 {
+  animation-delay: 5s;
+}
+
+#submit-bubble {
+  animation-delay: 7s;
+}
+
+#bubble1, #bubble3, #bubble5 {
+  animation: floatright 6s ease-in-out 2s infinite alternate;
+  animation-fill-mode: forwards;
+}
+
+#bubble3 {
+  animation-delay: 4s;
+}
+
+#bubble5 {
+  animation-delay: 6s;
+}
+
+/*Dark mode implementation*/
 /*By default, light mode is picked ("Dark mode" label is displayed and "Light mode" label is hidden)*/
 #toggleDark{
   display: inline;
@@ -205,6 +323,7 @@ button {
   background-color: var(--bg);
   height: auto;
   width: 100%;
+  overflow-x: hidden;
 }
 
 form{
@@ -222,6 +341,7 @@ form .bubble:nth-child(2n) {
 
 /*setup global (color) variables (by default: for light mode)*/
 :root{
+  --shader: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://picsum.photos/1920/1080');
   --bg: #f8fafc;
   --bubble-bg: #FFFFFF;
   --bubble-border: #ffbecf;
@@ -245,6 +365,7 @@ form .bubble:nth-child(2n) {
 
 /*BUBBLE*/
 .bubble{
+  position:relative;
   flex-grow: 0;
   margin-left: 3%;
   margin-right: 3%;

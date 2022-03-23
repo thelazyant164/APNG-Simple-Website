@@ -15,7 +15,7 @@
 		<header>
 			<nav>
 				<ul>
-					<li>
+					<li id="toggler">
 						<label for="toggleMode" id="toggleDark">Dark Mode</label>
 						<label for="toggleMode" id="toggleLight">Light Mode</label>
 					</li>
@@ -27,83 +27,93 @@
 			</nav>
 		</header>
 
-		<main>
-			<h1>APNG rules!</h1>
-			<hr>
-			<h2>What is it?</h2>
-			
-			<P>
-			It extends the popular Portable Network Graphics (PNG) file format specification to allow images to be animated similarly to animated GIF files with additional features.
-			
-			The first frame of an APNG file is stored as a normal PNG. Since it is an extension of PNG, most standard decoders will be able to display the file without additional work.
-			
-			Basically it is a PNG file with additional chunks of data to allow for animations
-			
-			</p>
-			<hr>
-			
-			<h2>Why does it exist?</h2>
-			<h3>History</h3>
-			<p>It was first developed by Mozilla Corporation in 2004 to store animations needed in UIs (e.g. loading throbbers) to replace MNG animations which were deprecated the year before. MNGs had less functionality than APNGs with a much larger file size due to their decoder, the thing that will read the read and extract headers from the sequence of bytes.</p>
-			<h3>Why isn't it more mainstream?</h3>
-			<p>APNG had a lukewarm reception on release as maintainers on the PNG format debated that their format was strictly a single-image format and it was seen as such in the wider community. The rationale was that applications do not need and will not support multiple images per file due to having separate file formats for animations because a single image and a sequence of images are fundamentally used differently.
-			</p>
-			<p>The only way for a software to correctly distinguish between PNG and APNG is by reading the ancillary chunks which aren’t required to use PNGs, so if a software didn’t know about APNGs, the first frame would show up as a typical PNG.
-			</p>
-			<p>So with the maintainers of the file format against the idea of this implementation and the data of the animation hidden inside ancillary chunks that decoders used in applications could skip, APNG never grew in popularity. 
-			</p>
-			<hr>
-			<h2>Features/How does it work?</h2>
-			<h3>File structure</h3>
-			<p>Since the APNG is an extension on the PNG file format, the base structure of the file/datastream is the same.</p>
-			<img src="salt_man.png" alt="idiot man throwing salt around"/>
-			<h2>why APNG is outdated now?!</h2>
-			<br>
-			
-			<hr>
-			
-			<table>
-			<tr>
-				<th>browsers</th>
-				<th>versions</th>
-			</tr>
-			<tr>
-				<td>Google Chrome</td>
-				<td>96-102</td>
-			</tr>
-			<tr>
-				<td>Firefox</td>
-				<td>96-100</td>
-			</tr>
-			<tr>
-				<td>Microsoft Edge</td>
-				<td>97-99</td>
-			</tr>
-			<tr>
-				<td>Safari</td>
-				<td>14.1-15.4</td>
-			</tr>
-			<tr>
-				<td>Opera</td>
-				<td>11</td>
-			</tr>
-			<tr>
-				<td>Safari on IOS</td>
-				<td>12.5-15.4</td>
-			</tr>
-			<tr>
-				<td>Chrome for android</td>
-				<td>99</td>
-			</tr>
-			<tr>
-				<td>Samsung internet</td>
-				<td>16</td>
-			</tr>
-			<tr>
-				<td>Internet Explorer</td> <!--are we gonna highlight cell red?-->
-				<td>not supported</td>
-			</tr>
-			</table> 
+		<main id="parallax-container">
+			<section class="parallax parallax-bg">
+				<h1>APNG rules!</h1>
+			</section>
+			<section class="no-parallax">
+				<h2>What is it?</h2>
+				<p>
+					It extends the popular Portable Network Graphics (PNG) file format specification to allow images to be animated similarly to animated GIF files with additional features.
+					The first frame of an APNG file is stored as a normal PNG. Since it is an extension of PNG, most standard decoders will be able to display the file without additional work.
+					Basically it is a PNG file with additional chunks of data to allow for animations
+				</p>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Why does it exist?</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>History</h3>
+				<p>It was first developed by Mozilla Corporation in 2004 to store animations needed in UIs (e.g. loading throbbers) to replace MNG animations which were deprecated the year before. MNGs had less functionality than APNGs with a much larger file size due to their decoder, the thing that will read the read and extract headers from the sequence of bytes.</p>
+				<h3>Why isn't it more mainstream?</h3>
+				<p>
+					APNG had a lukewarm reception on release as maintainers on the PNG format debated that their format was strictly a single-image format and it was seen as such in the wider community. The rationale was that applications do not need and will not support multiple images per file due to having separate file formats for animations because a single image and a sequence of images are fundamentally used differently.
+					The only way for a software to correctly distinguish between PNG and APNG is by reading the ancillary chunks which aren’t required to use PNGs, so if a software didn’t know about APNGs, the first frame would show up as a typical PNG.
+					So with the maintainers of the file format against the idea of this implementation and the data of the animation hidden inside ancillary chunks that decoders used in applications could skip, APNG never grew in popularity. 
+				</p>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Features/How does it work?</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>File structure</h3>
+				<p>Since the APNG is an extension on the PNG file format, the base structure of the file/datastream is the same.</p>
+				<img src="styles/images/TestStockImage.jpg" alt="img"/>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Why is APNG outdated now?</h2>
+			</section>
+			<section class="no-parallax">
+				<table>
+					<tr>
+						<th>browsers</th>
+						<th>versions</th>
+					</tr>
+					<tr>
+						<td>Google Chrome</td>
+						<td>96-102</td>
+					</tr>
+					<tr>
+						<td>Firefox</td>
+						<td>96-100</td>
+					</tr>
+					<tr>
+						<td>Microsoft Edge</td>
+						<td>97-99</td>
+					</tr>
+					<tr>
+						<td>Safari</td>
+						<td>14.1-15.4</td>
+					</tr>
+					<tr>
+						<td>Opera</td>
+						<td>11</td>
+					</tr>
+					<tr>
+						<td>Safari on IOS</td>
+						<td>12.5-15.4</td>
+					</tr>
+					<tr>
+						<td>Chrome for android</td>
+						<td>99</td>
+					</tr>
+					<tr>
+						<td>Samsung internet</td>
+						<td>16</td>
+					</tr>
+					<tr>
+						<td>Internet Explorer</td> <!--are we gonna highlight cell red?-->
+						<td>not supported</td>
+					</tr>
+				</table>
+			</section>
 		</main>
+		<footer class="parallax-footer">
+            <a href="#studentid_name1">103936755 - Jacky Yao</a>
+            <a href="#studentid_name2">103622407 - Jack Davies</a>
+            <a href="#studentid_name3">103499753 - Thien An Ly</a>
+            <a href="#studentid_name4">103800614 - Ravish Randev Kulathanthilage</a>
+            <a href="#studentid_name5">103840759 - Jian Jia Ng</a>
+        </footer>
 	</body>
 </html>
