@@ -89,12 +89,27 @@ h1 {
   padding-top: 200px;
   padding-left: 150px;
   padding-right: 175px;
+  padding-bottom: 30px;
   font-size: 5em;
 }
 
 p {
   padding-left: 150px;
   padding-right: 175px;
+}
+
+div#learn-more {
+  margin-top: 30px;
+  margin-left: 150px;
+  border-radius: 20px;
+  background-color: var(--bubble-bg);
+  border: 5px solid purple;
+  height: 40px;
+  width: 180px;
+}
+
+div#learn-more a{
+  align-self: center;
 }
 
 button {
@@ -111,7 +126,7 @@ button {
   color: var(--title);
 }
 
-#bg-container p{
+#bg-container p, #bg-container div a{
   color: var(--text);
 }
 
