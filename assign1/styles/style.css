@@ -27,8 +27,8 @@ nav ul li, nav a{
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
-
+    padding: 5px 16px;
+    font-size: 0.93em;
 }
 
 /*Select Dark Mode button*/
@@ -38,7 +38,7 @@ nav ul li label{
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 5px 16px;
 }
 
 nav ul li#toggler{
@@ -79,6 +79,7 @@ footer a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 0.75em;
 }
 
 
@@ -86,7 +87,7 @@ footer a {
 
 /*For index.html*/
 h1 {
-  padding-top: 200px;
+  padding-top: 100px;
   padding-left: 150px;
   padding-right: 175px;
   padding-bottom: 30px;
@@ -98,18 +99,21 @@ p {
   padding-right: 175px;
 }
 
-div#learn-more {
+/*learn-more button*/
+a#learn-more {
+  text-decoration: none;
   margin-top: 30px;
   margin-left: 150px;
+  margin-bottom: 100px;
   border-radius: 20px;
   background-color: var(--bubble-bg);
-  border: 5px solid purple;
+  border: 5px solid var(--bubble-border);
   height: 40px;
   width: 180px;
-}
-
-div#learn-more a{
-  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bubble-text);
 }
 
 button {
@@ -117,7 +121,7 @@ button {
 }
 
 #bg-container {
-  margin-bottom: 46.6vh;
+  margin-bottom: 4.5vh;
 }
 
 /*Dark mode implementation*/
@@ -133,7 +137,9 @@ button {
 #toggleMode:checked ~ #bg-container{
   --title: #8e9294;
   --text: #505456;
-  --btn: #2962fe;
+  --bubble-bg: #111413;
+  --bubble-border: #1f2322;
+  --bubble-text: #ffffff;
 }
 
 
@@ -147,7 +153,6 @@ button {
 
 
 /*For quiz.html*/
-
 
 /*Parallax scrolling for images*/
 /*sets scroll properties for whole page*/
@@ -219,7 +224,7 @@ form .bubble:nth-child(2n) {
 :root{
   --bg: #f8fafc;
   --bubble-bg: #FFFFFF;
-  --bubble-border: #CCCCCC;
+  --bubble-border: #ffbecf;
   --bubble-title: #343f44;
   --bubble-text: #54666d;
   --btn: #3eb0ef;
@@ -246,7 +251,7 @@ form .bubble:nth-child(2n) {
   margin-bottom: 2%;
   width: 400px;
   border-radius: 20px;
-  border: 5px solid purple;
+  border: 5px solid var(--bubble-border);
   display: inline-block;
   height: auto;
   justify-content: left;
@@ -262,10 +267,11 @@ form .bubble:nth-child(2n) {
   margin-bottom: 0;
   color: var(--bubble-title);
   text-align: left;
+  font-size: 1.5em;
 }
 .bubble .content label{
   padding: 6px;
-  color: var(--bubble-title);
+  color: var(--bubble-text);
 }
 
 .bubble .question .content{
@@ -275,7 +281,7 @@ form .bubble:nth-child(2n) {
   padding-bottom: 20px;
   margin-top: 20px;
   margin-bottom: 0;
-  color: var(--bubble-title);
+  color: var(--bubble-text);
   float: left;
   text-align: left;
 }
@@ -310,7 +316,7 @@ form .bubble:nth-child(2n) {
   --bubble-bg: #111413;
   --bubble-border: #1f2322;
   --bubble-title: #8e9294;
-  --bubble-text: #505456;
+  --bubble-text: #ffffff;
   --btn: #2962fe;
   
   background-color: var(--bg);
