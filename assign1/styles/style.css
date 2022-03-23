@@ -87,12 +87,18 @@ footer a {
 /*For index.html*/
 h1 {
   padding-top: 200px;
-  padding-left: 200px;
+  padding-left: 150px;
+  padding-right: 175px;
   font-size: 5em;
 }
 
 p {
-  padding-left: 200px;
+  padding-left: 150px;
+  padding-right: 175px;
+}
+
+button {
+  background-color: grey;
 }
 
 #bg-container {
