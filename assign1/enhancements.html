@@ -1,29 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-		<meta name="description" content="APNG homepage"/>
-		<meta name="keywords" content="APNG, animated portable network graphics, homepage"/>
-		<meta name="author" content="Enter Name Here"/>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="description" content="enhancements"/>
+		<meta name="keywords" content="parallax, scrolling, darkmode, accessibility, animations"/>
+		<meta name="author" content="Aly"/>
 		<meta name="viewport" content="width=device-width" initial-scale="1">
+		<title>APNG enhancements</title>
 		<link href="styles/style.css" rel="stylesheet">
-        <title>Homepage</title>
-    </head>
-    <body>
-        <input type="checkbox" id="toggleMode">
-        <header>
+	</head>
+
+	<body>
+		<input type="checkbox" id="toggleMode">
+		<header>
 			<nav>
 				<ul>
-					<li>
+					<li id="toggler">
 						<label for="toggleMode" id="toggleDark">Dark Mode</label>
 						<label for="toggleMode" id="toggleLight">Light Mode</label>
 					</li>
 					<li><a href="enhancements.html">Enhancements</a></li>
-                    <li><a href="quiz.html">Quiz</a></li>
-                    <li><a href="topic.html">Topic</a></li>
-                    <li><a href="index.html">Home</a></li>
+					<li><a href="quiz.html">Quiz</a></li>
+					<li><a href="topic.html">Topic</a></li>
+					<li><a href="index.html">Home</a></li>
 				</ul>
 			</nav>
 		</header>
-    </body>
+
+		<main id="parallax-container">
+			<section class="parallax parallax-bg">
+				<h1>What enhancements did you spot?</h1>
+			</section>
+			<section class="no-parallax">
+				<h2>Throughout this webpage, 3 enhancements have been used.</h2>
+				<p>
+					If you think you can spot them all, go back and give it a chance before you scroll down further!
+				</p>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Animations</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>Most obviously, animations - as used on <a href="index.html">homepage</a> and <a href="quiz.html">quiz</a>.</h3>
+				<p>Using technology ABCDEFG we implemented XYZ...</p>
+				<h3>Why isn't it more mainstream?</h3>
+				<p>
+					APNG had a lukewarm reception on release as maintainers on the PNG format debated that their format was strictly a single-image format and it was seen as such in the wider community. The rationale was that applications do not need and will not support multiple images per file due to having separate file formats for animations because a single image and a sequence of images are fundamentally used differently.
+					The only way for a software to correctly distinguish between PNG and APNG is by reading the ancillary chunks which aren’t required to use PNGs, so if a software didn’t know about APNGs, the first frame would show up as a typical PNG.
+					So with the maintainers of the file format against the idea of this implementation and the data of the animation hidden inside ancillary chunks that decoders used in applications could skip, APNG never grew in popularity. 
+				</p>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Parallax</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>A little bit more subtle, as used on <a href="topic.html">topic page</a> and right here.</h3>
+				<p>Using technology ABCDEFG we implemented XYZ...</p>
+				<img src="styles/images/TestStockImage.jpg" alt="img"/>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Darkmode</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>Look up! Right on the navigation menu, <a href="topic.html">the darkmode toggler</a> is present and functional on all pages.</h3>
+				<p>Using technology ABCDEFG we implemented XYZ...</p>
+				<table>
+					<tr>
+						<th>browsers</th>
+						<th>versions</th>
+					</tr>
+					<tr>
+						<td>Google Chrome</td>
+						<td>96-102</td>
+					</tr>
+					<tr>
+						<td>Firefox</td>
+						<td>96-100</td>
+					</tr>
+					<tr>
+						<td>Microsoft Edge</td>
+						<td>97-99</td>
+					</tr>
+					<tr>
+						<td>Safari</td>
+						<td>14.1-15.4</td>
+					</tr>
+					<tr>
+						<td>Opera</td>
+						<td>11</td>
+					</tr>
+					<tr>
+						<td>Safari on IOS</td>
+						<td>12.5-15.4</td>
+					</tr>
+					<tr>
+						<td>Chrome for android</td>
+						<td>99</td>
+					</tr>
+					<tr>
+						<td>Samsung internet</td>
+						<td>16</td>
+					</tr>
+					<tr>
+						<td>Internet Explorer</td> <!--are we gonna highlight cell red?-->
+						<td>not supported</td>
+					</tr>
+				</table>
+			</section>
+		</main>
+		<footer class="parallax-footer">
+            <a href="#studentid_name1">103936755 - Jacky Yao</a>
+            <a href="#studentid_name2">103622407 - Jack Davies</a>
+            <a href="#studentid_name3">103499753 - Thien An Ly</a>
+            <a href="#studentid_name4">103800614 - Ravish Randev Kulathanthilage</a>
+            <a href="#studentid_name5">103840759 - Jian Jia Ng</a>
+        </footer>
+	</body>
 </html>

@@ -59,7 +59,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex;
-    overflow-y: scroll;
+    height: 100vh;
 }
 
 /* Footer */
@@ -77,9 +77,9 @@ footer a {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 7px 16px;
     text-decoration: none;
-    font-size: 0.75em;
+    font-size: 0.6em;
 }
 footer.parallax-footer{
   position: fixed;
@@ -87,23 +87,55 @@ footer.parallax-footer{
 }
 
 
-
 /*For index.html*/
-h1#title {
-  padding-top: 100px;
+/*animations*/
+@keyframes fromleft {
+  from {left: 100vw;}
+  to {left: 0;}
+}
+
+main#bg-container{
+  transform: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+main#bg-container::after{
+  background: var(--shader);
+  background-size: cover;
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px);
+  background-size: 100%;
+  z-index: -1;
+}
+
+#title {
+  position: relative;
+  padding-top: 75px;
   padding-left: 150px;
   padding-right: 175px;
   padding-bottom: 30px;
   font-size: 5em;
+  animation: fromleft 3s ease-out 0s 1;
+  animation-fill-mode: both;
 }
 
-p#subtitle {
+#subtitle {
+  position: relative;
   padding-left: 150px;
   padding-right: 175px;
+  animation: fromleft 3s ease-out 0.5s 1;
+  animation-fill-mode: both;
 }
 
 /*learn-more button*/
-a#learn-more {
+#learn-more {
+  position: relative;
   text-decoration: none;
   margin-top: 30px;
   margin-left: 150px;
@@ -117,14 +149,12 @@ a#learn-more {
   align-items: center;
   justify-content: center;
   color: var(--bubble-text);
+  animation: fromleft 3s ease-out 1s 1;
+  animation-fill-mode: both;
 }
 
-button {
-  background-color: grey;
-}
-
-#bg-container {
-  margin-bottom: 4.5vh;
+#learn-more::after{
+  z-index: 10;
 }
 
 /*Dark mode implementation*/
@@ -137,9 +167,11 @@ button {
   color: var(--text);
 }
 
+/*darkmode config*/
 #toggleMode:checked ~ #bg-container{
-  --title: #8e9294;
-  --text: #505456;
+  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
+  --title: #888888;
+  --text: #bdbdbd;
   --bubble-bg: #111413;
   --bubble-border: #1f2322;
   --bubble-text: #ffffff;
@@ -147,14 +179,13 @@ button {
 
 
 
-/*For topic.html*/
+/*For topic.html & enhancements.html*/
 /*Alternating parallax sections*/
 main#parallax-container{
-  height: 91vh;
+  height: auto;
   overflow-x: hidden;
   overflow-y: auto;
   perspective: 1.7px;
-  margin-bottom: 35px;
 }
 
 #parallax-container section {
@@ -163,7 +194,7 @@ main#parallax-container{
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  color: black;
+  color: var(--text);
 }
 
 .parallax {
@@ -231,10 +262,11 @@ main#parallax-container{
   padding: 5px;
 }
 
+/*darkmode config*/
 #toggleMode:checked ~ #parallax-container{
   --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
   --title: #8e9294;
-  --text: #505456;
+  --text: white;
   --bubble-bg: #111413;
   --bubble-border: #1f2322;
   --bubble-text: #ffffff;
@@ -252,36 +284,6 @@ main#parallax-container{
 @keyframes floatleft {
   from {left: 0;}
   to {left: 60vw;}
-}
-
-#info, #bubble2, #bubble4, #submit-bubble{
-  animation: floatleft 6s ease-in-out 1s infinite alternate;
-  animation-fill-mode: forwards;
-}
-
-#bubble2 {
-  animation-delay: 3s;
-}
-
-#bubble4 {
-  animation-delay: 5s;
-}
-
-#submit-bubble {
-  animation-delay: 7s;
-}
-
-#bubble1, #bubble3, #bubble5 {
-  animation: floatright 6s ease-in-out 2s infinite alternate;
-  animation-fill-mode: forwards;
-}
-
-#bubble3 {
-  animation-delay: 4s;
-}
-
-#bubble5 {
-  animation-delay: 6s;
 }
 
 /*Dark mode implementation*/
@@ -320,7 +322,6 @@ main#parallax-container{
 
 /*CONTAINER*/
 #container{
-  background-color: var(--bg);
   height: auto;
   width: 100%;
   overflow-x: hidden;
@@ -333,10 +334,26 @@ form{
   gap: 10px;
   align-items: flex-start;
   width: auto;
+  transform: preserve-3d;
+}
+
+form::after{
+  background: var(--shader);
+  background-size: cover;
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px);
+  background-size: 100%;
+  z-index: -1;
 }
 
 form .bubble:nth-child(2n) {
   align-self: flex-end;
+  animation: floatright 6s ease-in-out 1s infinite alternate;
 }
 
 /*setup global (color) variables (by default: for light mode)*/
@@ -347,7 +364,6 @@ form .bubble:nth-child(2n) {
   --bubble-border: #ffbecf;
   --bubble-title: #343f44;
   --bubble-text: #54666d;
-  --btn: #3eb0ef;
 }
 
 /*Title*/
@@ -377,6 +393,12 @@ form .bubble:nth-child(2n) {
   height: auto;
   justify-content: left;
   background-color: var(--bubble-bg);
+  animation-fill-mode: forwards;
+  animation: floatleft 6s ease-in-out 2s infinite alternate;
+}
+
+form .bubble:hover {
+  animation-play-state: paused;
 }
 
 .bubble .question{
@@ -432,6 +454,7 @@ form .bubble:nth-child(2n) {
 }
 
 /*when dark mode is selected, change set of global (color) variables*/
+/*darkmode config*/
 #toggleMode:checked ~ #container{
   --bg: #020202;
   --bubble-bg: #111413;
