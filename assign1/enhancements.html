@@ -19,10 +19,10 @@
 						<label for="toggleMode" id="toggleDark">Dark Mode</label>
 						<label for="toggleMode" id="toggleLight">Light Mode</label>
 					</li>
-					<li><a href="enhancements.html">Enhancements</a></li>
-					<li><a href="quiz.html">Quiz</a></li>
-					<li><a href="topic.html">Topic</a></li>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="enhancements.html" target="_blank">Enhancements</a></li>
+                    <li><a href="quiz.html" target="_blank">Quiz</a></li>
+                    <li><a href="topic.html" target="_blank">Topic</a></li>
+                    <li><a href="index.html" target="_blank">Home</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -41,79 +41,64 @@
 				<h2>Animations</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>Most obviously, animations - as used on <a href="index.html">homepage</a> and <a href="quiz.html">quiz</a>.</h3>
-				<p>Using technology ABCDEFG we implemented XYZ...</p>
-				<h3>Why isn't it more mainstream?</h3>
+				<h3>Most obviously, animations - as used on <a href="index.html#bg-container" target="_blank">homepage</a> and <a href="quiz.html#container" target="_blank">quiz</a>.</h3>
 				<p>
-					APNG had a lukewarm reception on release as maintainers on the PNG format debated that their format was strictly a single-image format and it was seen as such in the wider community. The rationale was that applications do not need and will not support multiple images per file due to having separate file formats for animations because a single image and a sequence of images are fundamentally used differently.
-					The only way for a software to correctly distinguish between PNG and APNG is by reading the ancillary chunks which aren’t required to use PNGs, so if a software didn’t know about APNGs, the first frame would show up as a typical PNG.
-					So with the maintainers of the file format against the idea of this implementation and the data of the animation hidden inside ancillary chunks that decoders used in applications could skip, APNG never grew in popularity. 
+					Using keyframes, animations in CSS is actually very simple. The transformation function will be applied
+					dynamically to the element's display, changing the element's attributes according to the pre-set parameters
+					assigned by the designer. There are multiple parameters to adjust to nudge and tweak animation speed, element
+					state before and after, interpolation style, play direction and looping settings. Moreover, one animation
+					can be re-applied multiple times to many elements, so give it a try!
 				</p>
 			</section>
 			<section class="parallax parallax-bg">
 				<h2>Parallax</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>A little bit more subtle, as used on <a href="topic.html">topic page</a> and right here.</h3>
-				<p>Using technology ABCDEFG we implemented XYZ...</p>
-				<img src="styles/images/TestStockImage.jpg" alt="img"/>
+				<h3>A little bit more subtle, as used on <a href="topic.html#parallax-container" target="_blank">topic page</a> and right <a href="#parallax-container" target="_blank">here</a>.</h3>
+				<p>
+					The idea behind a parallax scrolling effect is to shift the elements on the Z-axis, to create several layers
+					and give the impression of depth. This can be achieved through the use of the transformation function
+					translateZ(-px) to "shift" the elements further away from the user, then apply another scale() to size it
+					appropriately according to the law of perspective.
+				</p>
+				<h3>What are the steps to do it?</h3>
+				<ol>
+					<li>Give the parent container the {perspective: -px;} attribute. This is so that all children of that element
+						would be put in a 3D-simulated environment rather than the traditional plane of the viewport.</li>
+					<li>Seperate the HTML into multiple segments, each within a &lt;section&gt; with either the class "parallax" or "no-parallax".
+						Give all of them the attribute {transform-style: preserve-3d;}</li>
+					<li>Apply to the pseudo selector ::after the attributes {position: absolute; top: 0; right: 0; left: 0; bottom: 0;}.
+						Apply the transformation functions above as well. Finally, give it a different Z-index to separate it to a different
+						layer than the base.</li>
+					<li>If the elements scale up bigger than the viewport, scrollbars will appear by default. To prevent this, add the
+						attributes {overflow-x: hidden} to the container.</li>
+				</ol>
 			</section>
 			<section class="parallax parallax-bg">
-				<h2>Darkmode</h2>
+				<h2>Accessibility</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>Look up! Right on the navigation menu, <a href="topic.html">the darkmode toggler</a> is present and functional on all pages.</h3>
-				<p>Using technology ABCDEFG we implemented XYZ...</p>
-				<table>
-					<tr>
-						<th>browsers</th>
-						<th>versions</th>
-					</tr>
-					<tr>
-						<td>Google Chrome</td>
-						<td>96-102</td>
-					</tr>
-					<tr>
-						<td>Firefox</td>
-						<td>96-100</td>
-					</tr>
-					<tr>
-						<td>Microsoft Edge</td>
-						<td>97-99</td>
-					</tr>
-					<tr>
-						<td>Safari</td>
-						<td>14.1-15.4</td>
-					</tr>
-					<tr>
-						<td>Opera</td>
-						<td>11</td>
-					</tr>
-					<tr>
-						<td>Safari on IOS</td>
-						<td>12.5-15.4</td>
-					</tr>
-					<tr>
-						<td>Chrome for android</td>
-						<td>99</td>
-					</tr>
-					<tr>
-						<td>Samsung internet</td>
-						<td>16</td>
-					</tr>
-					<tr>
-						<td>Internet Explorer</td> <!--are we gonna highlight cell red?-->
-						<td>not supported</td>
-					</tr>
-				</table>
+				<h3>Look up! Right on the navigation menu, the darkmode <a href="#toggler">toggler</a> is present and functional on all pages.</h3>
+				<p>
+					It is a bit more tricky to implement this without JavaScript, but it is indeed possible to accomplish with pure HTML/CSS.
+					By using the "from...to" selector (~), and by using a hidden checkbox with the pseudo-selector ":checked", we can select a scope
+					of the entire body and make changes to the variables within this scope. By storing all changeable color values as variables,
+					this simple switch can implement a drastic style change across the entire page with a simple click.
+				</p>
+				<h3>But that's not all! Try toggling darkmode. Do the background images appear to be darker/lighter?</h3>
+				<p>
+					By applying the built-in function linear-gradient(), putting the opacity to 50% and passing the image in as a parameter, CSS automatically
+					generates a "shader" to cover over the image. Passing this entire function as a parameter to the color variable creates two corresponding
+					shaders to help aid in text visibility in both light and darkmode.
+				</p>
 			</section>
 		</main>
-		<footer class="parallax-footer">
-            <a href="#studentid_name1">103936755 - Jacky Yao</a>
-            <a href="#studentid_name2">103622407 - Jack Davies</a>
-            <a href="#studentid_name3">103499753 - Thien An Ly</a>
-            <a href="#studentid_name4">103800614 - Ravish Randev Kulathanthilage</a>
-            <a href="#studentid_name5">103840759 - Jian Jia Ng</a>
+        <footer class="parallax-footer">
+            <a href="mailto:103936755@student.swin.edu.au" target="_blank">103936755 - Jacky Yao</a>
+            <a href="mailto:103622407@student.swin.edu.au" target="_blank">103622407 - Jack Davies</a>
+            <a href="mailto:103499753@student.swin.edu.au" target="_blank">103499753 - Thien An Ly</a>
+            <a href="mailto:103800614@student.swin.edu.au" target="_blank">103800614 - Ravish Randev Kulathanthilage</a>
+            <a href="mailto:103840759@student.swin.edu.au" target="_blank">103840759 - Jian Jia Ng</a>
         </footer>
 	</body>
 </html>

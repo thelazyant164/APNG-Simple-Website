@@ -27,7 +27,7 @@ nav ul li, nav a{
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 5px 16px;
+    padding: 0.7vh 0.5vw;
     font-size: 0.93em;
 }
 
@@ -38,7 +38,7 @@ nav ul li label{
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 5px 16px;
+    padding: 0.7vh 0.5vw;
 }
 
 nav ul li#toggler{
@@ -51,7 +51,7 @@ nav a:hover {
 
 /* background image */
 body {
-    background-image: url(images/TestStockImage.jpg);
+    /* background-image: url(images/TestStockImage.jpg); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -60,12 +60,13 @@ body {
     align-items: flex-start;
     justify-content: flex;
     height: 100vh;
+    width: 100vw;
 }
 
 /* Footer */
 footer{
     background-color: #333;
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
@@ -77,9 +78,9 @@ footer a {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 7px 16px;
+    padding: 1vh 0.5vw;
     text-decoration: none;
-    font-size: 0.6em;
+    font-size: 1.5vmin;
 }
 footer.parallax-footer{
   position: fixed;
@@ -98,10 +99,13 @@ main#bg-container{
   transform: preserve-3d;
   overflow-x: hidden;
   overflow-y: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
 main#bg-container::after{
   background: var(--shader);
+  background-repeat: no-repeat;
   background-size: cover;
   content: ' ';
   position: absolute;
@@ -116,30 +120,32 @@ main#bg-container::after{
 
 #title {
   position: relative;
-  padding-top: 75px;
-  padding-left: 150px;
-  padding-right: 175px;
-  padding-bottom: 30px;
-  font-size: 5em;
+  padding-top: 20vh;
+  padding-left: 10vw;
+  padding-right: 25vw;
+  padding-bottom: 2vh;
+  font-size: 10vmin;
   animation: fromleft 3s ease-out 0s 1;
   animation-fill-mode: both;
+  color: var(--title);
 }
 
 #subtitle {
   position: relative;
-  padding-left: 150px;
-  padding-right: 175px;
+  padding-left: 10vw;
+  padding-right: 25vw;
+  font-size: 2.5vmin;
   animation: fromleft 3s ease-out 0.5s 1;
   animation-fill-mode: both;
+  color: var(--text);
 }
 
 /*learn-more button*/
 #learn-more {
   position: relative;
   text-decoration: none;
-  margin-top: 30px;
-  margin-left: 150px;
-  margin-bottom: 100px;
+  margin-top: 2vh;
+  margin-left: 10vw;
   border-radius: 20px;
   background-color: var(--bubble-bg);
   border: 5px solid var(--bubble-border);
@@ -151,6 +157,8 @@ main#bg-container::after{
   color: var(--bubble-text);
   animation: fromleft 3s ease-out 1s 1;
   animation-fill-mode: both;
+  color: var(--text);
+  font-size: 2.1vmin;
 }
 
 #learn-more::after{
@@ -158,15 +166,6 @@ main#bg-container::after{
 }
 
 /*Dark mode implementation*/
-#bg-container h1{
-  margin-top: 20px;
-  color: var(--title);
-}
-
-#bg-container p, #bg-container div a{
-  color: var(--text);
-}
-
 /*darkmode config*/
 #toggleMode:checked ~ #bg-container{
   --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
@@ -178,14 +177,13 @@ main#bg-container::after{
 }
 
 
-
 /*For topic.html & enhancements.html*/
 /*Alternating parallax sections*/
 main#parallax-container{
-  height: auto;
+  height: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
   perspective: 1.7px;
+  width: 100%;
 }
 
 #parallax-container section {
@@ -194,7 +192,8 @@ main#parallax-container{
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  color: var(--text);
+  color: var(--title);
+  width: auto;
 }
 
 .parallax {
@@ -205,27 +204,34 @@ main#parallax-container{
 }
 
 .no-parallax {
-  padding: 50px;
+  padding: 5vmin;
   flex-direction: column;
   height: auto;
   background-color: var(--bubble-bg);
-  z-index: 999;
+  z-index: 1;
 }
 
 #parallax-container section.parallax h1 {
-  font-size: 2rem;
+  font-size: 5vmin;
   font-family: sans-serif;
-  margin-left: 50px;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  margin-left: 10vmin;
+  padding-top: 10vmin;
+  padding-bottom: 10vmin;
+  z-index: 2;
+}
+
+#parallax-container section h3 a{
+  color: var(--title);
+  text-decoration: underline;
 }
 
 #parallax-container section.parallax h2 {
-  font-size: 1.5rem;
+  font-size: 4.5vmin;
   font-family: sans-serif;
-  margin-left: 50px;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  margin-left: 20vmin;
+  padding-top: 10vmin;
+  padding-bottom: 10vmin;
+  z-index: 2;
 }
 
 .parallax::after {
@@ -235,7 +241,7 @@ main#parallax-container{
   right: 0;
   bottom: 0;
   left: 0;
-  transform: translateZ(-1px) scale(3.5);
+  transform: translateZ(-1px) scale(3);
   background-size: 100%;
   z-index: -1;
 }
@@ -243,23 +249,35 @@ main#parallax-container{
 .parallax-bg::after {
   background: var(--shader);
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /*Dark mode implementation*/
 #parallax-container h1{
   margin-top: 20px;
   color: var(--title);
+  margin-left: 20vmin;
 }
 
-#parallax-container h2, #parallax-container h3, #parallax-container th{
+#parallax-container .no-parallax h2, #parallax-container .no-parallax h3, #parallax-container .no-parallax th{
   color: var(--title);
-  padding: 5px;
+  font-size: 3vmin;
+  padding: 1.8vmin;
+  margin-left: 20vmin;
+  margin-right: 30vmin;
 }
 
-#parallax-container p, #parallax-container td{
+#parallax-container .parallax h2{
+  align-self: flex-end;
+  margin-right: 30vmin;
+}
+
+#parallax-container p, #parallax-container td, #parallax-container li{
   color: var(--text);
-  font-size: 0.8em;
-  padding: 5px;
+  padding: 1.8vmin;
+  font-size: 2.2vmin;
+  margin-left: 20vmin;
+  margin-right: 20vmin;
 }
 
 /*darkmode config*/
@@ -278,12 +296,12 @@ main#parallax-container{
 /*animation*/
 @keyframes floatright {
   from {right: 0;}
-  to {right: 60vw;}
+  to {right: 50vw;}
 }
 
 @keyframes floatleft {
   from {left: 0;}
-  to {left: 60vw;}
+  to {left: 50vw;}
 }
 
 /*Dark mode implementation*/
@@ -331,7 +349,7 @@ form{
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 3vmin;
   align-items: flex-start;
   width: auto;
   transform: preserve-3d;
@@ -340,6 +358,7 @@ form{
 form::after{
   background: var(--shader);
   background-size: cover;
+  background-repeat: no-repeat;
   content: ' ';
   position: absolute;
   top: 0;
@@ -368,14 +387,14 @@ form .bubble:nth-child(2n) {
 
 /*Title*/
 #container form h1{
-  padding-top: 100px;
-  padding-left: 50px;
+  padding-top: 10vmin;
+  padding-left: 20vmin;
   color: var(--bubble-title);
 }
 
 #container form h2{
-  padding-left: 50px;
-  padding-bottom: 50px;
+  padding-left: 20vmin;
+  padding-bottom: 10vmin;
   color: var(--bubble-title);
 }
 
@@ -386,14 +405,14 @@ form .bubble:nth-child(2n) {
   margin-left: 3%;
   margin-right: 3%;
   margin-bottom: 2%;
-  width: 400px;
+  width: 75vmin;
   border-radius: 20px;
   border: 5px solid var(--bubble-border);
   display: inline-block;
   height: auto;
   justify-content: left;
   background-color: var(--bubble-bg);
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
   animation: floatleft 6s ease-in-out 2s infinite alternate;
 }
 
@@ -403,17 +422,17 @@ form .bubble:hover {
 
 .bubble .question{
   border-collapse: separate;
-  padding: 20px;
+  padding: 3vmin;
 }
 .bubble .question legend{
   margin-top: 0;
   margin-bottom: 0;
   color: var(--bubble-title);
   text-align: left;
-  font-size: 1.5em;
+  font-size: 3.5vmin;
 }
 .bubble .content label{
-  padding: 6px;
+  padding: 1vmin;
   color: var(--bubble-text);
 }
 
@@ -421,8 +440,8 @@ form .bubble:hover {
   display: flex;
   flex-direction: column;
   float: right;
-  padding-bottom: 20px;
-  margin-top: 20px;
+  padding-bottom: 2vmin;
+  margin-top: 2vmin;
   margin-bottom: 0;
   color: var(--bubble-text);
   float: left;
@@ -443,10 +462,11 @@ form .bubble:hover {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10vmin;
 }
 
 #submit-bubble label{
-  padding: 15px;
+  padding: 2vmin;
 }
 
 .bubble .question .content input:hover{
