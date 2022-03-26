@@ -150,7 +150,7 @@ main#bg-container::after{
   background-color: var(--bubble-bg);
   border: 5px solid var(--bubble-border);
   height: 40px;
-  width: 180px;
+  width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -158,7 +158,10 @@ main#bg-container::after{
   animation: fromleft 3s ease-out 1s 1;
   animation-fill-mode: both;
   color: var(--text);
-  font-size: 2.1vmin;
+  font-size: 2vmin;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: sans-serif;
 }
 
 #learn-more::after{
