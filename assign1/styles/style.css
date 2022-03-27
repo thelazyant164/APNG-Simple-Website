@@ -43,7 +43,7 @@ nav ul li, nav a{
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 0.7vh 0.5vw;
+    padding: 0.5vh 0.5vw;
     font-size: 2.3vmin;
     font-family: "Google Sans", sans-serif;
 }
@@ -56,7 +56,7 @@ nav ul li label{
     justify-content: space-around;
     color: #f2f2f2;
     text-align: center;
-    padding: 0.7vh 0.5vw;
+    padding: 0.25vh 0.5vw;
 }
 
 .material-icons.md-32 {
@@ -119,16 +119,6 @@ footer.parallax-footer{
 @keyframes fromleft {
   from {left: 100vw;}
   to {left: 0;}
-}
-
-@keyframes grow {
-  from {width: 35vw}
-  to {width: 70vw}
-}
-
-@keyframes grow-small {
-  from {width: 20vw}
-  to {width: 40vw}
 }
 
 main#bg-container{
@@ -456,14 +446,44 @@ form::after{
   animation: floatleft 6s ease-in-out 0s 1 normal;
 }
 
+#bubble1 {
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+#bubble2 {
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
+
+#bubble3 {
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+}
+
+#bubble4 {
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+
+#bubble5 {
+  animation-delay: 2.5s;
+  animation-fill-mode: both;
+}
+
+#submit-bubble {
+  animation-delay: 3s;
+  animation-fill-mode: both;
+}
+
 /*set size before grow*/
 .grow{
   width: 35vw;
+  transition: width 0.5s ease-in-out;
 }
 
 .grow:hover {
-  animation: grow 0.5s ease-in-out 0s 1 normal;
-  animation-fill-mode: both;
+  width: 70vw;
 }
 
 .bubble .question{
@@ -522,32 +542,37 @@ form::after{
   opacity: 50%;
 }
 
-/*Input size after grow*/
-.bubble .grow:hover .content div:not(.multiple-choice) input{
-  animation: grow-small 0.5s ease-in-out 0s normal;
-  animation-fill-mode: both;
-}
-
 /*Input size before grow*/
 .bubble .grow .content textarea, .bubble .grow .content div:not(.multiple-choice) input{
+  width: 20vw;
+  transition: width 0.5s ease-in-out;
+}
+
+/*Input size after grow*/
+.bubble .grow:hover .content div:not(.multiple-choice) input{
+  width: 40vw;
+}
+
+/*Textarea size before grow*/
+.bubble .grow:hover .content textarea{
+  transition: width 0.5s ease-in-out;
   width: 20vw;
 }
 
 /*Textarea size after grow*/
 .bubble .grow:hover .content textarea{
-  animation: grow-small 0.5s ease-in-out 0s normal;
-  animation-fill-mode: both;
+  width: 40vw;
 }
 
 /*when dark mode is selected, change set of global (color) variables*/
 /*darkmode config*/
 #toggleMode:checked ~ #container{
-  --bg: #020202;
+  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
   --bubble-bg: #111413;
   --bubble-border: #1f2322;
   --bubble-title: #8e9294;
   --bubble-text: #ffffff;
   --btn: #2962fe;
   
-  background-color: var(--bg);
+  background-color: var(--shader);
 }
