@@ -1,3 +1,8 @@
+/*
+Author: Aly & Jian
+Purpose: to style 4 pages (index, topic, quiz, enhancements)
+*/
+
 /*Reset CSS*/
 *{
   padding: 0;
@@ -10,6 +15,18 @@
 }
 
 /*For all pages*/
+/*citations*/
+/*italic spans*/
+.citation span.italic {
+  font-style: italic;
+}
+
+/*indentation spans*/
+.citation span.indent{
+  display: inline-block;
+  width: 5em;
+}
+
 /* Navbar */
 nav {
     z-index: 9999;
@@ -18,7 +35,6 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-
 }
 /* navbar links */
 nav ul li, nav a{
@@ -28,17 +44,23 @@ nav ul li, nav a{
     color: #f2f2f2;
     text-align: center;
     padding: 0.7vh 0.5vw;
-    font-size: 0.93em;
+    font-size: 2.3vmin;
+    font-family: "Google Sans", sans-serif;
 }
 
 /*Select Dark Mode button*/
 nav ul li label{
+    display: block;
     list-style-type: none;
     float: left;
-    display: block;
+    justify-content: space-around;
     color: #f2f2f2;
     text-align: center;
     padding: 0.7vh 0.5vw;
+}
+
+.material-icons.md-32 {
+  font-size: 3.2vmin;
 }
 
 nav ul li#toggler{
@@ -69,18 +91,22 @@ footer{
     position: absolute;
     bottom: 0;
     width: 100%;
+    display: flex;
+    align-items: flex-center;
+    justify-content: space-between;
 }
 footer a:hover {
     color: yellow;
 }
 footer a {
-    float: right;
-    display: block;
+    display: inline-block;
     color: #f2f2f2;
     text-align: center;
     padding: 1vh 0.5vw;
     text-decoration: none;
     font-size: 1.5vmin;
+    font-family: "Google Sans", sans-serif;
+    font-style: italic;
 }
 footer.parallax-footer{
   position: fixed;
@@ -93,6 +119,16 @@ footer.parallax-footer{
 @keyframes fromleft {
   from {left: 100vw;}
   to {left: 0;}
+}
+
+@keyframes grow {
+  from {width: 35vw}
+  to {width: 70vw}
+}
+
+@keyframes grow-small {
+  from {width: 20vw}
+  to {width: 40vw}
 }
 
 main#bg-container{
@@ -125,6 +161,7 @@ main#bg-container::after{
   padding-right: 25vw;
   padding-bottom: 2vh;
   font-size: 10vmin;
+  font-family: "Google Sans", sans-serif;
   animation: fromleft 3s ease-out 0s 1;
   animation-fill-mode: both;
   color: var(--title);
@@ -135,6 +172,7 @@ main#bg-container::after{
   padding-left: 10vw;
   padding-right: 25vw;
   font-size: 2.5vmin;
+  font-family: "Google Sans", sans-serif;
   animation: fromleft 3s ease-out 0.5s 1;
   animation-fill-mode: both;
   color: var(--text);
@@ -159,6 +197,7 @@ main#bg-container::after{
   animation-fill-mode: both;
   color: var(--text);
   font-size: 2vmin;
+  font-family: "Google Sans", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   font-family: sans-serif;
@@ -216,11 +255,12 @@ main#parallax-container{
 
 #parallax-container section.parallax h1 {
   font-size: 5vmin;
-  font-family: sans-serif;
+  font-family: "Google Sans", sans-serif;
   margin-left: 10vmin;
   padding-top: 10vmin;
   padding-bottom: 10vmin;
   z-index: 2;
+  font: bold 5vmin Google Sans, serif;
 }
 
 #parallax-container section h3 a{
@@ -230,7 +270,7 @@ main#parallax-container{
 
 #parallax-container section.parallax h2 {
   font-size: 4.5vmin;
-  font-family: sans-serif;
+  font-family: "Google Sans", sans-serif;
   margin-left: 20vmin;
   padding-top: 10vmin;
   padding-bottom: 10vmin;
@@ -265,6 +305,7 @@ main#parallax-container{
 #parallax-container .no-parallax h2, #parallax-container .no-parallax h3, #parallax-container .no-parallax th{
   color: var(--title);
   font-size: 3vmin;
+  font-family: "Google Sans", sans-serif;
   padding: 1.8vmin;
   margin-left: 20vmin;
   margin-right: 30vmin;
@@ -279,6 +320,7 @@ main#parallax-container{
   color: var(--text);
   padding: 1.8vmin;
   font-size: 2.2vmin;
+  font-family: "Google Sans", sans-serif;
   margin-left: 20vmin;
   margin-right: 20vmin;
 }
@@ -297,14 +339,9 @@ main#parallax-container{
 
 /*For quiz.html*/
 /*animation*/
-@keyframes floatright {
-  from {right: 0;}
-  to {right: 50vw;}
-}
-
 @keyframes floatleft {
-  from {left: 0;}
-  to {left: 50vw;}
+  from {left: 100vw;}
+  to {left: 0vw;}
 }
 
 /*Dark mode implementation*/
@@ -373,10 +410,10 @@ form::after{
   z-index: -1;
 }
 
-form .bubble:nth-child(2n) {
+/*interleaving bubble selector*/
+/* form .bubble:nth-child(2n) {
   align-self: flex-end;
-  animation: floatright 6s ease-in-out 1s infinite alternate;
-}
+} */
 
 /*setup global (color) variables (by default: for light mode)*/
 :root{
@@ -405,10 +442,10 @@ form .bubble:nth-child(2n) {
 .bubble{
   position:relative;
   flex-grow: 0;
-  margin-left: 3%;
+  margin-left: 10vw;
   margin-right: 3%;
   margin-bottom: 2%;
-  width: 75vmin;
+  width: auto;
   border-radius: 20px;
   border: 5px solid var(--bubble-border);
   display: inline-block;
@@ -416,11 +453,17 @@ form .bubble:nth-child(2n) {
   justify-content: left;
   background-color: var(--bubble-bg);
   animation-fill-mode: both;
-  animation: floatleft 6s ease-in-out 2s infinite alternate;
+  animation: floatleft 6s ease-in-out 0s 1 normal;
 }
 
-form .bubble:hover {
-  animation-play-state: paused;
+/*set size before grow*/
+.grow{
+  width: 35vw;
+}
+
+.grow:hover {
+  animation: grow 0.5s ease-in-out 0s 1 normal;
+  animation-fill-mode: both;
 }
 
 .bubble .question{
@@ -433,10 +476,12 @@ form .bubble:hover {
   color: var(--bubble-title);
   text-align: left;
   font-size: 3.5vmin;
+  font-family: "Google Sans", sans-serif;
 }
 .bubble .content label{
   padding: 1vmin;
   color: var(--bubble-text);
+  font-family: "Google Sans", sans-serif;
 }
 
 .bubble .question .content{
@@ -470,10 +515,28 @@ form .bubble:hover {
 
 #submit-bubble label{
   padding: 2vmin;
+  font-family: "Google Sans", sans-serif;
 }
 
 .bubble .question .content input:hover{
   opacity: 50%;
+}
+
+/*Input size after grow*/
+.bubble .grow:hover .content div:not(.multiple-choice) input{
+  animation: grow-small 0.5s ease-in-out 0s normal;
+  animation-fill-mode: both;
+}
+
+/*Input size before grow*/
+.bubble .grow .content textarea, .bubble .grow .content div:not(.multiple-choice) input{
+  width: 20vw;
+}
+
+/*Textarea size after grow*/
+.bubble .grow:hover .content textarea{
+  animation: grow-small 0.5s ease-in-out 0s normal;
+  animation-fill-mode: both;
 }
 
 /*when dark mode is selected, change set of global (color) variables*/
