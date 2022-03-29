@@ -412,7 +412,7 @@ form::after{
   --shader: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://picsum.photos/1920/1080');
   --bg: #f8fafc;
   --bubble-bg: #8BAAAD;
-  --bubble-border: #ffbecf;
+  --bubble-border: #272838;
   --bubble-title: #272838;
   --bubble-text: #272838;
 }
