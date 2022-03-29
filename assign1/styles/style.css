@@ -31,7 +31,7 @@ Purpose: to style 4 pages (index, topic, quiz, enhancements)
 nav {
     z-index: 9999;
     overflow:hidden;
-    background-color: #333;
+    background-color: #272838;
     position: fixed;
     top: 0;
     width: 100%;
@@ -41,7 +41,7 @@ nav ul li, nav a{
     list-style-type: none;
     float: right;
     display: block;
-    color: #f2f2f2;
+    color: #F4FFF8;
     text-align: center;
     padding: 0.5vh 0.5vw;
     font-size: 2.3vmin;
@@ -87,7 +87,7 @@ body {
 
 /* Footer */
 footer{
-    background-color: #333;
+    background-color: #272838;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -100,7 +100,7 @@ footer a:hover {
 }
 footer a {
     display: inline-block;
-    color: #f2f2f2;
+    color: #8BAAAD;
     text-align: center;
     padding: 1vh 0.5vw;
     text-decoration: none;
@@ -127,6 +127,7 @@ main#bg-container{
   overflow-y: hidden;
   width: 100vw;
   height: 100vh;
+  color: #272838
 }
 
 main#bg-container::after{
@@ -201,9 +202,9 @@ main#bg-container::after{
 /*darkmode config*/
 #toggleMode:checked ~ #bg-container{
   --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
-  --title: #888888;
-  --text: #bdbdbd;
-  --bubble-bg: #111413;
+  --title: #F4FFF8;
+  --text: #F4FFF8;
+  --bubble-bg: #272838;
   --bubble-border: #1f2322;
   --bubble-text: #ffffff;
 }
@@ -216,6 +217,7 @@ main#parallax-container{
   overflow-x: hidden;
   perspective: 1.7px;
   width: 100%;
+  color: #272838;
 }
 
 #parallax-container section {
@@ -318,9 +320,9 @@ main#parallax-container{
 /*darkmode config*/
 #toggleMode:checked ~ #parallax-container{
   --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
-  --title: #8e9294;
-  --text: white;
-  --bubble-bg: #111413;
+  --title: #F4FFF8;
+  --text: #F4FFF8;
+  --bubble-bg: #272838;
   --bubble-border: #1f2322;
   --bubble-text: #ffffff;
 }
@@ -409,10 +411,10 @@ form::after{
 :root{
   --shader: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://picsum.photos/1920/1080');
   --bg: #f8fafc;
-  --bubble-bg: #FFFFFF;
+  --bubble-bg: #8BAAAD;
   --bubble-border: #ffbecf;
-  --bubble-title: #343f44;
-  --bubble-text: #54666d;
+  --bubble-title: #272838;
+  --bubble-text: #272838;
 }
 
 /*Title*/
@@ -568,10 +570,10 @@ form::after{
 /*darkmode config*/
 #toggleMode:checked ~ #container{
   --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
-  --bubble-bg: #111413;
+  --bubble-bg: #272838;
   --bubble-border: #1f2322;
-  --bubble-title: #8e9294;
-  --bubble-text: #ffffff;
+  --bubble-title: #F4FFF8;
+  --bubble-text: #F4FFF8;
   --btn: #2962fe;
   
   background-color: var(--shader);
