@@ -108,6 +108,123 @@
 					</tr>
 				</table>
 			</section>
+			<section class="parallax parallax-bg">
+				<h2>Features/How does it work?</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>File structure</h3>
+				<p>Since the APNG is an extension on the PNG file format, the base structure of the file/datastream is the same.</p>
+				<img src="styles/images/lattice_diagram.png" alt="Lattice diagram PNG image PLTE in datastream"/>
+				<p>The above image shows the file strucutre of a PNG file PLTE in datastream</p>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Critical Chunks</h2>
+			</section>
+			<section class="no-parallax">
+				<p>Critical Chunks are parts of data that must be present in the datastream for a successful decode of a PNG/APNG image and they must appear in this order:</p>					.</p>
+				<ol>
+					<li>1 PNG Signature</li>
+					<li>1 IHDR chunk</li>
+					<li>1+IDAT chunks</li>
+					<li>1 IEND chunk</li>
+				</ol>
+				<p>A Palette (PLTE) chunk can also be added after the IHDR as a critical chunk but is optional depending on the colour type you choose.</p>
+				<p>A PLTE chunk must exist if you use colour type :</p>
+				<ul>
+					<li>3 (indexed-colour/Palette-Based)</li>
+				</ul>
+				<p><b>can appear</b> in </p>
+				<ul>
+					<li>2 (Truecolor/RGB) and 6 (Truecolor/RGB with Alpha)
+					</li>
+				</ul>
+				<p>And <b>must not</b> be in the data stream if you use</P>
+				<ul>
+					<li>0 (Grayscale) and 4 (Grayscale with Alpha channel)</li>
+				</ul>
+			</section>
+			
+
+			<section class="no-parallax">
+				<h3>PNG Signature</h3>
+				<p>All APNGs start with a PNG signature header that communicates that the subsequent data will be a PNG starting with an IHDR chunk and ending in an IEND chunk</p>
+			</section>
+			
+			<section class="no-parallax">
+				<h3>IHDR - Image Header</h3>
+				<p>This chunk must appear first after the PNG signature and contains information on the PNG’s:</p>
+				<ul>
+					<li>width</li>
+					<li>height</li>
+					<li>Bit Depth</li>
+					<li>Colour Type</li>
+					<li>Compression Method</li>
+					<li>Filter Method</li>
+					<li>Interface Method</li>
+				</ul>
+			</section>
+
+			<section class="no-parallax">
+				<h3>IDAT - Image Data</h3>
+				<p>This chunk contains the actual image data so this is where you would store multiple frames of your animation and they must appear consecutively. They do not have a fixed size and boundaries have no semantic significance as all of them are concatenated together in the compressed datastream. The first IDAT chunk is the default image shown if the decoder encounters an error.
+				</p>
+			</section>
+
+			<section class="no-parallax">
+				<h3>IEND Image trailer</h3>
+				<p>Must appear last and it marks the end of the PNG/APNG datastream. Its data field is also empty.</p>
+			</section>
+
+			<section class="no-parallax">
+				<h3>Ancillary chunks</h3>
+				<p>These chunks are not necessary if you want to successfully decode a PNG/APNG file. The APNG specifications add three new ancillary chunks.</p>
+				<ul>
+					<li>acTL: The Animation Control Chunk</li>
+					<li>fcTL: The Frame Control Chunk</li>
+					<li>fdAT: The Frame Data Chunk</li>
+				</ul>
+				<img src="styles/images/APNG_chunks.png" alt="Diagram illustrating a possible way to assemble an animated PNG from three individual PNG files"/>
+			</section>
+			
+
+			<section class="no-parallax">
+				<h3>Animation control chunk (acTL)</h3>
+				<p>This appears before the IDAT chunks and communicates to the decoder the file is an APNG along with the number of frames and the number of times to loop the animation. The number of frames must equal the number of fcTL chunks or an error is thrown.</p>
+			</section>
+
+			<section class="no-parallax">
+				<h3>Frame control chunk (fcTL)</h3>
+				<p>Exactly one these chunks must appear before the first IDAT or fdAT chunk of the frame it applies its content to.</p>
+				<p>The information that fcTL chunk holds for the upcoming frame is:</p>
+				<ul>
+					<li>Sequence number of the animation chunk.</li>
+					<li>Width and height of the following frame.</li>
+					<li>X and Y position at which to render the following frame.</li>
+					<li>A frame delay fraction numerator/denominator that will decide the time to display the current frame. 
+						<ul>
+							<li>If the numerator is 0 then the decoder will render the frame as quickly as possible, though programs will set a more reasonable lower bound.
+							</li>
+						</ul>
+					</li>
+					<li>How the next frame should be disposed of before rendering the subsequent frame.</li>
+					<li>Whether the frame is to be alpha blended into the previous frame or completely replace it</li>
+				</ul>
+				<img src="styles/images/alpha_channel.png" alt="Using the Alpha Channel">
+				<P>The image on the right shows how translucency can be applied to an object using the alpha channel.</P>
+			</section>
+			
+			<section class="no-parallax">
+				<H3>Frame data chunk (fDat)</H3>
+				<p>fdAT chunks have the same function and similar structure as an IDAT chunk. The only difference is that fdDAT chunks have an additional 4 bytes at the start that indicates the sequence number again.</p>
+			</section>
+
+
+
+
+
+
+
+
 		</main>
         <footer class="parallax-footer">
             <a href="mailto:103936755@student.swin.edu.au" target="_blank">103936755 - Jacky Yao</a>
