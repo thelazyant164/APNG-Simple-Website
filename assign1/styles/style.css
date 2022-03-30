@@ -245,6 +245,20 @@ main#parallax-container{
   z-index: 1;
 }
 
+aside{
+  background: white;
+  border: 1px solid;
+  align-self: flex-end;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+aside p#scribble{
+  padding: auto;
+  margin: auto;
+}
+
 #parallax-container section.parallax h1 {
   font-size: 5vmin;
   font-family: "Google Sans", sans-serif;
