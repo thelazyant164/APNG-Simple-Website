@@ -177,9 +177,9 @@ main#bg-container::after{
   margin-left: 10vw;
   border-radius: 20px;
   background-color: var(--bubble-bg);
-  border: 5px solid var(--bubble-border);
-  height: 40px;
-  width: 150px;
+  border: 0.5vmin solid var(--bubble-border);
+  height: 5.5vmin;
+  width: 21vmin;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -246,8 +246,8 @@ main#parallax-container{
 }
 
 aside{
-  background: white;
-  border: 1px solid;
+  background: var(--bubble-bg);
+  border: 0.5vmin solid var(--bubble-border);
   align-self: flex-end;
   width: 30%;
   display: flex;
@@ -337,8 +337,8 @@ aside p#scribble{
   --title: #F4FFF8;
   --text: #F4FFF8;
   --bubble-bg: #272838;
-  --bubble-border: #1f2322;
-  --bubble-text: #ffffff;
+  --bubble-border: #F4FFF8;
+  --bubble-text: #F4FFF8;
 }
 
 
@@ -453,7 +453,7 @@ form::after{
   margin-bottom: 2%;
   width: auto;
   border-radius: 20px;
-  border: 5px solid var(--bubble-border);
+  border: 0.5vmin solid var(--bubble-border);
   display: inline-block;
   height: auto;
   justify-content: left;
@@ -490,6 +490,10 @@ form::after{
 #submit-bubble {
   animation-delay: 3s;
   animation-fill-mode: both;
+}
+
+fieldset.grow{
+  border: none;
 }
 
 /*set size before grow*/
@@ -552,6 +556,31 @@ form::after{
 #submit-bubble label{
   padding: 2vmin;
   font-family: "Google Sans", sans-serif;
+}
+
+input{
+  padding-left: 2vmin;
+  border-radius: 5px;
+  border: none;
+}
+
+select{
+  padding-left: 2vmin;
+  padding-right: 2.5vmin;
+  border-radius: 5px;
+  border: none;
+}
+
+#submit-bubble input{
+  padding-left: 2vmin;
+  padding-right: 2.5vmin;
+}
+
+textarea{
+  padding-left: 2vmin;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 2vmin;
 }
 
 .bubble .question .content input:hover{
