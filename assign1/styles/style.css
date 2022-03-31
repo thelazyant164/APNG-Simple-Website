@@ -201,7 +201,7 @@ main#bg-container::after{
 /*Dark mode implementation*/
 /*darkmode config*/
 #toggleMode:checked ~ #bg-container{
-  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
+  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
   --title: #F4FFF8;
   --text: #F4FFF8;
   --bubble-bg: #272838;
@@ -245,6 +245,14 @@ main#parallax-container{
   z-index: 1;
 }
 
+.no-parallax img{
+  width: 55vmin;
+  height: 30vmin;
+  margin-left: 20vmin;
+  padding: 1.8vmin;
+
+}
+
 aside{
   background: var(--bubble-bg);
   border: 0.5vmin solid var(--bubble-border);
@@ -266,7 +274,7 @@ aside p#scribble{
   padding-top: 10vmin;
   padding-bottom: 10vmin;
   z-index: 2;
-  font: bold 5vmin Google Sans, serif;
+  font: bold 5vmin Google Sans, sans-serif;
 }
 
 #parallax-container section h3 a{
@@ -317,6 +325,10 @@ aside p#scribble{
   margin-right: 30vmin;
 }
 
+#parallax-container .no-parallax th{
+text-align: left;
+}
+
 #parallax-container .parallax h2{
   align-self: flex-end;
   margin-right: 30vmin;
@@ -331,9 +343,12 @@ aside p#scribble{
   margin-right: 20vmin;
 }
 
+#parallax-container li{
+  list-style-position: inside;
+}
 /*darkmode config*/
 #toggleMode:checked ~ #parallax-container{
-  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
+  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
   --title: #F4FFF8;
   --text: #F4FFF8;
   --bubble-bg: #272838;
@@ -423,7 +438,7 @@ form::after{
 
 /*setup global (color) variables (by default: for light mode)*/
 :root{
-  --shader: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://picsum.photos/1920/1080');
+  --shader: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('images/3.jpg');
   --bg: #f8fafc;
   --bubble-bg: #8BAAAD;
   --bubble-border: #272838;
@@ -612,7 +627,7 @@ textarea{
 /*when dark mode is selected, change set of global (color) variables*/
 /*darkmode config*/
 #toggleMode:checked ~ #container{
-  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
+  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
   --bubble-bg: #272838;
   --bubble-border: #1f2322;
   --bubble-title: #F4FFF8;
