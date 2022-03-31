@@ -242,7 +242,7 @@ main#parallax-container{
   padding: 5vmin;
   flex-direction: column;
   height: auto;
-  background-color: var(--bubble-bg);
+  background-color: var(--bg);
   z-index: 1;
 }
 
@@ -266,6 +266,13 @@ aside{
 aside p#scribble{
   padding: auto;
   margin: auto;
+}
+
+aside img#aside-img{
+  width: 30%;
+  height: 30%;
+  margin: auto;
+  padding: auto;
 }
 
 #parallax-container section.parallax h1 {
@@ -352,7 +359,8 @@ text-align: left;
   --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
   --title: #F4FFF8;
   --text: #F4FFF8;
-  --bubble-bg: #272838;
+  --bg: #272838;
+  /*--bubble-bg: #272838;*/
   --bubble-border: #F4FFF8;
   --bubble-text: #F4FFF8;
 }
@@ -370,11 +378,9 @@ text-align: left;
 /*By default, light mode is picked ("Dark mode" label is displayed and "Light mode" label is hidden)*/
 #toggleDark{
   display: inline;
-  color: white;
 }
 #toggleLight{
   display: none;
-  color: white;
 }
 #toggleDark:hover, #toggleLight:hover{
   color: yellow;
@@ -441,7 +447,7 @@ form::after{
 :root{
   --shader: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('images/3.jpg');
   --bg: #f8fafc;
-  --bubble-bg: #f4fff8;
+  --bubble-bg: #8baaad;
   --bubble-border: #272838;
   --bubble-title: #272838;
   --bubble-text: #272838;
@@ -560,8 +566,8 @@ fieldset.grow{
 }
 
 #submit-bubble {
-  width: 250px;
-  height: 50px;
+  width: 20vw;
+  height: 5vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -578,6 +584,7 @@ input{
   padding-left: 2vmin;
   border-radius: 5px;
   border: none;
+  color: var(--)
 }
 
 select{
