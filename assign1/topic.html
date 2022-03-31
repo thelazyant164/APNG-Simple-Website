@@ -218,6 +218,158 @@
 				<p>fdAT chunks have the same function and similar structure as an IDAT chunk. The only difference is that fdDAT chunks have an additional 4 bytes at the start that indicates the sequence number again.</p>
 			</section>
 
+			<section class="no-parallax">
+				<H3>Chunk Sequence Numbers</H3>
+				<p>A 4 byte sequence number appears in both the fcTl and fdAT chunks and these are used to detect or fix the sequence of the frames. The first chunk must contain sequence number 0 and the remaining sequences must be in order, without gaps or duplicates.</p>
+			</section>
+
+			<section class="parallax parallax-bg">
+				<h2>Invalid APNG Handling</h2>
+			</section>
+
+			<section class="no-parallax">
+				<p>As frames can be displayed before the entire image has been read, errors may not be detected until partway through the animation. In this case, decoders will drop all subsequent frames and revert to the default image. But depending on the error in the datastream, the default image may not be shown, the image won’t load and it could crash your software.</p>
+			</section>
+
+			<section class="parallax parallax-bg">
+				<h2>Competitors</h2>
+			</section>
+
+			<section class="no-parallax">
+				<H3>GIF</H3>
+				<p>APNG’s most popular competitor is GIF that was initially released back in 1987 and was not designed as an animation medium but could store multiple images in one file. GIF also does not specify repeating animations but most modern browsers automatically loop them using Application Block (NAB).</p>
+				<p>It grew in popularity due to it using LZW data compression that was superior compared to its rivals on release. It allowed large images to be downloaded reasonably quickly despite slow connections and with GIFs supporting interlacing, allowed the user to somewhat recognise the partially downloaded image and cancel the download if it didn’t meet expectations.</p>
+				<p>It is now widely used for small animations and low-resolution video clips as reactions in online messaging to convey emotions and feelings instead of words.</p>
+				<h3>WebP</h3>
+				<p>Relatively new to the scene being released in 2010 by Google that provides superior lossless and lossy compression intended as a replacement for both the PNG and GIF file formats. It got its animation features a year after the initial release and is very widely supported by modern browsers.
+				</p>
+				<img src="styles/images/supported_browsers.png" alt="browsers that support APNG file" />
+				<h3>Other animation formats</h3>
+				<p>Videos now can replace APNGs and GIFs in the way they are used on the web. The rapid adoption of HTML5 video and Flash plugin being phased out allowed web pages to natively support video embeds and the ability to loop them using JavaScript which gave them the same appearance as an APNG/GIF with size and speed advantages of compressed video. </p>
+				<p>Some sites will now automatically convert GIF files uploaded to its site to GIFV or MPEG-4 videos to conserve disk space for the same image quality. WebM is another file format that can be embedded into HTML5 video rising in popularity too due to its speed and quality on the web.
+				</p>
+			</section>
+
+			<section class="parallax parallax-bg">
+				<h2>APNG Competitors</h2>
+			</section>
+
+			<section class="no-parallax">
+				<h3>File Size</h3>
+				<p>APNG uses an improved version of GIF’s LZW compression that will result in smaller file sizes that can predict the colour of a chunk of pixels based on the surrounding pixels that reduces the amount of information stored in a file. This will result in around a ≈17% reduction in file size for the same image. WebP and APNG will result in similar file sizes when using the highest compression but an APNG will generally load faster on a web page, though depending on the compression, a WebP can have up to a 26% smaller file size over a best scenario PNG.</p>
+				<table>
+					<tr>
+						<th>File dimension</th>
+						<th>GIF</th>
+						<th>Webp</th>
+						<th>APNG</th>
+						<th>GIF vs APNG</th>
+						<th>WebP vs APNG</th>
+					</tr>
+					<tr>
+						<td>800x450</td>
+						<td>37.9MB</td>
+						<td>30.82MB</td>
+						<td>31.22MB</td>
+						<td>-17.63%</td>
+						<td>1.30%</td>
+					</tr>
+					<tr>
+						<td>300x169</td>
+						<td>4.93MB</td>
+						<td>4.16MB</td>
+						<td>3.97MB</td>
+						<td>-19.47%</td>
+						<td>-4.57%</td>
+					</tr>
+					<tr>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+						<td>Average</td>
+						<td>-17.35%</td>
+						<td>0.03%</td>
+					</tr>
+				</table>
+				<p>If you compare these multi-image file formats to MP4 and WebM for an animation, the benefits of using other animation formats is apparent.</p>
+				<table>
+					<tr>
+						<th>File Type Type</th>
+						<th>Size</th>
+						<th>Size vs APNG</th>
+					</tr>
+					<tr>
+						<td>Unoptimized Gif</td>
+						<td>37.9MB</td>
+						<td>22.77%</td>
+					</tr>
+					<tr>
+						<td>Default Webp</td>
+						<td>30.8MB</td>
+						<td>-0.16%</td>
+					</tr>
+					<tr>
+						<td>APNG Zopfli 100 Iterations</td>
+						<td>30.9MB</td>
+						<td>0.00%</td>
+					</tr>
+					<tr>
+						<td>Trimmed MP4</td>
+						<td>0.5MB</td>
+						<td>-98.52%</td>
+					</tr>
+					<tr>
+						<td>WebM</td>
+						<td>0.2MB</td>
+						<td>-99.41%</td>
+					</tr>
+				</table>
+				<h3>Colours</h3>
+				<p>APNGs and WebP also support 24-bit colour (truecolor) which allows for millions of colours to be used in the one file compared to the mere 256 colours normally used in GIFs. It is possible to make GIFs in truecolor by splitting up an image into sections that don’t have more than 256 different colours each, then displaying all the sections together in a tile. This will result in a very large file and not all GIF rendering programs can handle these tiled files correctly.</p>
+				<img src ="styles/images/colours.png" alt="colours of an APNG file" />
+				<h3>Support and Popularity</h3>
+				<p>Despite its shortcomings of huge file sizes, limited colour, and slow encoding, GIFs remain the most widely supported and popular animation file format on the internet. A report on w3tech shows it has fallen in popularity recently compared to other file formats that have improved functionality and features than the GIF.</p>
+				<p>WebP is increasing in popularity as a file format for the web that supports similar features as a PNG. An advantage they have is by default is a smaller file size which can increase the gap to up to a 26%.</p>
+				<img src ="styles/images/trends.png" alt="Historical trends in the usage statistics of image file formats for websites, March 2022" />
+				<p>While PNG remains one of the most used file formats on the web, the adoption for APNG is still very narrow. The most visited websites support the APNG file format but beyond that, there aren’t many websites that will read the ancillary chunks for APNG to display an animation.</p>
+				<img src ="styles/images/statistics.png" alt="WebP vs. APNG usage statistics, March 2022 (w3techs.com)" />
+			</section>
+
+			<section class="parallax parallax-bg">
+				<h2>What Should You Use?</h2>
+			</section>
+
+			<section class="no-parallax">
+				<p>In the modern web, you really shouldn’t be using GIFs anymore due to its huge file size and subpar visual quality and colour choice compared to existing alternatives. Hopefully it will be time to let the format rest after 34 years but it will have a rare appearance due to its portability and support on a wide range of sites but it’s the last resort.</p>
+				<p>If you’re looking for the best quality, lots of features, and all the colours you can see, APNG is a good choice. APNGs greatest boon is that their parent format (PNG) is the most popular way to display images on the web, but that is also its greatest hurdle to gaining popularity. The confusion between the two has been enough to limit its support on a wide range of websites and programs to less than 1% of websites.</p>
+				<img src ="styles/images/usage.png" alt="Percentages of websites using various image file formats" />
+				<p>WebP seems like it has the best of both GIFs and APNG with solid quality and support on a larger variety of websites on top of having the smallest file size of the three. It will be harder to run into issues of having a slow loading animation from a large file size (we’ve all closed a gif if it doesn’t load in 3 seconds) or having subsequent frames not playing at all when ancillary chunks are read in APNGs.</p>
+				<p>If you were really looking for something to display an animation on your website, it’s a no brainer to just embed an HTML5 video and do an extra step to loop the video in JavaScript. This is the method that will save you the most storage space and have the best quality for your animation. There also exists a plethora of websites and software that will help convert between the file types if needed when one of them isn't supported on the site you want to display them on.</p>
+			</section>
+
+			<section class="parallax parallax-bg">
+				<h2>Summary of the APNG</h2>
+			</section>
+
+			<section class="no-parallax">
+				<p>APNG came at a time when there were very limited alternatives and provided superior quality and size to its competitors. It was well received by few boasting how much better than GIF it was and pushed as a way to speed up a website. Sadly it failed gaining popularity due to conflicted visions by the maintainers where some wanted it and others did not want it to be included in the PNG specification. </p>
+				<p>An APNG just adds 3 chunks on top of the PNG file structure which when missing/skipped during decode, will display a static PNG image most of the time which will occur frequently due to its narrow support.</p>
+				<p>In the modern day internet, the APNG is supported on the most visited sites but will still display a static image on the large majority of sites. Newer alternatives such as WebP and HTML5 video support provide better file size and similar quality that are replacing GIFs which was the goal of the APNG. </p>
+			</section>
+
+
+
+
+			
+
+
+			
+
+
+
+
+
+
 
 
 
