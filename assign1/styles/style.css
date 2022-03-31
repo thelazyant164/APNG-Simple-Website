@@ -41,7 +41,7 @@ nav ul li, nav a{
     list-style-type: none;
     float: right;
     display: block;
-    color: #F4FFF8;
+    color: #8baaad;
     text-align: center;
     padding: 0.5vh 0.5vw;
     font-size: 2.3vmin;
@@ -61,6 +61,7 @@ nav ul li label{
 
 .material-icons.md-32 {
   font-size: 3.2vmin;
+  color: #8baaad;
 }
 
 nav ul li#toggler{
@@ -176,10 +177,10 @@ main#bg-container::after{
   margin-top: 2vh;
   margin-left: 10vw;
   border-radius: 20px;
-  background-color: var(--bubble-bg);
-  border: 5px solid var(--bubble-border);
-  height: 40px;
-  width: 150px;
+  background-color: #8baaad;
+  border: 0.5vmin solid var(--bubble-border);
+  height: 5.5vmin;
+  width: 21vmin;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -201,7 +202,7 @@ main#bg-container::after{
 /*Dark mode implementation*/
 /*darkmode config*/
 #toggleMode:checked ~ #bg-container{
-  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
+  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
   --title: #F4FFF8;
   --text: #F4FFF8;
   --bubble-bg: #272838;
@@ -241,8 +242,37 @@ main#parallax-container{
   padding: 5vmin;
   flex-direction: column;
   height: auto;
-  background-color: var(--bubble-bg);
+  background-color: var(--bg);
   z-index: 1;
+}
+
+.no-parallax img{
+  width: 55vmin;
+  height: 30vmin;
+  margin-left: 20vmin;
+  padding: 1.8vmin;
+
+}
+
+aside{
+  background: var(--bubble-bg);
+  border: 0.5vmin solid var(--bubble-border);
+  align-self: flex-end;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+aside p#scribble{
+  padding: auto;
+  margin: auto;
+}
+
+aside img#aside-img{
+  width: 30%;
+  height: 30%;
+  margin: auto;
+  padding: auto;
 }
 
 #parallax-container section.parallax h1 {
@@ -252,7 +282,7 @@ main#parallax-container{
   padding-top: 10vmin;
   padding-bottom: 10vmin;
   z-index: 2;
-  font: bold 5vmin Google Sans, serif;
+  font: bold 5vmin Google Sans, sans-serif;
 }
 
 #parallax-container section h3 a{
@@ -303,6 +333,10 @@ main#parallax-container{
   margin-right: 30vmin;
 }
 
+#parallax-container .no-parallax th{
+text-align: left;
+}
+
 #parallax-container .parallax h2{
   align-self: flex-end;
   margin-right: 30vmin;
@@ -317,14 +351,18 @@ main#parallax-container{
   margin-right: 20vmin;
 }
 
+#parallax-container li{
+  list-style-position: inside;
+}
 /*darkmode config*/
 #toggleMode:checked ~ #parallax-container{
-  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
+  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
   --title: #F4FFF8;
   --text: #F4FFF8;
-  --bubble-bg: #272838;
-  --bubble-border: #1f2322;
-  --bubble-text: #ffffff;
+  --bg: #272838;
+  /*--bubble-bg: #272838;*/
+  --bubble-border: #F4FFF8;
+  --bubble-text: #F4FFF8;
 }
 
 
@@ -340,11 +378,9 @@ main#parallax-container{
 /*By default, light mode is picked ("Dark mode" label is displayed and "Light mode" label is hidden)*/
 #toggleDark{
   display: inline;
-  color: white;
 }
 #toggleLight{
   display: none;
-  color: white;
 }
 #toggleDark:hover, #toggleLight:hover{
   color: yellow;
@@ -409,9 +445,9 @@ form::after{
 
 /*setup global (color) variables (by default: for light mode)*/
 :root{
-  --shader: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://picsum.photos/1920/1080');
+  --shader: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('images/3.jpg');
   --bg: #f8fafc;
-  --bubble-bg: #8BAAAD;
+  --bubble-bg: #8baaad;
   --bubble-border: #272838;
   --bubble-title: #272838;
   --bubble-text: #272838;
@@ -439,7 +475,7 @@ form::after{
   margin-bottom: 2%;
   width: auto;
   border-radius: 20px;
-  border: 5px solid var(--bubble-border);
+  border: 0.5vmin solid var(--bubble-border);
   display: inline-block;
   height: auto;
   justify-content: left;
@@ -476,6 +512,10 @@ form::after{
 #submit-bubble {
   animation-delay: 3s;
   animation-fill-mode: both;
+}
+
+fieldset.grow{
+  border: none;
 }
 
 /*set size before grow*/
@@ -526,8 +566,8 @@ form::after{
 }
 
 #submit-bubble {
-  width: 250px;
-  height: 50px;
+  width: 20vw;
+  height: 5vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -538,6 +578,32 @@ form::after{
 #submit-bubble label{
   padding: 2vmin;
   font-family: "Google Sans", sans-serif;
+}
+
+input{
+  padding-left: 2vmin;
+  border-radius: 5px;
+  border: none;
+  color: var(--)
+}
+
+select{
+  padding-left: 2vmin;
+  padding-right: 2.5vmin;
+  border-radius: 5px;
+  border: none;
+}
+
+#submit-bubble input{
+  padding-left: 2vmin;
+  padding-right: 2.5vmin;
+}
+
+textarea{
+  padding-left: 2vmin;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 2vmin;
 }
 
 .bubble .question .content input:hover{
@@ -569,7 +635,7 @@ form::after{
 /*when dark mode is selected, change set of global (color) variables*/
 /*darkmode config*/
 #toggleMode:checked ~ #container{
-  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080');
+  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
   --bubble-bg: #272838;
   --bubble-border: #1f2322;
   --bubble-title: #F4FFF8;
