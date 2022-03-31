@@ -41,7 +41,7 @@ nav ul li, nav a{
     list-style-type: none;
     float: right;
     display: block;
-    color: #F4FFF8;
+    color: #8baaad;
     text-align: center;
     padding: 0.5vh 0.5vw;
     font-size: 2.3vmin;
@@ -61,6 +61,7 @@ nav ul li label{
 
 .material-icons.md-32 {
   font-size: 3.2vmin;
+  color: #8baaad;
 }
 
 nav ul li#toggler{
@@ -176,7 +177,7 @@ main#bg-container::after{
   margin-top: 2vh;
   margin-left: 10vw;
   border-radius: 20px;
-  background-color: var(--bubble-bg);
+  background-color: #8baaad;
   border: 0.5vmin solid var(--bubble-border);
   height: 5.5vmin;
   width: 21vmin;
@@ -440,7 +441,7 @@ form::after{
 :root{
   --shader: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('images/3.jpg');
   --bg: #f8fafc;
-  --bubble-bg: #8BAAAD;
+  --bubble-bg: #f4fff8;
   --bubble-border: #272838;
   --bubble-title: #272838;
   --bubble-text: #272838;
