@@ -420,12 +420,11 @@ form{
   gap: 3vmin;
   align-items: flex-start;
   width: auto;
-  transform-style: preserve-3d;
 }
 
 form::after{
   background-repeat: no-repeat;
-  content: ' ';
+  content: '';
   position: absolute;
   top: 0;
   right: 0;
@@ -433,7 +432,6 @@ form::after{
   left: 0;
   transform: translateZ(-1px);
   background-size: 100%;
-  z-index: -1;
 }
 
 /*interleaving bubble selector*/
