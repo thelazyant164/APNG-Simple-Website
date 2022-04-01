@@ -78,14 +78,10 @@ nav a:hover {
 
 /* background image */
 body {
-    /* background-image: url(images/TestStockImage.jpg); */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center; /*`*/
+    justify-content: center;
     height: 100vh;
     width: 100vw;
 }
@@ -127,7 +123,6 @@ footer.parallax-footer{
 }
 
 main#bg-container{
-  transform-style: preserve-3d;
   overflow-x: hidden;
   overflow-y: hidden;
   width: 100vw;
@@ -137,16 +132,14 @@ main#bg-container{
 
 main#bg-container::after{
   background: var(--shader);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat;
+  background-size: contain;
   content: ' ';
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  transform: translateZ(-1px);
-  background-size: 100%;
   z-index: -1;
 }
 
@@ -206,7 +199,7 @@ main#bg-container::after{
 /*Dark mode implementation*/
 /*darkmode config*/
 #toggleMode:checked ~ #bg-container{
-  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
+  --shader: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/BG.png');
   --title: #F4FFF8;
   --text: #F4FFF8;
   --bubble-bg: #272838;
@@ -220,12 +213,13 @@ main#bg-container::after{
 main#parallax-container{
   height: 100%;
   overflow-x: hidden;
-  perspective: 1.7px;
+  perspective: 1px;
   width: 100%;
   color: #272838;
+  
 }
 
-#parallax-container section {
+#parallax-container section{
   transform-style: preserve-3d;
   position: relative;
   display: flex;
@@ -236,10 +230,8 @@ main#parallax-container{
 }
 
 .parallax {
-  height: auto;
-  display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 75vh;
 }
 
 .no-parallax {
@@ -255,7 +247,6 @@ main#parallax-container{
   height: 30vmin;
   margin-left: 20vmin;
   padding: 1.8vmin;
-
 }
 
 aside{
@@ -302,21 +293,20 @@ aside img#aside-img{
 }
 
 .parallax::after {
-  content: ' ';
+  content: '';
+}
+
+.parallax-bg::after {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  transform: translateZ(-1px) scale(3);
-  background-size: 100%;
-  z-index: -1;
-}
-
-.parallax-bg::after {
   background: var(--shader);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: repeat;
+  transform: translateZ(-0.5px) scale(1.6);
+  z-index: -1;
 }
 
 /*Dark mode implementation*/
@@ -358,7 +348,7 @@ text-align: left;
 }
 /*darkmode config*/
 #toggleMode:checked ~ #parallax-container{
-  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
+  --shader: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/BG.png');
   --title: #F4FFF8;
   --text: #F4FFF8;
   --bg: #272838;
@@ -430,7 +420,7 @@ form{
 
 /*setup global (color) variables (by default: for light mode)*/
 :root{
-  --shader: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('images/3.jpg');
+  --shader: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url('images/BG.png');
   --bg: #f8fafc;
   --bubble-bg: #8baaad;
   --bubble-border: #272838;
@@ -620,7 +610,7 @@ textarea{
 /*when dark mode is selected, change set of global (color) variables*/
 /*darkmode config*/
 #toggleMode:checked ~ #container{
-  --shader: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/1.jpg');
+  --shader: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/BG.png');
   --bubble-bg: #272838;
   --bubble-border: #1f2322;
   --bubble-title: #F4FFF8;
