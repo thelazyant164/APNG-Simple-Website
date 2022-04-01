@@ -441,7 +441,7 @@ form::after{
 
 /*setup global (color) variables (by default: for light mode)*/
 :root{
-  --shader: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('images/3.jpg');
+  --shader: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('images/new.jpg');
   --bg: #f8fafc;
   --bubble-bg: #8baaad;
   --bubble-border: #272838;
