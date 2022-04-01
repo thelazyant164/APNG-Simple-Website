@@ -418,30 +418,15 @@ text-align: left;
 
 form{
   background: var(--shader);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
   height: auto;
+  width: auto;
   display: flex;
   flex-direction: column;
   gap: 3vmin;
   align-items: flex-start;
-  width: auto;
 }
-
-form::after{
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-size: 100%;
-}
-
-/*interleaving bubble selector*/
-/* form .bubble:nth-child(2n) {
-  align-self: flex-end;
-} */
 
 /*setup global (color) variables (by default: for light mode)*/
 :root{
