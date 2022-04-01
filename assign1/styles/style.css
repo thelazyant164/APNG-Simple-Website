@@ -81,7 +81,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex;
+    justify-content: center; /*`*/
     height: 100vh;
     width: 100vw;
 }
@@ -93,7 +93,7 @@ footer{
     bottom: 0;
     width: 100%;
     display: flex;
-    align-items: flex-center;
+    align-items: center; /*`*/
     justify-content: space-between;
 }
 footer a:hover {
@@ -123,7 +123,7 @@ footer.parallax-footer{
 }
 
 main#bg-container{
-  transform: preserve-3d;
+  transform-style: preserve-3d;
   overflow-x: hidden;
   overflow-y: hidden;
   width: 100vw;
@@ -264,7 +264,6 @@ aside{
 }
 
 aside p#scribble{
-  padding: auto;
   margin: auto;
 }
 
@@ -272,7 +271,6 @@ aside img#aside-img{
   width: 30%;
   height: 30%;
   margin: auto;
-  padding: auto;
 }
 
 #parallax-container section.parallax h1 {
@@ -282,7 +280,7 @@ aside img#aside-img{
   padding-top: 10vmin;
   padding-bottom: 10vmin;
   z-index: 2;
-  font: bold 5vmin Google Sans, sans-serif;
+  font: bold 5vmin;*
 }
 
 #parallax-container section h3 a{
@@ -420,7 +418,7 @@ form{
   gap: 3vmin;
   align-items: flex-start;
   width: auto;
-  transform: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 form::after{
