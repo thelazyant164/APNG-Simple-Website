@@ -30,7 +30,11 @@
 					<li><a href="quiz.html" target="_blank">Quiz</a></li>
 					<li><a href="topic.html" target="_blank">Topic</a></li>
 					<li><a href="index.html" target="_blank">Home</a></li>
-					<li><a href="https://www.youtube.com/watch?v=iik25wqIuFo"><img alt="youtube button" class="youtube" src="styles/images/youtube.png "/></a></li>
+					<li>
+						<a href="https://www.youtube.com/watch?v=iik25wqIuFo"
+							><img alt="youtube button" class="youtube" src="styles/images/youtube.png "
+						/></a>
+					</li>
 				</ul>
 			</nav>
 		</header>
@@ -158,78 +162,68 @@
 				<p>
 					Critical Chunks are parts of data that must be present in the datastream for a successful
 					decode of a PNG/APNG image and they must appear in this order:
-                    <ol>
-                        <li>1 PNG Signature</li>
-                        <li>1 IHDR chunk</li>
-                        <li>1+IDAT chunks</li>
-                        <li>1 IEND chunk</li>
-                    </ol>
 				</p>
+				<ol>
+					<li>1 PNG Signature</li>
+					<li>1 IHDR chunk</li>
+					<li>1+IDAT chunks</li>
+					<li>1 IEND chunk</li>
+				</ol>
 				<p>
 					A Palette (PLTE) chunk can also be added after the IHDR as a critical chunk but is
-					optional depending on the colour type you choose. 
+					optional depending on the colour type you choose.
 				</p>
-                <p>A PLTE chunk must exist if you use colour type:</p>
-                <ul>
-                    <li>3 (indexed-colour/Palette-Based)</li>
-                </ul>
-                <p><b>Can appear</b> in:</p>
-                <ul>
-                    <li>2 (Truecolor/RGB) and 6 (Truecolor/RGB with Alpha)</li>
-                </ul>
-                <p>And <b>must not</b> be in the datastream if you use:</p>
-                <ul>
-                    <li>0 (Grayscale) and 4 (Grayscale with Alpha channel)</li>
-                </ul>    
-			</section>
-            <hr>
-			<section class="no-parallax">
+				<p>A PLTE chunk must exist if you use colour type:</p>
+				<ul>
+					<li>3 (indexed-colour/Palette-Based)</li>
+				</ul>
+				<p><b>Can appear</b> in:</p>
+				<ul>
+					<li>2 (Truecolor/RGB) and 6 (Truecolor/RGB with Alpha)</li>
+				</ul>
+				<p>And <b>must not</b> be in the datastream if you use:</p>
+				<ul>
+					<li>0 (Grayscale) and 4 (Grayscale with Alpha channel)</li>
+				</ul>
+
 				<h3>PNG Signature</h3>
 				<p>
 					All APNGs start with a PNG signature header that communicates that the subsequent data
 					will be a PNG starting with an IHDR chunk and ending in an IEND chunk
 				</p>
-			</section>
-            <hr>
-			<section class="no-parallax">
+
 				<h3>IHDR - Image Header</h3>
 				<p>
 					This chunk must appear first after the PNG signature and contains information on the
 					PNG's:
 				</p>
 				<ul>
-					<li>width</li>
-					<li>height</li>
+					<li>Width</li>
+					<li>Height</li>
 					<li>Bit Depth</li>
 					<li>Colour Type</li>
 					<li>Compression Method</li>
 					<li>Filter Method</li>
 					<li>Interface Method</li>
 				</ul>
-			</section>
-            <hr>
-			<section class="no-parallax">
+
 				<h3>IDAT - Image Data</h3>
 				<p>
 					This chunk contains the actual image data so this is where you would store multiple frames
 					of your animation and they must appear consecutively. They do not have a fixed size and
 					boundaries have no semantic significance as all of them are concatenated together in the
-					compressed datastream. 
+					compressed datastream.
 				</p>
-                <p>The first IDAT chunk is the default image shown if the decoder
-                encounters an error.</p>
-			</section>
-            <hr>
-			<section class="no-parallax">
+				<p>The first IDAT chunk is the default image shown if the decoder encounters an error.</p>
 				<h3>IEND Image trailer</h3>
 				<p>
 					Must appear last and it marks the end of the PNG/APNG datastream. Its data field is also
 					empty.
 				</p>
 			</section>
-            <hr>
-            <section class="parallax parallax-bg">
-                <h2>Ancillary chunks</h2>
+
+			<section class="parallax parallax-bg">
+				<h2>Ancillary chunks</h2>
 			</section>
 			<section class="no-parallax">
 				<p>
@@ -309,7 +303,7 @@
 					your software.
 				</p>
 				<img src="styles/images/incorrect chunks.png" alt="incorrect chunks" />
-                <p>A green rectangle indicates the APNG has loaded correctly</p>
+				<p>A green rectangle indicates the APNG has loaded correctly</p>
 			</section>
 
 			<section class="parallax parallax-bg">
@@ -553,7 +547,8 @@
 			<a href="mailto:103622407@student.swin.edu.au" target="_blank">103622407 - Jack Davies</a>
 			<a href="mailto:103499753@student.swin.edu.au" target="_blank">103499753 - Thien An Ly</a>
 			<a href="mailto:103800614@student.swin.edu.au" target="_blank"
-				>103800614 - Ravish Randev Kulathanthilage</a>
+				>103800614 - Ravish Randev Kulathanthilage</a
+			>
 			<a href="mailto:103840759@student.swin.edu.au" target="_blank">103840759 - Jian Jia Ng</a>
 		</footer>
 	</body>
