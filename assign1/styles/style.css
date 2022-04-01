@@ -43,7 +43,7 @@ nav ul li, nav a{
     display: block;
     color: #8baaad;
     text-align: center;
-    padding: 0.5vh 0.5vw 0 0.5vw;
+    padding: 0.5vh 0.5vw;
     font-size: 2.3vmin;
     font-family: "Google Sans", sans-serif;
 }
@@ -62,10 +62,6 @@ nav ul li label{
 .material-icons.md-32 {
   font-size: 3.2vmin;
   color: #8baaad;
-}
-
-.youtube{
-  width: 3vmin;
 }
 
 nav ul li#toggler{
@@ -418,8 +414,6 @@ text-align: left;
 
 form{
   background: var(--shader);
-  background-size: cover;
-  background-repeat: no-repeat;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -429,12 +423,14 @@ form{
 }
 
 form::after{
+  background-repeat: no-repeat;
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  transform: translateZ(-1px);
   background-size: 100%;
 }
 
