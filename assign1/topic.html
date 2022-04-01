@@ -50,7 +50,11 @@
 				<h3>Why isn't it more mainstream?</h3>
 				<p>
 					APNG had a lukewarm reception on release as maintainers on the PNG format debated that their format was strictly a single-image format and it was seen as such in the wider community. The rationale was that applications do not need and will not support multiple images per file due to having separate file formats for animations because a single image and a sequence of images are fundamentally used differently.
+				</p>
+				<p>
 					The only way for a software to correctly distinguish between PNG and APNG is by reading the ancillary chunks which aren’t required to use PNGs, so if a software didn’t know about APNGs, the first frame would show up as a typical PNG.
+				</p>
+				<p>
 					So with the maintainers of the file format against the idea of this implementation and the data of the animation hidden inside ancillary chunks that decoders used in applications could skip, APNG never grew in popularity. 
 				</p>
 				<aside>
@@ -60,9 +64,12 @@
 			</section>
 			
 			<section class="parallax parallax-bg">
-				<h2>Why is APNG outdated now?</h2>
+				<h2>Web browsers support</h2>
 			</section>
 			<section class="no-parallax">
+				<p>
+				
+				</p>
 				<table>
 					<tr>
 						<th>Browsers</th>
@@ -112,7 +119,7 @@
 			<section class="no-parallax">
 				<h3>File structure</h3>
 				<p>Since the APNG is an extension on the PNG file format, the base structure of the file/datastream is the same.</p>
-				<img src="styles/images/gif-apng-1.gif" alt="Lattice diagram PNG image PLTE in datastream"/>
+				<img src="styles/images/lattice_diagram.png" alt="lattice diagram"/>
 				<p>The above image shows the file strucutre of a PNG file PLTE in datastream</p>
 			</section>
 			<section class="parallax parallax-bg">
@@ -137,13 +144,13 @@
 					</li>
 				</ul>
 				<p>And <b>must not</b> be in the data stream if you use</P>
-				<ul>
-					<li>0 (Grayscale) and 4 (Grayscale with Alpha channel)</li>
-				</ul>
-			</section>
-			
-
-			<section class="no-parallax">
+					<ul>
+						<li>0 (Grayscale) and 4 (Grayscale with Alpha channel)</li>
+					</ul>
+				</section>
+				
+				
+				<section class="no-parallax">
 				<h3>PNG Signature</h3>
 				<p>All APNGs start with a PNG signature header that communicates that the subsequent data will be a PNG starting with an IHDR chunk and ending in an IEND chunk</p>
 			</section>
@@ -161,18 +168,18 @@
 					<li>Interface Method</li>
 				</ul>
 			</section>
-
+			
 			<section class="no-parallax">
 				<h3>IDAT - Image Data</h3>
 				<p>This chunk contains the actual image data so this is where you would store multiple frames of your animation and they must appear consecutively. They do not have a fixed size and boundaries have no semantic significance as all of them are concatenated together in the compressed datastream. The first IDAT chunk is the default image shown if the decoder encounters an error.
 				</p>
 			</section>
-
+			
 			<section class="no-parallax">
 				<h3>IEND Image trailer</h3>
 				<p>Must appear last and it marks the end of the PNG/APNG datastream. Its data field is also empty.</p>
 			</section>
-
+			
 			<section class="no-parallax">
 				<h3>Ancillary chunks</h3>
 				<p>These chunks are not necessary if you want to successfully decode a PNG/APNG file. The APNG specifications add three new ancillary chunks.</p>
@@ -184,12 +191,12 @@
 				<img src="styles/images/APNG_chunks.png" alt="Diagram illustrating a possible way to assemble an animated PNG from three individual PNG files"/>
 			</section>
 			
-
+			
 			<section class="no-parallax">
 				<h3>Animation control chunk (acTL)</h3>
 				<p>This appears before the IDAT chunks and communicates to the decoder the file is an APNG along with the number of frames and the number of times to loop the animation. The number of frames must equal the number of fcTL chunks or an error is thrown.</p>
 			</section>
-
+			
 			<section class="no-parallax">
 				<h3>Frame control chunk (fcTL)</h3>
 				<p>Exactly one these chunks must appear before the first IDAT or fdAT chunk of the frame it applies its content to.</p>
@@ -215,26 +222,28 @@
 				<H3>Frame data chunk (fDat)</H3>
 				<p>fdAT chunks have the same function and similar structure as an IDAT chunk. The only difference is that fdDAT chunks have an additional 4 bytes at the start that indicates the sequence number again.</p>
 			</section>
-
+			
 			<section class="no-parallax">
 				<H3>Chunk Sequence Numbers</H3>
 				<p>A 4 byte sequence number appears in both the fcTl and fdAT chunks and these are used to detect or fix the sequence of the frames. The first chunk must contain sequence number 0 and the remaining sequences must be in order, without gaps or duplicates.</p>
 			</section>
-
+			
 			<section class="parallax parallax-bg">
 				<h2>Invalid APNG Handling</h2>
 			</section>
-
+			
 			<section class="no-parallax">
 				<p>As frames can be displayed before the entire image has been read, errors may not be detected until partway through the animation. In this case, decoders will drop all subsequent frames and revert to the default image. But depending on the error in the datastream, the default image may not be shown, the image won’t load and it could crash your software.</p>
+				<img src="styles/images/incorrect chunks.png" alt="incorrect chunks">
 			</section>
-
+			
 			<section class="parallax parallax-bg">
 				<h2>Competitors</h2>
 			</section>
-
+			
 			<section class="no-parallax">
 				<H3>GIF</H3>
+				<img src="styles/images/gif-apng-1.gif" alt="gif vs png chicken"/>
 				<p>APNG’s most popular competitor is GIF that was initially released back in 1987 and was not designed as an animation medium but could store multiple images in one file. GIF also does not specify repeating animations but most modern browsers automatically loop them using Application Block (NAB).</p>
 				<p>It grew in popularity due to it using LZW data compression that was superior compared to its rivals on release. It allowed large images to be downloaded reasonably quickly despite slow connections and with GIFs supporting interlacing, allowed the user to somewhat recognise the partially downloaded image and cancel the download if it didn’t meet expectations.</p>
 				<p>It is now widely used for small animations and low-resolution video clips as reactions in online messaging to convey emotions and feelings instead of words.</p>
