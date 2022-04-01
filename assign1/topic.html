@@ -1,74 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8"/>
-		<meta name="description" content="APNG topic"/>
-		<meta name="keywords" content="APNG, animated portable network graphics, topic"/>
-		<meta name="author" content="Ravish"/>
+		<meta charset="utf-8" />
+		<meta name="description" content="APNG topic" />
+		<meta name="keywords" content="APNG, animated portable network graphics, topic" />
+		<meta name="author" content="Ravish" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>APNG topic</title>
-		<link href="styles/style.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="styles/style.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	</head>
 
 	<body>
-		<input type="checkbox" id="toggleMode">
+		<input type="checkbox" id="toggleMode" />
 		<header>
 			<nav>
 				<ul>
 					<li id="toggler">
-						<label for="toggleMode" id="toggleDark"><span class="material-icons md-32">toggle_off</span><span class="material-icons md-32">dark_mode</span></label>
-						<label for="toggleMode" id="toggleLight"><span class="material-icons md-32">toggle_on</span><span class="material-icons md-32">light_mode</span></label>
+						<label for="toggleMode" id="toggleDark"
+							><span class="material-icons md-32">toggle_off</span
+							><span class="material-icons md-32">dark_mode</span></label
+						>
+						<label for="toggleMode" id="toggleLight"
+							><span class="material-icons md-32">toggle_on</span
+							><span class="material-icons md-32">light_mode</span></label
+						>
 					</li>
 					<li><a href="enhancements.html" target="_blank">Enhancements</a></li>
-                    <li><a href="quiz.html" target="_blank">Quiz</a></li>
-                    <li><a href="topic.html" target="_blank">Topic</a></li>
-                    <li><a href="index.html" target="_blank">Home</a></li>
-					<li><a href="https://www.youtube.com/watch?v=iik25wqIuFo" target="__blank"><img src="styles/images/youtube.png " width="28" height="28"/></a></li>
+					<li><a href="quiz.html" target="_blank">Quiz</a></li>
+					<li><a href="topic.html" target="_blank">Topic</a></li>
+					<li><a href="index.html" target="_blank">Home</a></li>
+					<li>
+						<a href="https://www.youtube.com/watch?v=iik25wqIuFo" target="__blank"
+							><img src="styles/images/youtube.png " width="28" height="28"
+						/></a>
+					</li>
 				</ul>
 			</nav>
 		</header>
 
 		<main id="parallax-container">
 			<section class="parallax parallax-bg">
-				<h1>APNG rules!</h1>
-				<h2>What is it?</h2>
+				<h1>Animated Portable Network Graphics (APNG)</h1>
+				<h2>What Is It?</h2>
 			</section>
 			<section class="no-parallax">
 				<p>
-					It extends the popular Portable Network Graphics (PNG) file format specification to allow images to be animated similarly to animated GIF files with additional features.
-					The first frame of an APNG file is stored as a normal PNG. Since it is an extension of PNG, most standard decoders will be able to display the file without additional work.
-					Basically it is a PNG file with additional chunks of data to allow for animations.
+					It extends the popular Portable Network Graphics (PNG) file format specification to allow
+					images to be animated similarly to animated GIF files with additional features. The first
+					frame of an APNG file is stored as a normal PNG. Since it is an extension of PNG, most
+					standard decoders will be able to display the file without additional work.
 				</p>
+				<p>Basically, it is a PNG file with additional chunks of data to allow for animations.</p>
 			</section>
 			<section class="parallax parallax-bg">
-				<h2>Why does it exist?</h2>
+				<h2>Why Does It Exist?</h2>
 			</section>
 			<section class="no-parallax">
 				<h3>History</h3>
-				<p>It was first developed by Mozilla Corporation in 2004 to store animations needed in UIs (e.g. loading throbbers) to replace MNG animations which were deprecated the year before. MNGs had less functionality than APNGs with a much larger file size due to their decoder, the thing that will read the read and extract headers from the sequence of bytes.</p>
+				<p>
+					It was first developed by Mozilla Corporation in 2004 to store animations needed in UIs
+					(e.g. loading throbbers) to replace MNG animations which were deprecated the year before.
+					MNGs had less functionality than APNGs with a much larger file size due to their decoder,
+					the thing that will read the read and extract headers from the sequence of bytes.
+				</p>
 				<h3>Why isn't it more mainstream?</h3>
 				<p>
-					APNG had a lukewarm reception on release as maintainers on the PNG format debated that their format was strictly a single-image format and it was seen as such in the wider community. The rationale was that applications do not need and will not support multiple images per file due to having separate file formats for animations because a single image and a sequence of images are fundamentally used differently.
+					APNG had a lukewarm reception on release as maintainers on the PNG format debated that
+					their format was strictly a single-image format and it was seen as such in the wider
+					community. The rationale was that applications do not need and will not support multiple
+					images per file due to having separate file formats for animations because a single image
+					and a sequence of images are fundamentally used differently.
 				</p>
 				<p>
-					The only way for a software to correctly distinguish between PNG and APNG is by reading the ancillary chunks which aren’t required to use PNGs, so if a software didn’t know about APNGs, the first frame would show up as a typical PNG.
+					The only way for a software to correctly distinguish between PNG and APNG is by reading
+					the ancillary chunks which aren’t required to use PNGs, so if a software didn’t know about
+					APNGs, the first frame would show up as a typical PNG.
 				</p>
 				<p>
-					So with the maintainers of the file format against the idea of this implementation and the data of the animation hidden inside ancillary chunks that decoders used in applications could skip, APNG never grew in popularity. 
+					So with the maintainers of the file format against the idea of this implementation and the
+					data of the animation hidden inside ancillary chunks that decoders used in applications
+					could skip, APNG never grew in popularity.
 				</p>
 				<aside>
-					<p id="scribble">Fun fact: APNG almost had a half-sibling called MNG (Mozilla Network Graphic), but it was abandoned as nobody bothered to support it.</p>
-					<img src = "styles/images/bouncy.png" alt = "HTML Tutorial" id="aside-img"/>
+					<p id="scribble">
+						Fun fact: APNG almost had a half-sibling called MNG (Mozilla Network Graphic), but it
+						was abandoned as nobody bothered to support it.
+					</p>
+					<img src="styles/images/bouncy.png" alt="HTML Tutorial" id="aside-img" />
 				</aside>
 			</section>
-			
+
 			<section class="parallax parallax-bg">
-				<h2>Web browsers support</h2>
+				<h2>Web Browser Support</h2>
 			</section>
 			<section class="no-parallax">
 				<p>
-					When an application does not have APNG support, it is treated as a PNG and only the first frame is displayed.
+					When an application does not have APNG support, it is treated as a PNG and only the first
+					frame is displayed.
 				</p>
 				<table>
 					<tr>
@@ -108,56 +137,70 @@
 						<td>16</td>
 					</tr>
 					<tr>
-						<td>Internet Explorer</td> <!--are we gonna highlight cell red?-->
+						<td>Internet Explorer</td>
+						<!--are we gonna highlight cell red?-->
 						<td>not supported</td>
 					</tr>
 				</table>
 			</section>
 			<section class="parallax parallax-bg">
-				<h2>Features/How does it work?</h2>
+				<h2>How Does It Work?</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>File structure</h3>
-				<p>Since the APNG is an extension on the PNG file format, the base structure of the file/datastream is the same.</p>
-				<img src="styles/images/lattice_diagram.png" alt="lattice diagram"/>
-				<p>The above image shows the file strucutre of a PNG file PLTE in datastream</p>
+				<h3>File Structure</h3>
+				<p>
+					Since the APNG is an extension on the PNG file format, the base structure of the
+					file/datastream is the same.
+				</p>
+				<img src="styles/images/lattice_diagram.png" alt="lattice diagram" />
+				<p>The above image shows the file structure of a PNG file without a PLTE chunk.</p>
 			</section>
 			<section class="parallax parallax-bg">
 				<h2>Critical Chunks</h2>
 			</section>
 			<section class="no-parallax">
-				<p>Critical Chunks are parts of data that must be present in the datastream for a successful decode of a PNG/APNG image and they must appear in this order:</p>
-				<ol>
-					<li>1 PNG Signature</li>
-					<li>1 IHDR chunk</li>
-					<li>1+IDAT chunks</li>
-					<li>1 IEND chunk</li>
-				</ol>
-				<p>A Palette (PLTE) chunk can also be added after the IHDR as a critical chunk but is optional depending on the colour type you choose.</p>
-				<p>A PLTE chunk must exist if you use colour type :</p>
-				<ul>
-					<li>3 (indexed-colour/Palette-Based)</li>
-				</ul>
-				<p><b>can appear</b> in </p>
-				<ul>
-					<li>2 (Truecolor/RGB) and 6 (Truecolor/RGB with Alpha)
-					</li>
-				</ul>
-				<p>And <b>must not</b> be in the data stream if you use</P>
-					<ul>
-						<li>0 (Grayscale) and 4 (Grayscale with Alpha channel)</li>
-					</ul>
-				</section>
-				
-				
-				<section class="no-parallax">
-				<h3>PNG Signature</h3>
-				<p>All APNGs start with a PNG signature header that communicates that the subsequent data will be a PNG starting with an IHDR chunk and ending in an IEND chunk</p>
+				<p>
+					Critical Chunks are parts of data that must be present in the datastream for a successful
+					decode of a PNG/APNG image and they must appear in this order:
+                    <ol>
+                        <li>1 PNG Signature</li>
+                        <li>1 IHDR chunk</li>
+                        <li>1+IDAT chunks</li>
+                        <li>1 IEND chunk</li>
+                    </ol>
+				</p>
+				<p>
+					A Palette (PLTE) chunk can also be added after the IHDR as a critical chunk but is
+					optional depending on the colour type you choose. 
+				</p>
+                <p>A PLTE chunk must exist if you use colour type:</p>
+                <ul>
+                    <li>3 (indexed-colour/Palette-Based)</li>
+                </ul>
+                <p><b>Can appear</b> in:</p>
+                <ul>
+                    <li>2 (Truecolor/RGB) and 6 (Truecolor/RGB with Alpha)</li>
+                </ul>
+                <p>And <b>must not</b> be in the datastream if you use:</p>
+                <ul>
+                    <li>0 (Grayscale) and 4 (Grayscale with Alpha channel)</li>
+                </ul>    
 			</section>
-			
+            <hr>
+			<section class="no-parallax">
+				<h3>PNG Signature</h3>
+				<p>
+					All APNGs start with a PNG signature header that communicates that the subsequent data
+					will be a PNG starting with an IHDR chunk and ending in an IEND chunk
+				</p>
+			</section>
+            <hr>
 			<section class="no-parallax">
 				<h3>IHDR - Image Header</h3>
-				<p>This chunk must appear first after the PNG signature and contains information on the PNG’s:</p>
+				<p>
+					This chunk must appear first after the PNG signature and contains information on the
+					PNG's:
+				</p>
 				<ul>
 					<li>width</li>
 					<li>height</li>
@@ -168,92 +211,155 @@
 					<li>Interface Method</li>
 				</ul>
 			</section>
-			
+            <hr>
 			<section class="no-parallax">
 				<h3>IDAT - Image Data</h3>
-				<p>This chunk contains the actual image data so this is where you would store multiple frames of your animation and they must appear consecutively. They do not have a fixed size and boundaries have no semantic significance as all of them are concatenated together in the compressed datastream. The first IDAT chunk is the default image shown if the decoder encounters an error.
+				<p>
+					This chunk contains the actual image data so this is where you would store multiple frames
+					of your animation and they must appear consecutively. They do not have a fixed size and
+					boundaries have no semantic significance as all of them are concatenated together in the
+					compressed datastream. 
 				</p>
+                <p>The first IDAT chunk is the default image shown if the decoder
+                encounters an error.</p>
 			</section>
-			
+            <hr>
 			<section class="no-parallax">
 				<h3>IEND Image trailer</h3>
-				<p>Must appear last and it marks the end of the PNG/APNG datastream. Its data field is also empty.</p>
+				<p>
+					Must appear last and it marks the end of the PNG/APNG datastream. Its data field is also
+					empty.
+				</p>
 			</section>
-			
+            <hr>
+            <section class="parallax parallax-bg">
+                <h2>Ancillary chunks</h2>
+			</section>
 			<section class="no-parallax">
-				<h3>Ancillary chunks</h3>
-				<p>These chunks are not necessary if you want to successfully decode a PNG/APNG file. The APNG specifications add three new ancillary chunks.</p>
+				<p>
+					These chunks are not necessary if you want to successfully decode a PNG/APNG file. The
+					APNG specifications add three new ancillary chunks.
+				</p>
 				<ul>
 					<li>acTL: The Animation Control Chunk</li>
 					<li>fcTL: The Frame Control Chunk</li>
 					<li>fdAT: The Frame Data Chunk</li>
 				</ul>
-				<img src="styles/images/APNG_chunks.png" alt="Diagram illustrating a possible way to assemble an animated PNG from three individual PNG files"/>
-			</section>
-			
-			
-			<section class="no-parallax">
+				<img
+					src="styles/images/APNG_chunks.png"
+					alt="Diagram illustrating a possible way to assemble an animated PNG from three individual PNG files"
+				/>
 				<h3>Animation control chunk (acTL)</h3>
-				<p>This appears before the IDAT chunks and communicates to the decoder the file is an APNG along with the number of frames and the number of times to loop the animation. The number of frames must equal the number of fcTL chunks or an error is thrown.</p>
-			</section>
-			
-			<section class="no-parallax">
+				<p>
+					This appears before the IDAT chunks and communicates to the decoder the file is an APNG
+					along with the number of frames and the number of times to loop the animation. The number
+					of frames must equal the number of fcTL chunks or an error is thrown.
+				</p>
 				<h3>Frame control chunk (fcTL)</h3>
-				<p>Exactly one these chunks must appear before the first IDAT or fdAT chunk of the frame it applies its content to.</p>
+				<p>
+					Exactly one these chunks must appear before the first IDAT or fdAT chunk of the frame it
+					applies its content to.
+				</p>
 				<p>The information that fcTL chunk holds for the upcoming frame is:</p>
 				<ul>
 					<li>Sequence number of the animation chunk.</li>
 					<li>Width and height of the following frame.</li>
 					<li>X and Y position at which to render the following frame.</li>
-					<li>A frame delay fraction numerator/denominator that will decide the time to display the current frame. 
+					<li>
+						A frame delay fraction numerator/denominator that will decide the time to display the
+						current frame.
 						<ul>
-							<li>If the numerator is 0 then the decoder will render the frame as quickly as possible, though programs will set a more reasonable lower bound.
+							<li>
+								If the numerator is 0 then the decoder will render the frame as quickly as
+								possible, though programs will set a more reasonable lower bound.
 							</li>
 						</ul>
 					</li>
 					<li>How the next frame should be disposed of before rendering the subsequent frame.</li>
-					<li>Whether the frame is to be alpha blended into the previous frame or completely replace it</li>
+					<li>
+						Whether the frame is to be alpha blended into the previous frame or completely replace
+						it
+					</li>
 				</ul>
-				<img src="styles/images/alpha_channel.png" alt="Using the Alpha Channel">
-				<P>The image on the right shows how translucency can be applied to an object using the alpha channel.</P>
+				<img src="styles/images/alpha_channel.png" alt="Using the Alpha Channel" />
+				<p>
+					The image on the right shows how translucency can be applied to an object using the alpha
+					channel.
+				</p>
+				<h3>Frame data chunk (fDat)</h3>
+				<p>
+					fdAT chunks have the same function and similar structure as an IDAT chunk. The only
+					difference is that fdDAT chunks have an additional 4 bytes at the start that indicates the
+					sequence number again.
+				</p>
+				<h3>Chunk Sequence Numbers</h3>
+				<p>
+					A 4 byte sequence number appears in both the fcTl and fdAT chunks and these are used to
+					detect or fix the sequence of the frames. The first chunk must contain sequence number 0
+					and the remaining sequences must be in order, without gaps or duplicates.
+				</p>
 			</section>
-			
-			<section class="no-parallax">
-				<H3>Frame data chunk (fDat)</H3>
-				<p>fdAT chunks have the same function and similar structure as an IDAT chunk. The only difference is that fdDAT chunks have an additional 4 bytes at the start that indicates the sequence number again.</p>
-			</section>
-			
-			<section class="no-parallax">
-				<H3>Chunk Sequence Numbers</H3>
-				<p>A 4 byte sequence number appears in both the fcTl and fdAT chunks and these are used to detect or fix the sequence of the frames. The first chunk must contain sequence number 0 and the remaining sequences must be in order, without gaps or duplicates.</p>
-			</section>
-			
+
 			<section class="parallax parallax-bg">
 				<h2>Invalid APNG Handling</h2>
 			</section>
-			
+
 			<section class="no-parallax">
-				<p>As frames can be displayed before the entire image has been read, errors may not be detected until partway through the animation. In this case, decoders will drop all subsequent frames and revert to the default image. But depending on the error in the datastream, the default image may not be shown, the image won’t load and it could crash your software.</p>
-				<img src="styles/images/incorrect chunks.png" alt="incorrect chunks">
+				<p>
+					As frames can be displayed before the entire image has been read, errors may not be
+					detected until partway through the animation. In this case, decoders will drop all
+					subsequent frames and revert to the default image, but depending on the error in the
+					datastream, the default image may not be shown, the image won't load and it could crash
+					your software.
+				</p>
+				<img src="styles/images/incorrect chunks.png" alt="incorrect chunks" />
+                <p>A green rectangle indicates the APNG has loaded correctly</p>
 			</section>
-			
+
 			<section class="parallax parallax-bg">
 				<h2>Competitors</h2>
 			</section>
-			
+
 			<section class="no-parallax">
-				<H3>GIF</H3>
-				<img src="styles/images/gif-apng-1.gif" alt="gif vs png chicken"/>
-				<p>APNG’s most popular competitor is GIF that was initially released back in 1987 and was not designed as an animation medium but could store multiple images in one file. GIF also does not specify repeating animations but most modern browsers automatically loop them using Application Block (NAB).</p>
-				<p>It grew in popularity due to it using LZW data compression that was superior compared to its rivals on release. It allowed large images to be downloaded reasonably quickly despite slow connections and with GIFs supporting interlacing, allowed the user to somewhat recognise the partially downloaded image and cancel the download if it didn’t meet expectations.</p>
-				<p>It is now widely used for small animations and low-resolution video clips as reactions in online messaging to convey emotions and feelings instead of words.</p>
+				<h3>GIF</h3>
+				<img src="styles/images/gif-apng-1.gif" alt="gif vs png chicken" />
+				<p>
+					APNG's most popular competitor is GIF that was initially released back in 1987 and was not
+					designed as an animation medium but could store multiple images in one file. GIF also does
+					not specify repeating animations but most modern browsers automatically loop them using
+					Application Block (NAB).
+				</p>
+				<p>
+					It grew in popularity due to it using LZW data compression that was superior compared to
+					its rivals on release. It allowed large images to be downloaded reasonably quickly despite
+					slow connections and with GIFs supporting interlacing, allowed the user to somewhat
+					recognise the partially downloaded image and cancel the download if it didn’t meet
+					expectations.
+				</p>
+				<p>
+					It is now widely used for small animations and low-resolution video clips as reactions in
+					online messaging to convey emotions and feelings instead of words.
+				</p>
 				<h3>WebP</h3>
-				<p>Relatively new to the scene being released in 2010 by Google that provides superior lossless and lossy compression intended as a replacement for both the PNG and GIF file formats. It got its animation features a year after the initial release and is very widely supported by modern browsers.
+				<p>
+					Relatively new to the scene being released in 2010 by Google that provides superior
+					lossless and lossy compression intended as a replacement for both the PNG and GIF file
+					formats. It got its animation features a year after the initial release and is very widely
+					supported by modern browsers.
 				</p>
 				<img src="styles/images/supported_browsers.png" alt="browsers that support APNG file" />
 				<h3>Other animation formats</h3>
-				<p>Videos now can replace APNGs and GIFs in the way they are used on the web. The rapid adoption of HTML5 video and Flash plugin being phased out allowed web pages to natively support video embeds and the ability to loop them using JavaScript which gave them the same appearance as an APNG/GIF with size and speed advantages of compressed video. </p>
-				<p>Some sites will now automatically convert GIF files uploaded to its site to GIFV or MPEG-4 videos to conserve disk space for the same image quality. WebM is another file format that can be embedded into HTML5 video rising in popularity too due to its speed and quality on the web.
+				<p>
+					Videos now can replace APNGs and GIFs in the way they are used on the web. The rapid
+					adoption of HTML5 video and Flash plugin being phased out allowed web pages to natively
+					support video embeds and the ability to loop them using JavaScript which gave them the
+					same appearance as an APNG/GIF with size and speed advantages of compressed video.
+				</p>
+				<p>
+					Some sites will now automatically convert GIF files uploaded to its site to GIFV or MPEG-4
+					videos to conserve disk space for the same image quality. WebM is another file format that
+					can be embedded into HTML5 video rising in popularity too due to its speed and quality on
+					the web.
 				</p>
 			</section>
 
@@ -263,7 +369,15 @@
 
 			<section class="no-parallax">
 				<h3>File Size</h3>
-				<p>APNG uses an improved version of GIF’s LZW compression that will result in smaller file sizes that can predict the colour of a chunk of pixels based on the surrounding pixels that reduces the amount of information stored in a file. This will result in around a ≈17% reduction in file size for the same image. WebP and APNG will result in similar file sizes when using the highest compression but an APNG will generally load faster on a web page, though depending on the compression, a WebP can have up to a 26% smaller file size over a best scenario PNG.</p>
+				<p>
+					APNG uses an improved version of GIF’s LZW compression that will result in smaller file
+					sizes that can predict the colour of a chunk of pixels based on the surrounding pixels
+					that reduces the amount of information stored in a file. This will result in around a ≈17%
+					reduction in file size for the same image. WebP and APNG will result in similar file sizes
+					when using the highest compression but an APNG will generally load faster on a web page,
+					though depending on the compression, a WebP can have up to a 26% smaller file size over a
+					best scenario PNG.
+				</p>
 				<table>
 					<tr>
 						<th>File dimension</th>
@@ -290,15 +404,18 @@
 						<td>-4.57%</td>
 					</tr>
 					<tr>
-						<td> </td>
-						<td> </td>
-						<td> </td>
+						<td></td>
+						<td></td>
+						<td></td>
 						<td>Average</td>
 						<td>-17.35%</td>
 						<td>0.03%</td>
 					</tr>
 				</table>
-				<p>If you compare these multi-image file formats to MP4 and WebM for an animation, the benefits of using other animation formats is apparent.</p>
+				<p>
+					If you compare these multi-image file formats to MP4 and WebM for an animation, the
+					benefits of using other animation formats is apparent.
+				</p>
 				<table>
 					<tr>
 						<th>File Type Type</th>
@@ -332,14 +449,41 @@
 					</tr>
 				</table>
 				<h3>Colours</h3>
-				<p>APNGs and WebP also support 24-bit colour (truecolor) which allows for millions of colours to be used in the one file compared to the mere 256 colours normally used in GIFs. It is possible to make GIFs in truecolor by splitting up an image into sections that don’t have more than 256 different colours each, then displaying all the sections together in a tile. This will result in a very large file and not all GIF rendering programs can handle these tiled files correctly.</p>
-				<img src ="styles/images/colours.png" alt="colours of an APNG file" />
+				<p>
+					APNGs and WebP also support 24-bit colour (truecolor) which allows for millions of colours
+					to be used in the one file compared to the mere 256 colours normally used in GIFs. It is
+					possible to make GIFs in truecolor by splitting up an image into sections that don't have
+					more than 256 different colours each, then displaying all the sections together in a tile.
+					This will result in a very large file and not all GIF rendering programs can handle these
+					tiled files correctly.
+				</p>
+				<img src="styles/images/colours.png" alt="colours of an APNG file" />
 				<h3>Support and Popularity</h3>
-				<p>Despite its shortcomings of huge file sizes, limited colour, and slow encoding, GIFs remain the most widely supported and popular animation file format on the internet. A report on w3tech shows it has fallen in popularity recently compared to other file formats that have improved functionality and features than the GIF.</p>
-				<p>WebP is increasing in popularity as a file format for the web that supports similar features as a PNG. An advantage they have is by default is a smaller file size which can increase the gap to up to a 26%.</p>
-				<img src ="styles/images/trends.png" alt="Historical trends in the usage statistics of image file formats for websites, March 2022" />
-				<p>While PNG remains one of the most used file formats on the web, the adoption for APNG is still very narrow. The most visited websites support the APNG file format but beyond that, there aren’t many websites that will read the ancillary chunks for APNG to display an animation.</p>
-				<img src ="styles/images/statistics.png" alt="WebP vs. APNG usage statistics, March 2022 (w3techs.com)" />
+				<p>
+					Despite its shortcomings of huge file sizes, limited colour, and slow encoding, GIFs
+					remain the most widely supported and popular animation file format on the internet. A
+					report on w3tech shows it has fallen in popularity recently compared to other file formats
+					that have improved functionality and features than the GIF.
+				</p>
+				<p>
+					WebP is increasing in popularity as a file format for the web that supports similar
+					features as a PNG. An advantage they have is by default is a smaller file size which can
+					increase the gap to up to a 26%.
+				</p>
+				<img
+					src="styles/images/trends.png"
+					alt="Historical trends in the usage statistics of image file formats for websites, March 2022"
+				/>
+				<p>
+					While PNG remains one of the most used file formats on the web, the adoption for APNG is
+					still very narrow. The most visited websites support the APNG file format but beyond that,
+					there aren't many websites that will read the ancillary chunks for APNG to display an
+					animation.
+				</p>
+				<img
+					src="styles/images/statistics.png"
+					alt="WebP vs. APNG usage statistics, March 2022 (w3techs.com)"
+				/>
 			</section>
 
 			<section class="parallax parallax-bg">
@@ -347,50 +491,74 @@
 			</section>
 
 			<section class="no-parallax">
-				<p>In the modern web, you really shouldn’t be using GIFs anymore due to its huge file size and subpar visual quality and colour choice compared to existing alternatives. Hopefully it will be time to let the format rest after 34 years but it will have a rare appearance due to its portability and support on a wide range of sites but it’s the last resort.</p>
-				<p>If you’re looking for the best quality, lots of features, and all the colours you can see, APNG is a good choice. APNGs greatest boon is that their parent format (PNG) is the most popular way to display images on the web, but that is also its greatest hurdle to gaining popularity. The confusion between the two has been enough to limit its support on a wide range of websites and programs to less than 1% of websites.</p>
-				<img src ="styles/images/usage.png" alt="Percentages of websites using various image file formats" />
-				<p>WebP seems like it has the best of both GIFs and APNG with solid quality and support on a larger variety of websites on top of having the smallest file size of the three. It will be harder to run into issues of having a slow loading animation from a large file size (we’ve all closed a gif if it doesn’t load in 3 seconds) or having subsequent frames not playing at all when ancillary chunks are read in APNGs.</p>
-				<p>If you were really looking for something to display an animation on your website, it’s a no brainer to just embed an HTML5 video and do an extra step to loop the video in JavaScript. This is the method that will save you the most storage space and have the best quality for your animation. There also exists a plethora of websites and software that will help convert between the file types if needed when one of them isn't supported on the site you want to display them on.</p>
+				<p>
+					In the modern web, you really shouldn't be using GIFs anymore due to its huge file size
+					and subpar visual quality and colour choice compared to existing alternatives. Hopefully
+					it will be time to let the format rest after 34 years but it will have a rare appearance
+					due to its portability and support on a wide range of sites but it's the last resort.
+				</p>
+				<p>
+					If you're looking for the best quality, lots of features, and all the colours you can see,
+					APNG is a good choice. APNGs greatest boon is that their parent format (PNG) is the most
+					popular way to display images on the web, but that is also its greatest hurdle to gaining
+					popularity. The confusion between the two has been enough to limit its support on a wide
+					range of websites and programs to less than 1% of websites.
+				</p>
+				<img
+					src="styles/images/usage.png"
+					alt="Percentages of websites using various image file formats"
+				/>
+				<p>
+					WebP seems like it has the best of both GIFs and APNG with solid quality and support on a
+					larger variety of websites on top of having the smallest file size of the three. It will
+					be harder to run into issues of having a slow loading animation from a large file size
+					(we've all closed a gif if it doesn't load in 3 seconds) or having subsequent frames not
+					playing at all when ancillary chunks are read in APNGs.
+				</p>
+				<p>
+					If you were really looking for something to display an animation on your website, it's a
+					no brainer to just embed an HTML5 video and do an extra step to loop the video in
+					JavaScript. This is the method that will save you the most storage space and have the best
+					quality for your animation. There also exists a plethora of websites and software that
+					will help convert between the file types if needed when one of them isn't supported on the
+					site you want to display them on.
+				</p>
 			</section>
 
 			<section class="parallax parallax-bg">
-				<h2>Summary of the APNG</h2>
+				<h2>Summary</h2>
 			</section>
 
 			<section class="no-parallax">
-				<p>APNG came at a time when there were very limited alternatives and provided superior quality and size to its competitors. It was well received by few boasting how much better than GIF it was and pushed as a way to speed up a website. Sadly it failed gaining popularity due to conflicted visions by the maintainers where some wanted it and others did not want it to be included in the PNG specification. </p>
-				<p>An APNG just adds 3 chunks on top of the PNG file structure which when missing/skipped during decode, will display a static PNG image most of the time which will occur frequently due to its narrow support.</p>
-				<p>In the modern day internet, the APNG is supported on the most visited sites but will still display a static image on the large majority of sites. Newer alternatives such as WebP and HTML5 video support provide better file size and similar quality that are replacing GIFs which was the goal of the APNG. </p>
+				<p>
+					APNG came at a time when there were very limited alternatives and provided superior
+					quality and size to its competitors. It was well received by few boasting how much better
+					than GIF it was and pushed as a way to speed up a website. Sadly it failed gaining
+					popularity due to conflicted visions by the maintainers where some wanted it and others
+					did not want it to be included in the PNG specification.
+				</p>
+				<p>
+					An APNG just adds 3 chunks on top of the PNG file structure which when missing/skipped
+					during decode, will display a static PNG image most of the time which will occur
+					frequently due to its narrow support.
+				</p>
+				<p>
+					In the modern day internet, the APNG is supported on the most visited sites but will still
+					display a static image on the large majority of sites. Newer alternatives such as WebP and
+					HTML5 video support provide better file size and similar quality that are replacing GIFs
+					which was the goal of the APNG.
+				</p>
 			</section>
 
-
-
-
-			
-
-
-			
-
-
-
-
-
-
-
-
 			<!-- Last section -->
-
-
-
-
 		</main>
-        <footer class="parallax-footer">
-            <a href="mailto:103936755@student.swin.edu.au" target="_blank">103936755 - Jacky Yao</a>
-            <a href="mailto:103622407@student.swin.edu.au" target="_blank">103622407 - Jack Davies</a>
-            <a href="mailto:103499753@student.swin.edu.au" target="_blank">103499753 - Thien An Ly</a>
-            <a href="mailto:103800614@student.swin.edu.au" target="_blank">103800614 - Ravish Randev Kulathanthilage</a>
-            <a href="mailto:103840759@student.swin.edu.au" target="_blank">103840759 - Jian Jia Ng</a>
-        </footer>
+		<footer class="parallax-footer">
+			<a href="mailto:103936755@student.swin.edu.au" target="_blank">103936755 - Jacky Yao</a>
+			<a href="mailto:103622407@student.swin.edu.au" target="_blank">103622407 - Jack Davies</a>
+			<a href="mailto:103499753@student.swin.edu.au" target="_blank">103499753 - Thien An Ly</a>
+			<a href="mailto:103800614@student.swin.edu.au" target="_blank"
+				>103800614 - Ravish Randev Kulathanthilage</a>
+			<a href="mailto:103840759@student.swin.edu.au" target="_blank">103840759 - Jian Jia Ng</a>
+		</footer>
 	</body>
 </html>
