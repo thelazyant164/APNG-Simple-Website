@@ -93,7 +93,7 @@ footer{
     bottom: 0;
     width: 100%;
     display: flex;
-    align-items: center; /*`*/
+    align-items: center;
     justify-content: space-between;
 }
 footer a:hover {
@@ -280,7 +280,7 @@ aside img#aside-img{
   padding-top: 10vmin;
   padding-bottom: 10vmin;
   z-index: 2;
-  font: bold 5vmin;*
+  font: bold 5vmin;
 }
 
 #parallax-container section h3 a{
@@ -368,6 +368,7 @@ text-align: left;
 /*For quiz.html*/
 /*animation*/
 @keyframes floatleft {
+  
   from {left: 100vw;}
   to {left: 0vw;}
 }
@@ -412,6 +413,7 @@ text-align: left;
 }
 
 form{
+  background: var(--shader);
   height: auto;
   display: flex;
   flex-direction: column;
@@ -422,8 +424,6 @@ form{
 }
 
 form::after{
-  background: var(--shader);
-  background-size: cover;
   background-repeat: no-repeat;
   content: ' ';
   position: absolute;
