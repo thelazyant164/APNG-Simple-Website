@@ -26,7 +26,7 @@
                     <li><a href="quiz.html" target="_blank">Quiz</a></li>
                     <li><a href="topic.html" target="_blank">Topic</a></li>
                     <li><a href="index.html" target="_blank">Home</a></li>
-					<li><a href="https://www.youtube.com/watch?v=iik25wqIuFo" target="__blank"><img alt="youtube button" class="youtube" src="styles/images/youtube.png "/></a></li>
+					<li><a href="https://www.youtube.com/watch?v=iik25wqIuFo"><img alt="youtube button" class="youtube" src="styles/images/youtube.png "/></a></li>
 				</ul>
 			</nav>
 		</header>
@@ -39,10 +39,10 @@
 				<h2 id="subtitle">Test your knowledge by filling out these reinforcement questions!</h2>
 
 				<!-- Info -->
-				<section class="bubble" id="info">
+				<div class="bubble" id="info">
 					<fieldset class="grow">
+						<legend>Info</legend>
 						<div class="question">
-							<legend>Info</legend>
 							<div class="content">
 								<div>
 									<label for="first_name">First name:</label>
@@ -59,13 +59,13 @@
 							</div>
 						</div>
 					</fieldset>
-				</section>
+				</div>
 
 				<!-- Text input question -->
-				<section class="bubble" id="bubble1">
+				<div class="bubble" id="bubble1">
 					<fieldset class="grow">
+						<legend>Question 1: Support for what sets APNG apart from GIF?</legend>
 						<div class="question">
-							<legend>Question 1: Support for what sets APNG apart from GIF?</legend>
 							<div class="content">
 								<div>
 									<label for="question1">Answer:</label>
@@ -74,13 +74,13 @@
 							</div>
 						</div>
 					</fieldset>
-				</section>
+				</div>
 
 				<!-- Radio choice question -->
-				<section class="bubble" id="bubble2">
+				<div class="bubble" id="bubble2">
 					<fieldset class="grow">
+						<legend>Question 2: When was APNG first developed?</legend>
 						<div class="question">
-							<legend>Question 2: When was APNG first developed?</legend>
 							<div class="content">
 								<div class="multiple-choice">
 									<input type="radio" id="first_choice" name="year_developed" value="2002">
@@ -101,13 +101,13 @@
 							</div>
 						</div>
 					</fieldset>
-				</section>
+				</div>
 
 				<!-- Checkbox question -->
-				<section class="bubble" id="bubble3">
+				<div class="bubble" id="bubble3">
 					<fieldset class="grow">
+						<legend>Question 3: Tick all browsers whose current version supports APNG?</legend>
 						<div class="question">
-							<legend>Question 3: Tick all browsers whose current version supports APNG?</legend>
 							<div class="content">
 								<div class="multiple-choice">
 									<input type="checkbox" id="first_option" name="browser_support[]" value="Chrome">
@@ -128,13 +128,13 @@
 							</div>
 						</div>
 					</fieldset>
-				</section>
+				</div>
 
 				<!-- Drop-down question -->
-				<section  class="bubble" id="bubble4">
+				<div class="bubble" id="bubble4">
 					<fieldset class="grow">
+						<legend>Question 4: Who developed APNG?</legend>
 						<div class="question">
-							<legend>Question 4: Who developed APNG?</legend>
 							<div class="content">
 								<div>
 									<label for="question4">Answer:</label>
@@ -148,20 +148,21 @@
 							</div>
 						</div>
 					</fieldset>
-				</section>
+				</div>
 
 				<!-- Text area question -->
-				<section class="bubble" id="bubble5">
+				<div class="bubble" id="bubble5">
 					<fieldset class="grow">
+						<legend>Question 5: What is APNG's full name?</legend>
 						<div class="question">
-							<legend>Question 5: What is APNG's full name?</legend>
+							
 							<div class="content">
 								<label for="textarea">Answer: </label>
-								<textarea id="textarea" name="long_name" rows="10" cols="40" pattern="[a-z A-Z]{2,200}" >Write your answer...</textarea>
+								<textarea id="textarea" name="long_name" rows="5" cols="120">Write your answer...</textarea>
 							</div>
 						</div>
 					</fieldset>
-				</section>
+				</div>
 
 				<!-- Submit button -->
 				<div class="bubble" id="submit-bubble">

@@ -505,7 +505,7 @@ fieldset.grow{
 
 /*set size before grow*/
 .grow{
-  width: 35vw;
+  width: 50vw;
   transition: width 0.5s ease-in-out;
 }
 
@@ -515,20 +515,23 @@ fieldset.grow{
 
 .bubble .question{
   border-collapse: separate;
-  padding: 3vmin;
+  padding: 2vmin 3vmin 3vmin 3vmin;
 }
-.bubble .question legend{
-  margin-top: 0;
-  margin-bottom: 0;
+.bubble legend{
+  padding-top: 3vmin;
+  padding-left: 4vmin;
+  padding-right: 4vmin;
   color: var(--bubble-title);
   text-align: left;
   font-size: 3.5vmin;
   font-family: "Google Sans", sans-serif;
+  font-weight: bold;
 }
 .bubble .content label{
   padding: 1vmin;
   color: var(--bubble-text);
   font-family: "Google Sans", sans-serif;
+  font-size: 3vmin;
 }
 
 .bubble .question .content{
@@ -536,7 +539,6 @@ fieldset.grow{
   flex-direction: column;
   float: right;
   padding-bottom: 2vmin;
-  margin-top: 2vmin;
   margin-bottom: 0;
   color: var(--bubble-text);
   float: left;
@@ -585,10 +587,10 @@ select{
 }
 
 textarea{
-  padding-left: 2vmin;
+  margin-left: 2vmin;
   border-radius: 5px;
   border: none;
-  margin-bottom: 2vmin;
+  margin-bottom: 3vmin;
 }
 
 .bubble .question .content input:hover{
@@ -596,7 +598,7 @@ textarea{
 }
 
 /*Input size before grow*/
-.bubble .grow .content textarea, .bubble .grow .content div:not(.multiple-choice) input{
+.bubble .grow .content div:not(.multiple-choice) input{
   width: 20vw;
   transition: width 0.5s ease-in-out;
 }
@@ -607,14 +609,14 @@ textarea{
 }
 
 /*Textarea size before grow*/
-.bubble .grow:hover .content textarea{
+.bubble .grow .content textarea{
   transition: width 0.5s ease-in-out;
-  width: 20vw;
+  width: 40vw;
 }
 
 /*Textarea size after grow*/
 .bubble .grow:hover .content textarea{
-  width: 40vw;
+  width: 60vw;
 }
 
 /*when dark mode is selected, change set of global (color) variables*/
