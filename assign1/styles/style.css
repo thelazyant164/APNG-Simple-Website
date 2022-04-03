@@ -1,5 +1,9 @@
-/*
-Author: Aly & Jian
+/* 
+filename: "style.css"
+author: "Aly & Jian"
+created: "28/02/2022"
+last modified: "06/04/2022"
+description: "contains styling information for all 4 pages"
 Purpose: to style 4 pages (index, topic, quiz, enhancements)
 */
 
@@ -25,6 +29,15 @@ Purpose: to style 4 pages (index, topic, quiz, enhancements)
 .citation span.indent{
   display: inline-block;
   width: 5em;
+}
+
+.citation a{
+  text-decoration: none;
+  color: var(--text);
+}
+
+.citation a:hover{
+  opacity: 50%;
 }
 
 /* Navbar */
@@ -256,6 +269,8 @@ aside{
   width: 30%;
   display: flex;
   justify-content: flex-end;
+  margin: 3vh 3vw 1.75vh 3vw;
+  padding: 1vh 1vw 1vh 1vw;
 }
 
 aside p#scribble{
@@ -269,18 +284,21 @@ aside img#aside-img{
 }
 
 #parallax-container section.parallax h1 {
-  font-size: 5vmin;
-  font-family: "Google Sans", sans-serif;
+  font: bold 6.5vmin "Google Sans", sans-serif;
   margin-left: 10vmin;
+  margin-right: 10vmin;
   padding-top: 10vmin;
   padding-bottom: 10vmin;
   z-index: 2;
-  font: bold 5vmin;
 }
 
 #parallax-container section h3 a{
   color: var(--title);
   text-decoration: underline;
+}
+
+#parallax-container section h3 a:hover{
+  opacity: 50%;
 }
 
 #parallax-container section.parallax h2 {
@@ -351,7 +369,6 @@ text-align: left;
 }
 #parallax-container li li{
   list-style-position: inside;
-  /* padding-top: 0em; */
   padding-bottom: 0em;
   margin-left: 0em;
   margin-right: 1em;
