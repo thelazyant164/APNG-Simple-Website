@@ -30,7 +30,14 @@
 					<li><a href="quiz.html" target="_blank">Quiz</a></li>
 					<li><a href="topic.html" target="_blank">Topic</a></li>
 					<li><a href="index.html" target="_blank">Home</a></li>
-					<li><a href="https://www.youtube.com/watch?v=iik25wqIuFo" target="_blank" rel="noreferrer noopener"><img alt="youtube button" class="youtube" src="images/youtube.png "/></a></li>
+					<li>
+						<a
+							href="https://www.youtube.com/watch?v=iik25wqIuFo"
+							target="_blank"
+							rel="noreferrer noopener"
+							><img alt="youtube button" class="youtube" src="images/youtube.png "
+						/></a>
+					</li>
 				</ul>
 			</nav>
 		</header>
@@ -40,7 +47,6 @@
 				<h2>What Is It?</h2>
 			</section>
 			<section class="no-parallax">
-				<h2>What is it?</h2>
 				<p>
 					It extends the popular Portable Network Graphics (PNG) file format specification to allow
 					images to be animated similarly to animated GIF files with additional features. The first
@@ -149,8 +155,12 @@
 					Since the APNG is an extension on the PNG file format, the base structure of the
 					file/datastream is the same.
 				</p>
-				<img src="images/lattice_diagram.png" alt="lattice diagram" />
-				<p>The above image shows the file structure of a PNG file without a PLTE chunk.</p>
+				<figure>
+					<img src="images/lattice_diagram.png" alt="lattice diagram" />
+					<figcaption>
+						The above image shows the file structure of a PNG file without a PLTE chunk.
+					</figcaption>
+				</figure>
 			</section>
 			<section class="parallax parallax-bg">
 				<h2>Critical Chunks</h2>
@@ -232,10 +242,16 @@
 					<li>fcTL: The Frame Control Chunk</li>
 					<li>fdAT: The Frame Data Chunk</li>
 				</ul>
-				<img
-					src="images/APNG_chunks.png"
-					alt="Diagram illustrating a possible way to assemble an animated PNG from three individual PNG files"
-				/>
+				<figure>
+					<img
+						src="images/APNG_chunks.png"
+						alt="Diagram illustrating a possible way to assemble an animated PNG from three individual PNG files"
+					/>
+					<figcaption>
+						Diagram illustrating a possible way to assemble an animated PNG from three individual
+						PNG files
+					</figcaption>
+				</figure>
 				<h3>Animation control chunk (acTL)</h3>
 				<p>
 					This appears before the IDAT chunks and communicates to the decoder the file is an APNG
@@ -268,11 +284,12 @@
 						it
 					</li>
 				</ul>
-				<img src="images/alpha_channel.png" alt="Using the Alpha Channel" />
-				<p>
-					The image on the right shows how translucency can be applied to an object using the alpha
-					channel.
-				</p>
+				<figure>
+					<img src="images/alpha_channel.png" alt="Using the Alpha Channel" />
+					<figcaption>
+						How translucency can be applied to an object using the alpha channel.
+					</figcaption>
+				</figure>
 				<h3>Frame data chunk (fDat)</h3>
 				<p>
 					fdAT chunks have the same function and similar structure as an IDAT chunk. The only
@@ -300,7 +317,11 @@
 					datastream, the default image may not be shown, the image won't load and it could crash
 					your software.
 				</p>
-				<img src="images/incorrect_chunks.png" alt="incorrect chunks" />
+				<figure>
+					<img src="images/incorrect_chunks.png" alt="incorrect chunks" />
+					<figcaption>How incorrect APNG chunks are handled in the browser.</figcaption>
+					<figcaption>Green Rectangle = Successful Render</figcaption>
+				</figure>
 				<p>A green rectangle indicates the APNG has loaded correctly</p>
 			</section>
 
@@ -310,7 +331,10 @@
 
 			<section class="no-parallax">
 				<h3>GIF</h3>
-				<img src="images/gif-apng-1.gif" alt="gif vs png chicken" />
+				<figure>
+					<img src="images/gif-apng-1.gif" alt="gif vs apng chicken" />
+					<figcaption>Gif vs APNG</figcaption>
+				</figure>
 				<p>
 					APNG's most popular competitor is GIF that was initially released back in 1987 and was not
 					designed as an animation medium but could store multiple images in one file. GIF also does
@@ -335,7 +359,10 @@
 					formats. It got its animation features a year after the initial release and is very widely
 					supported by modern browsers.
 				</p>
-				<img src="images/webp.png" alt="support for webp file format" />
+				<figure>
+					<img src="images/webp.png" alt="support for webp file format" />
+					<figcaption>Web Browser support for WebP file formats</figcaption>
+				</figure>
 				<h3>Other animation formats</h3>
 				<p>
 					Videos now can replace APNGs and GIFs in the way they are used on the web. The rapid
@@ -358,13 +385,13 @@
 			<section class="no-parallax">
 				<h3>File Size</h3>
 				<p>
-					APNG uses an improved version of GIF’s LZW compression that will result in smaller file
-					sizes that can predict the colour of a chunk of pixels based on the surrounding pixels
-					that reduces the amount of information stored in a file. This will result in around a ≈17%
-					reduction in file size for the same image. WebP and APNG will result in similar file sizes
-					when using the highest compression but an APNG will generally load faster on a web page,
-					though depending on the compression, a WebP can have up to a 26% smaller file size over a
-					best scenario PNG.
+					APNG uses a superior compression algorithm compared to GIF's LZW compression that will
+					result in smaller file sizes. It can predict the colour of a chunk of pixels based on the
+					surrounding pixels that reduces the amount of information stored in a file. This will
+					result in around a ≈17% reduction in file size for the same image. WebP and APNG will
+					result in similar file sizes when using the highest compression but an APNG will generally
+					load faster on a web page, though depending on the compression, a WebP can have up to a
+					26% smaller file size over a best scenario PNG.
 				</p>
 				<table>
 					<tr>
@@ -445,7 +472,17 @@
 					This will result in a very large file and not all GIF rendering programs can handle these
 					tiled files correctly.
 				</p>
-				<img src="images/colours.png" alt="colours of an APNG file" />
+				<figure>
+					<img
+						src="images/gif-many-colours-looped.gif"
+						alt="A static GIF with more than 256 colours, combining many frames"
+					/>
+					<figcaption>A static GIF with more than 256 colours, combining many frames</figcaption>
+				</figure>
+				<figure>
+					<img src="images/colours.png" alt="colours of an APNG file" />
+					<figcaption>Colours of an APNG file</figcaption>
+				</figure>
 				<h3>Support and Popularity</h3>
 				<p>
 					Despite its shortcomings of huge file sizes, limited colour, and slow encoding, GIFs
@@ -458,20 +495,29 @@
 					features as a PNG. An advantage they have is by default is a smaller file size which can
 					increase the gap to up to a 26%.
 				</p>
-				<img
-					src="images/trends.png"
-					alt="Historical trends in the usage statistics of image file formats for websites, March 2022"
-				/>
+				<figure>
+					<img
+						src="images/trends.png"
+						alt="Historical trends in the usage statistics of image file formats for websites, March 2022"
+					/>
+					<figcaption>
+						Historical trends in the usage statistics of image file formats for websites, March
+						2022
+					</figcaption>
+				</figure>
 				<p>
 					While PNG remains one of the most used file formats on the web, the adoption for APNG is
 					still very narrow. The most visited websites support the APNG file format but beyond that,
 					there aren't many websites that will read the ancillary chunks for APNG to display an
 					animation.
 				</p>
-				<img
-					src="images/statistics.png"
-					alt="WebP vs. APNG usage statistics, March 2022 (w3techs.com)"
-				/>
+				<figure>
+					<img
+						src="images/statistics.png"
+						alt="WebP vs. APNG usage statistics, March 2022 (w3techs.com)"
+					/>
+					<figcaption>WebP vs. APNG usage statistics, March 2022 (w3techs.com)</figcaption>
+				</figure>
 			</section>
 
 			<section class="parallax parallax-bg">
@@ -493,10 +539,13 @@
 					popularity. The confusion between the two has been enough to limit its support on a wide
 					range of websites and programs to less than 1% of websites.
 				</p>
-				<img
-					src="images/usage.png"
-					alt="Percentages of websites using various image file formats"
-				/>
+				<figure>
+					<img
+						src="images/usage.png"
+						alt="Percentages of websites using various image file formats"
+					/>
+					<figcaption>Percentages of websites using various image file formats</figcaption>
+				</figure>
 				<p>
 					WebP seems like it has the best of both GIFs and APNG with solid quality and support on a
 					larger variety of websites on top of having the smallest file size of the three. It will
