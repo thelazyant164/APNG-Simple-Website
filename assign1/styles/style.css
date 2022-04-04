@@ -389,7 +389,6 @@ text-align: left;
 /*For quiz.html*/
 /*animation*/
 @keyframes floatleft {
-  
   from {left: 100vw;}
   to {left: 0vw;}
 }
@@ -457,13 +456,12 @@ form{
 
 /*Title*/
 #container form h1{
-  padding-top: 10vmin;
-  padding-left: 20vmin;
+  padding-top: 20vh;
   color: var(--bubble-title);
 }
 
 #container form h2{
-  padding-left: 20vmin;
+  padding-left: 10vw;
   padding-bottom: 10vmin;
   color: var(--bubble-title);
 }
@@ -569,38 +567,41 @@ fieldset.grow{
   justify-content: space-between;
 }
 
-#submit-bubble {
-  width: 20vw;
-  height: 5vh;
+#submit-bubble{
+  border-collapse: separate;
+  margin-bottom: 7vh;
+}
+
+#submit-bubble .not-grow .content{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10vmin;
+  justify-content: space-around;
+  padding: 1vh 2vw 1vh 2vw;
 }
 
 #submit-bubble label{
-  padding: 2vmin;
   font-family: "Google Sans", sans-serif;
 }
 
 input{
-  padding-left: 2vmin;
+  font: 2vmin "Google Sans", sans-serif;
   border-radius: 5px;
   border: none;
-  color: var(--)
+  color: var(--);
+  padding: 1vh 2vw 1vh 2vw;
 }
 
 select{
-  padding-left: 2vmin;
-  padding-right: 2.5vmin;
+  font: 2vmin "Google Sans", sans-serif;
   border-radius: 5px;
   border: none;
+  padding: 1vh 2vw 1vh 2vw;
 }
 
 #submit-bubble input{
-  padding-left: 2vmin;
-  padding-right: 2.5vmin;
+  font: 2vmin "Google Sans", sans-serif;
+  padding: 1vh 2vw 1vh 2vw;
 }
 
 textarea{
@@ -608,6 +609,8 @@ textarea{
   border-radius: 5px;
   border: none;
   margin-bottom: 3vmin;
+  font: 2vmin "Google Sans", sans-serif;
+  padding: 1vh 2vw 1vh 2vw;
 }
 
 .bubble .question .content input:hover{
@@ -647,4 +650,164 @@ textarea{
   --btn: #2962fe;
   
   background-color: var(--shader);
+}
+
+/*Responsove design*/
+/*Phone*/
+@media screen and (max-width: 512px) {
+  /*For index.html*/
+  #title{
+    padding-top: 10vh;
+  }
+
+  #subtitle{
+    font-size: 4vmin;
+  }
+
+  #learn-more{
+    font-size: 4vmin;
+    height: 10vmin;
+    width: 35vmin;
+  }
+
+
+
+  /*For topic.html & enhancements.html*/
+  #parallax-container section.parallax h1 {
+    font: bold 6.5vmin "Google Sans", sans-serif;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 10vmin;
+    padding-bottom: 10vmin;
+    z-index: 2;
+  }
+
+  #parallax-container section.parallax h2 {
+    font-size: 4.5vmin;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 10vh;
+    z-index: 2;
+  }
+
+  #parallax-container .no-parallax h2, #parallax-container .no-parallax h3, #parallax-container .no-parallax th{
+    font-size: 4.5vmin;
+    padding: 1.8vmin;
+    margin-left: 20vmin;
+    margin-right: 30vmin;
+  }
+
+  #parallax-container p, #parallax-container td, #parallax-container li{
+    padding: 5vmin;
+    font-size: 2.2vmin;
+    margin-left: 20vmin;
+    margin-right: 20vmin;
+  }
+
+
+
+  /*For quiz.html*/
+  #container form h1{
+    padding-top: 10vh;
+  }
+
+  .grow{
+    width: 60vw;
+  }
+
+  .grow:hover{
+    width: 75vw;
+  }
+
+  /*Input size before grow*/
+  .bubble .grow .content div:not(.multiple-choice) input{
+    width: 30vw;
+  }
+
+  /*Input size after grow*/
+  .bubble .grow:hover .content div:not(.multiple-choice) input{
+    width: 55vw;
+  }
+
+  /*Textarea size before grow*/
+  .bubble .grow .content textarea{
+    width: 40vw;
+  }
+
+  /*Textarea size after grow*/
+  .bubble .grow:hover .content textarea{
+    width: 55vw;
+  }
+
+  input{
+    padding: 0.5vh 1vw 0.5vh 1vw;
+  }
+
+  select{
+    padding: 0.5vh 1vw 0.5vh 1vw;
+  }
+}
+
+/*Tablet*/
+@media screen and (min-width: 512px) and (max-width: 1024px) {
+  /*For index.html*/
+  #title{
+    padding-top: 10vh;
+  }
+
+  #subtitle{
+    font-size: 3.5vmin;
+  }
+
+  #learn-more{
+    font-size: 3.5vmin;
+    height: 8vmin;
+    width: 32vmin;
+  }
+
+  /*For topic.html & enhancements.html*/
+
+
+  
+
+  /*For quiz.html*/
+  #container form h1{
+    padding-top: 10vh;
+  }
+
+  .grow{
+    width: 60vw;
+  }
+
+  .grow:hover{
+    width: 75vw;
+  }
+
+  /*Input size before grow*/
+  .bubble .grow .content div:not(.multiple-choice) input{
+    width: 30vw;
+  }
+
+  /*Input size after grow*/
+  .bubble .grow:hover .content div:not(.multiple-choice) input{
+    width: 50vw;
+  }
+
+  /*Textarea size before grow*/
+  .bubble .grow .content textarea{
+    width: 40vw;
+  }
+
+  /*Textarea size after grow*/
+  .bubble .grow:hover .content textarea{
+    width: 55vw;
+  }
+
+  input{
+    padding: 0.5vh 1vw 0.5vh 1vw;
+  }
+
+  select{
+    padding: 0.5vh 1vw 0.5vh 1vw;
+  }
 }
