@@ -44,11 +44,12 @@ span.bold {
 }
 
 table {
+  margin: 2vh 0 2vh 0;
   margin-left: 21.3vmin;
   margin-right: 21.3vmin;
-  border: 1px solid;
-  border-collapse: none;
-  border-color: black;
+  border: 1.5px solid;
+  border-collapse: collapse;
+  border-color: var(--text);
 }
 
 /* Navbar */
