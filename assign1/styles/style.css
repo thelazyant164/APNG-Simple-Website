@@ -19,6 +19,9 @@ Purpose: to style 4 pages (index, topic, quiz, enhancements)
 }
 
 /*For all pages*/
+span.bold {
+  font-weight: bold; 
+}
 /*citations*/
 /*italic spans*/
 .citation span.italic {
@@ -38,6 +41,12 @@ Purpose: to style 4 pages (index, topic, quiz, enhancements)
 
 .citation a:hover{
   opacity: 50%;
+}
+
+table {
+  margin-left: 21.3vmin;
+  margin-right: 21.3vmin;
+  border: 1px solid;
 }
 
 /* Navbar */
@@ -358,7 +367,7 @@ text-align: left;
 
 #parallax-container p, #parallax-container td, #parallax-container li{
   color: var(--text);
-  padding: 1.8vmin;
+  padding: 1.3vmin;
   font-size: 2.2vmin;
   font-family: "Google Sans", sans-serif;
   margin-left: 20vmin;
@@ -702,7 +711,7 @@ textarea{
   }
 
   #parallax-container p, #parallax-container td, #parallax-container li{
-    padding: 4.5vmin;
+    padding: 1.3vmin;
     font-size: 4vmin;
     margin-left: 5vw;
     margin-right: 5vw;
@@ -720,7 +729,16 @@ textarea{
     margin: auto;
   }
 
+  table {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border: 1px solid;
+  }
 
+  .overflowTable {
+    width: 90%;
+    overflow-x: auto;
+   }
 
   /*For quiz.html*/
   #container form h1{
@@ -816,7 +834,7 @@ textarea{
 
   #parallax-container p, #parallax-container td, #parallax-container li{
     font-size: 3vmin;
-    padding: 4.5vmin;
+    padding: 1.3vmin;
     margin-left: 5vw;
     margin-right: 5vw;
   }
@@ -833,7 +851,16 @@ textarea{
     margin: auto;
   }
 
-  
+  table {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border: 1px solid;
+  }
+
+  .overflowTable {
+   width: 90%;
+   overflow-x: auto;
+  }
 
   /*For quiz.html*/
   #container form h1{
