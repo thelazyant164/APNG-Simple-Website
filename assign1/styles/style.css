@@ -47,6 +47,8 @@ table {
   margin-left: 21.3vmin;
   margin-right: 21.3vmin;
   border: 1px solid;
+  border-collapse: none;
+  border-color: black;
 }
 
 /* Navbar */
@@ -303,6 +305,10 @@ aside img#aside-img{
   padding-top: 10vmin;
   padding-bottom: 10vmin;
   z-index: 2;
+}
+
+th {
+  background-color: #8baaad;
 }
 
 #parallax-container section h3 a{
