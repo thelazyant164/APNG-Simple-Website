@@ -269,8 +269,8 @@ main#parallax-container{
 }
 
 .no-parallax img{
-  width: 55vmin;
-  height: 30vmin;
+  max-width: 71.5vw;
+  height: auto;
   margin-left: 20vmin;
   padding: 1.8vmin;
 }
@@ -365,7 +365,7 @@ text-align: left;
   margin-right: 30vmin;
 }
 
-#parallax-container p, #parallax-container td, #parallax-container li{
+#parallax-container p, #parallax-container td, #parallax-container li, #parallax-container figcaption{
   color: var(--text);
   padding: 1.3vmin;
   font-size: 2.2vmin;
@@ -710,11 +710,24 @@ textarea{
     margin-right: 5vw;
   }
 
+<<<<<<< HEAD
   #parallax-container p, #parallax-container td, #parallax-container li{
     padding: 1.3vmin;
+=======
+  #parallax-container p, #parallax-container td, #parallax-container li, #parallax-container figcaption{
+    padding: 4.5vmin;
+>>>>>>> a25f265d5500a04448a629d0b314713fed450b73
     font-size: 4vmin;
     margin-left: 5vw;
     margin-right: 5vw;
+  }
+
+  .no-parallax img{
+    max-width: 71.2vw;
+    height: auto;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding: 0 4.5vmin;
   }
 
   /*indentation spans*/
@@ -832,11 +845,19 @@ textarea{
     margin-right: 5vw;
   }
 
-  #parallax-container p, #parallax-container td, #parallax-container li{
+  #parallax-container p, #parallax-container td, #parallax-container li, #parallax-container figcaption{
     font-size: 3vmin;
     padding: 1.3vmin;
     margin-left: 5vw;
     margin-right: 5vw;
+  }
+
+  .no-parallax img{
+    max-width: 71vw;
+    height: auto;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding: 0 4.5vmin;
   }
 
   /*indentation spans*/
