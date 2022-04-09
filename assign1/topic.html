@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>APNG topic</title>
 		<link href="styles/style.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Google+Sans" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	</head>
 
@@ -47,13 +48,19 @@
 				<h2>What Is It?</h2>
 			</section>
 			<section class="no-parallax">
+				<h3>Familiar, but not quite?</h3>
 				<p>
 					It extends the popular Portable Network Graphics (PNG) file format specification to allow
 					images to be animated similarly to animated GIF files with additional features. The first
 					frame of an APNG file is stored as a normal PNG. Since it is an extension of PNG, most
 					standard decoders will be able to display the file without additional work.
 				</p>
-				<p>Basically, it is a PNG file with additional chunks of data to allow for animations.</p>
+				<dl>
+					<dt>Basically, it is:</dt>
+					<dd>A PNG file</dd>
+					<dd>With additional chunks of data</dd>
+					<dd>Allows for animations</dd>
+				</dl>
 			</section>
 			<section class="parallax parallax-bg">
 				<h2>Why Does It Exist?</h2>
@@ -105,46 +112,45 @@
 					frame is displayed.
 				</p>
 				<table>
-					<tr>
+					<tr class="align-center">
 						<th>Browsers</th>
 						<th>Versions</th>
 					</tr>
 					<tr>
 						<td>Google Chrome</td>
-						<td>96-102</td>
+						<td class="align-right">96-102</td>
 					</tr>
 					<tr>
 						<td>Firefox</td>
-						<td>96-100</td>
+						<td class="align-right">96-100</td>
 					</tr>
 					<tr>
 						<td>Microsoft Edge</td>
-						<td>97-99</td>
+						<td class="align-right">97-99</td>
 					</tr>
 					<tr>
 						<td>Safari</td>
-						<td>14.1-15.4</td>
+						<td class="align-right">14.1-15.4</td>
 					</tr>
 					<tr>
 						<td>Opera</td>
-						<td>11</td>
+						<td class="align-right">11</td>
 					</tr>
 					<tr>
 						<td>Safari on IOS</td>
-						<td>12.5-15.4</td>
+						<td class="align-right">12.5-15.4</td>
 					</tr>
 					<tr>
 						<td>Chrome for android</td>
-						<td>99</td>
+						<td class="align-right">99</td>
 					</tr>
 					<tr>
 						<td>Samsung internet</td>
-						<td>16</td>
+						<td class="align-right">16</td>
 					</tr>
 					<tr>
 						<td>Internet Explorer</td>
-						<!--are we gonna highlight cell red?-->
-						<td>not supported</td>
+						<td class="align-right">not supported</td>
 					</tr>
 				</table>
 			</section>
@@ -232,7 +238,7 @@
 			</section>
 
 			<section class="parallax parallax-bg">
-				<h2>Ancillary chunks</h2>
+				<h2>Ancillary Chunks</h2>
 			</section>
 			<section class="no-parallax">
 				<p>
@@ -315,8 +321,7 @@
 				</p>
 				<figure>
 					<img src="images/incorrect_chunks.png" alt="incorrect chunks" />
-					<figcaption>How incorrect APNG chunks are handled in the browser.</figcaption>
-					<figcaption>Green Rectangle = Successful Render</figcaption>
+					<figcaption>How incorrect APNG chunks are handled in the browser (green = successful)</figcaption>
 				</figure>
 				<p>A green rectangle indicates the APNG has loaded correctly</p>
 			</section>
@@ -391,7 +396,7 @@
 				</p>
 				<div class="overflowTable">
 					<table>
-						<tr>
+						<tr class="align-center">
 							<th>File dimension</th>
 							<th>GIF</th>
 							<th>Webp</th>
@@ -401,27 +406,27 @@
 						</tr>
 						<tr>
 							<td>800x450</td>
-							<td>37.9MB</td>
-							<td>30.82MB</td>
-							<td>31.22MB</td>
-							<td>-17.63%</td>
-							<td>1.30%</td>
+							<td class="align-right">37.9MB</td>
+							<td class="align-right">30.82MB</td>
+							<td class="align-right">31.22MB</td>
+							<td class="align-right">-17.63%</td>
+							<td class="align-right">1.30%</td>
 						</tr>
 						<tr>
 							<td>300x169</td>
-							<td>4.93MB</td>
-							<td>4.16MB</td>
-							<td>3.97MB</td>
-							<td>-19.47%</td>
-							<td>-4.57%</td>
+							<td class="align-right">4.93MB</td>
+							<td class="align-right">4.16MB</td>
+							<td class="align-right">3.97MB</td>
+							<td class="align-right">-19.47%</td>
+							<td class="align-right">-4.57%</td>
 						</tr>
 						<tr>
 							<td></td>
 							<td></td>
 							<td></td>
 							<td><span class = "bold">Average</span></td>
-							<td>-17.35%</td>
-							<td>0.03%</td>
+							<td class="align-right">-17.35%</td>
+							<td class="align-right">0.03%</td>
 						</tr>
 					</table>
 				</div>
@@ -430,35 +435,35 @@
 					benefits of using other animation formats is apparent.
 				</p>
 				<table>
-					<tr>
-						<th>File Type Type</th>
+					<tr class="align-center">
+						<th>File Type</th>
 						<th>Size</th>
 						<th>Size vs APNG</th>
 					</tr>
 					<tr>
 						<td>Unoptimized Gif</td>
-						<td>37.9MB</td>
-						<td>22.77%</td>
+						<td class="align-right">37.9MB</td>
+						<td class="align-right">22.77%</td>
 					</tr>
 					<tr>
 						<td>Default Webp</td>
-						<td>30.8MB</td>
-						<td>-0.16%</td>
+						<td class="align-right">30.8MB</td>
+						<td class="align-right">-0.16%</td>
 					</tr>
 					<tr>
 						<td>APNG Zopfli 100 Iterations</td>
-						<td>30.9MB</td>
-						<td>0.00%</td>
+						<td class="align-right">30.9MB</td>
+						<td class="align-right">0.00%</td>
 					</tr>
 					<tr>
 						<td>Trimmed MP4</td>
-						<td>0.5MB</td>
-						<td>-98.52%</td>
+						<td class="align-right">0.5MB</td>
+						<td class="align-right">-98.52%</td>
 					</tr>
 					<tr>
 						<td>WebM</td>
-						<td>0.2MB</td>
-						<td>-99.41%</td>
+						<td class="align-right">0.2MB</td>
+						<td class="align-right">-99.41%</td>
 					</tr>
 				</table>
 				<h3>Colours</h3>

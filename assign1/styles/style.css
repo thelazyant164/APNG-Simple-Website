@@ -19,9 +19,30 @@ Purpose: to style 4 pages (index, topic, quiz, enhancements)
 }
 
 /*For all pages*/
+/*setup global (color) variables (by default: for light mode)*/
+:root{
+  --shader: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url('images/BG.png');
+  --bg: #f8fafc;
+  --bubble-bg: #8baaad;
+  --bubble-border: #272838;
+  --bubble-title: #272838;
+  --bubble-text: #272838;
+}
+
+/*centred*/
+.align-center{
+  text-align: center;
+}
+
+.align-right{
+  text-align: right;
+}
+
+/*bold spans*/
 span.bold {
   font-weight: bold; 
 }
+
 /*citations*/
 /*italic spans*/
 .citation span.italic {
@@ -41,15 +62,6 @@ span.bold {
 
 .citation a:hover{
   opacity: 50%;
-}
-
-table {
-  margin: 2vh 0 2vh 0;
-  margin-left: 21.3vmin;
-  margin-right: 21.3vmin;
-  border: 1.5px solid;
-  border-collapse: collapse;
-  border-color: var(--text);
 }
 
 /* Navbar */
@@ -145,6 +157,7 @@ footer.parallax-footer{
 }
 
 
+
 /*For index.html*/
 /*animations*/
 @keyframes fromleft {
@@ -238,6 +251,7 @@ main#bg-container::after{
 }
 
 
+
 /*For topic.html & enhancements.html*/
 /*Alternating parallax sections*/
 main#parallax-container{
@@ -280,7 +294,7 @@ main#parallax-container{
 
 aside{
   background: var(--bubble-bg);
-  border: 0.5vmin solid var(--bubble-border);
+  border: 1.5px solid var(--bubble-border);
   align-self: flex-end;
   width: 30%;
   display: flex;
@@ -354,13 +368,17 @@ th {
   margin-left: 20vmin;
 }
 
-#parallax-container .no-parallax h2, #parallax-container .no-parallax h3, #parallax-container .no-parallax th{
+#parallax-container .no-parallax h2, #parallax-container .no-parallax h3, #parallax-container .no-parallax th, #parallax-container .no-parallax dt{
   color: var(--title);
   font-size: 3vmin;
   font-family: "Google Sans", sans-serif;
   padding: 1.8vmin;
   margin-left: 20vmin;
   margin-right: 30vmin;
+}
+
+#parallax-container .no-parallax dt{
+  font-weight: bold;
 }
 
 #parallax-container .no-parallax th{
@@ -372,7 +390,7 @@ text-align: left;
   margin-right: 30vmin;
 }
 
-#parallax-container p, #parallax-container td, #parallax-container li, #parallax-container figcaption{
+#parallax-container p, #parallax-container td, #parallax-container li, #parallax-container figcaption, #parallax-container dd{
   color: var(--text);
   padding: 1.3vmin;
   font-size: 2.2vmin;
@@ -381,18 +399,39 @@ text-align: left;
   margin-right: 20vmin;
 }
 
+#parallax-container .no-parallax dd{
+  padding-top: 0.3vmin;
+  padding-bottom: 0.3vmin;
+  transition: margin-left 0.2s ease-in-out;
+}
+
+#parallax-container .no-parallax dd:hover{
+  margin-left: 22vmin;
+}
+
 #parallax-container li{
   list-style-position: inside;
   padding-top: 0.2em;
   padding-bottom: 0.5em;
   padding-left: 2em;
 }
+
 #parallax-container li li{
   list-style-position: inside;
   padding-bottom: 0em;
   margin-left: 0em;
   margin-right: 1em;
 }
+
+#parallax-container .no-parallax table{
+  margin: 2vh 0 2vh 0;
+  margin-left: 21.3vmin;
+  margin-right: 21.3vmin;
+  border: 1.5px solid;
+  border-collapse: collapse;
+  border-color: var(--text);
+}
+
 /*darkmode config*/
 #toggleMode:checked ~ #parallax-container{
   --shader: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/BG.png');
@@ -462,16 +501,6 @@ form{
   flex-direction: column;
   gap: 3vmin;
   align-items: flex-start;
-}
-
-/*setup global (color) variables (by default: for light mode)*/
-:root{
-  --shader: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url('images/BG.png');
-  --bg: #f8fafc;
-  --bubble-bg: #8baaad;
-  --bubble-border: #272838;
-  --bubble-title: #272838;
-  --bubble-text: #272838;
 }
 
 /*Title*/
@@ -672,6 +701,9 @@ textarea{
   background-color: var(--shader);
 }
 
+
+
+
 /*Responsove design*/
 /*Phone*/
 @media screen and (max-width: 512px) {
@@ -748,15 +780,20 @@ textarea{
     margin: auto;
   }
 
-  table {
-    margin-left: 5vw;
-    margin-right: 5vw;
-    border: 1px solid;
+  #parallax-container .no-parallax .overflowTable table {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #parallax-container .no-parallax table{
+    margin-left: 8vw;
+    margin-right: 8vw;
   }
 
   .overflowTable {
-    width: 90%;
+    width: 82%;
     overflow-x: auto;
+    margin-left: 8vw;
    }
 
   /*For quiz.html*/
@@ -806,6 +843,8 @@ textarea{
     font-size: 2vmin;
   }
 }
+
+
 
 /*Tablet*/
 @media screen and (min-width: 512px) and (max-width: 1024px) {
@@ -878,15 +917,20 @@ textarea{
     margin: auto;
   }
 
-  table {
+  #parallax-container .no-parallax .overflowTable table {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #parallax-container .no-parallax table{
     margin-left: 5vw;
     margin-right: 5vw;
-    border: 1px solid;
   }
 
   .overflowTable {
-   width: 90%;
-   overflow-x: auto;
+    width: 88%;
+    overflow-x: auto;
+    margin-left: 5vw;
   }
 
   /*For quiz.html*/
