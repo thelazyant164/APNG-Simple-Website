@@ -1,0 +1,982 @@
+/* 
+filename: "style.css"
+author: "Aly & Jian"
+created: "28/02/2022"
+last modified: "06/04/2022"
+description: "contains styling information for all 4 pages"
+Purpose: to style 4 pages (index, topic, quiz, enhancements)
+*/
+
+/*Reset CSS*/
+*{
+  padding: 0;
+  margin: 0;
+}
+
+/*remove underline from anchors*/
+*:link{
+  text-decoration: none;
+}
+
+/*For all pages*/
+/*setup global (color) variables (by default: for light mode)*/
+:root{
+  --shader: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url('images/BG.png');
+  --bg: #f8fafc;
+  --bubble-bg: #8baaad;
+  --bubble-border: #272838;
+  --bubble-title: #272838;
+  --bubble-text: #272838;
+}
+
+/*centred*/
+.align-center{
+  text-align: center;
+}
+
+.align-right{
+  text-align: right;
+}
+
+/*bold spans*/
+span.bold {
+  font-weight: bold; 
+}
+
+/*citations*/
+/*italic spans*/
+.citation span.italic {
+  font-style: italic;
+}
+
+/*indentation spans*/
+.citation span.indent{
+  display: inline-block;
+  width: 5em;
+}
+
+.citation a{
+  text-decoration: none;
+  color: var(--text);
+}
+
+.citation a:hover{
+  opacity: 50%;
+}
+
+/* Navbar */
+nav {
+    z-index: 9999;
+    overflow:hidden;
+    background-color: #272838;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+/* navbar links */
+nav ul li, nav a{
+    list-style-type: none;
+    float: right;
+    display: block;
+    color: #8baaad;
+    text-align: center;
+    padding: 0.5vh 0.5vw 0 0.5vw;
+    font-size: 2.3vmin;
+    font-family: "Google Sans", sans-serif;
+}
+
+/*Select Dark Mode button*/
+nav ul li label{
+    display: block;
+    list-style-type: none;
+    float: left;
+    justify-content: space-around;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0.25vh 0.5vw;
+}
+
+.material-icons.md-32 {
+  font-size: 3.2vmin;
+  color: #8baaad;
+}
+
+.youtube{
+  width: 3vmin;
+}
+
+nav ul li#toggler{
+  float: left;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+/* background image */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+/*justify all paragraphs*/
+body p{
+  text-align: justify;
+}
+
+/* Footer */
+footer{
+    background-color: #272838;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+footer a:hover {
+    color: yellow;
+}
+footer a {
+    display: inline-block;
+    color: #8BAAAD;
+    text-align: center;
+    padding: 1vh 0.5vw;
+    text-decoration: none;
+    font-size: 1.5vmin;
+    font-family: "Google Sans", sans-serif;
+    font-style: italic;
+}
+footer.parallax-footer{
+  position: fixed;
+  bottom: 0;
+}
+
+
+
+/*For index.html*/
+/*animations*/
+@keyframes fromleft {
+  from {left: 100vw;}
+  to {left: 0;}
+}
+
+main#bg-container{
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100vw;
+  height: 100vh;
+  color: #272838
+}
+
+main#bg-container::after{
+  background: var(--shader);
+  background-repeat: repeat;
+  background-size: contain;
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#title {
+  position: relative;
+  padding-top: 20vh;
+  padding-left: 10vw;
+  padding-right: 25vw;
+  padding-bottom: 2vh;
+  font-size: 10vmin;
+  font-family: "Google Sans", sans-serif;
+  animation: fromleft 3s ease-out 0s 1;
+  animation-fill-mode: both;
+  color: var(--title);
+}
+
+#subtitle {
+  position: relative;
+  padding-left: 10vw;
+  padding-right: 25vw;
+  font-size: 2.5vmin;
+  font-family: "Google Sans", sans-serif;
+  animation: fromleft 3s ease-out 0.5s 1;
+  animation-fill-mode: both;
+  color: var(--text);
+}
+
+/*learn-more button*/
+#learn-more {
+  position: relative;
+  text-decoration: none;
+  margin-top: 2vh;
+  margin-left: 10vw;
+  border-radius: 20px;
+  background-color: #8baaad;
+  border: 0.5vmin solid var(--bubble-border);
+  height: 5.5vmin;
+  width: 21vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bubble-text);
+  animation: fromleft 3s ease-out 1s 1;
+  animation-fill-mode: both;
+  color: var(--text);
+  font-size: 2vmin;
+  font-family: "Google Sans", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+
+#learn-more::after{
+  z-index: 10;
+}
+
+/*Dark mode implementation*/
+/*darkmode config*/
+#toggleMode:checked ~ #bg-container{
+  --shader: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/BG.png');
+  --title: #F4FFF8;
+  --text: #F4FFF8;
+  --bubble-bg: #272838;
+  --bubble-border: #1f2322;
+  --bubble-text: #ffffff;
+}
+
+
+
+/*For topic.html & enhancements.html*/
+/*Alternating parallax sections*/
+main#parallax-container{
+  height: 100%;
+  overflow-x: hidden;
+  perspective: 1px;
+  width: 100%;
+  color: #272838;
+}
+
+#parallax-container section{
+  transform-style: preserve-3d;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--title);
+  width: auto;
+}
+
+.parallax {
+  flex-direction: column;
+  height: 75vh;
+}
+
+.no-parallax {
+  padding: 5vmin;
+  flex-direction: column;
+  height: auto;
+  background-color: var(--bg);
+  z-index: 1;
+}
+
+.no-parallax img{
+  max-width: 71.5vw;
+  height: auto;
+  margin-left: 20vmin;
+  padding: 1.8vmin;
+}
+
+aside{
+  background: var(--bubble-bg);
+  border: 1.5px solid var(--bubble-border);
+  align-self: flex-end;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 3vh 3vw 1.75vh 3vw;
+  padding: 1vh 1vw 1vh 1vw;
+}
+
+aside p#scribble{
+  margin: auto;
+}
+
+aside img#aside-img{
+  width: 30%;
+  height: 30%;
+  margin: auto;
+}
+
+#parallax-container section.parallax h1 {
+  font: bold 6.5vmin "Google Sans", sans-serif;
+  margin-left: 10vmin;
+  margin-right: 10vmin;
+  padding-top: 10vmin;
+  padding-bottom: 10vmin;
+  z-index: 2;
+}
+
+th {
+  background-color: #8baaad;
+}
+
+#parallax-container section h3 a{
+  color: var(--title);
+  text-decoration: underline;
+}
+
+#parallax-container section h3 a:hover{
+  opacity: 50%;
+}
+
+#parallax-container section.parallax h2 {
+  font-size: 4.5vmin;
+  font-family: "Google Sans", sans-serif;
+  margin-left: 20vmin;
+  padding-top: 10vmin;
+  padding-bottom: 10vmin;
+  z-index: 2;
+}
+
+.parallax::after {
+  content: '';
+}
+
+.parallax-bg::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--shader);
+  background-size: contain;
+  background-repeat: repeat;
+  transform: translateZ(-0.5px) scale(1.6);
+  z-index: -1;
+}
+
+/*Dark mode implementation*/
+#parallax-container h1{
+  margin-top: 20px;
+  color: var(--title);
+  margin-left: 20vmin;
+}
+
+#parallax-container .no-parallax h2, #parallax-container .no-parallax h3, #parallax-container .no-parallax th, #parallax-container .no-parallax dt{
+  color: var(--title);
+  font-size: 3vmin;
+  font-family: "Google Sans", sans-serif;
+  padding: 1.8vmin;
+  margin-left: 20vmin;
+  margin-right: 30vmin;
+}
+
+#parallax-container .no-parallax dt{
+  font-weight: bold;
+}
+
+#parallax-container .no-parallax th{
+text-align: left;
+}
+
+#parallax-container .parallax h2{
+  align-self: flex-end;
+  margin-right: 30vmin;
+}
+
+#parallax-container p, #parallax-container td, #parallax-container li, #parallax-container figcaption, #parallax-container dd{
+  color: var(--text);
+  padding: 1.3vmin;
+  font-size: 2.2vmin;
+  font-family: "Google Sans", sans-serif;
+  margin-left: 20vmin;
+  margin-right: 20vmin;
+}
+
+#parallax-container .no-parallax dd{
+  padding-top: 0.3vmin;
+  padding-bottom: 0.3vmin;
+  transition: margin-left 0.2s ease-in-out;
+}
+
+#parallax-container .no-parallax dd:hover{
+  margin-left: 22vmin;
+}
+
+#parallax-container li{
+  list-style-position: inside;
+  padding-top: 0.2em;
+  padding-bottom: 0.5em;
+  padding-left: 2em;
+}
+
+#parallax-container li li{
+  list-style-position: inside;
+  padding-bottom: 0em;
+  margin-left: 0em;
+  margin-right: 1em;
+}
+
+#parallax-container .no-parallax table{
+  margin: 2vh 0 2vh 0;
+  margin-left: 21.3vmin;
+  margin-right: 21.3vmin;
+  border: 1.5px solid;
+  border-collapse: collapse;
+  border-color: var(--text);
+}
+
+/*darkmode config*/
+#toggleMode:checked ~ #parallax-container{
+  --shader: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/BG.png');
+  --title: #F4FFF8;
+  --text: #F4FFF8;
+  --bg: #272838;
+  /*--bubble-bg: #272838;*/
+  --bubble-border: #F4FFF8;
+  --bubble-text: #F4FFF8;
+}
+
+
+
+/*For quiz.html*/
+/*animation*/
+@keyframes floatleft {
+  from {left: 100vw;}
+  to {left: 0vw;}
+}
+
+/*Dark mode implementation*/
+/*By default, light mode is picked ("Dark mode" label is displayed and "Light mode" label is hidden)*/
+#toggleDark{
+  display: inline;
+}
+#toggleLight{
+  display: none;
+}
+#toggleDark:hover, #toggleLight:hover{
+  color: yellow;
+}
+
+/*If checked, toggleLight ("Light mode" label) will display and toggleDark ("Dark mode" label) will be hidden*/
+#toggleMode:checked ~ header nav ul li #toggleDark{
+  display: none;
+}
+#toggleMode:checked ~ header nav ul li #toggleLight{
+  display: inline;
+}
+
+/*TOGGLERS*/
+/*Hide square button*/
+#toggleMode{
+  visibility: hidden;
+}
+
+/*Pin to screen*/
+#toggleDark, #toggleLight{
+  cursor: pointer;
+  z-index: 2;
+}
+
+/*CONTAINER*/
+#container{
+  height: auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+form{
+  background: var(--shader);
+  background-size: contain;
+  background-attachment: fixed;
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3vmin;
+  align-items: flex-start;
+}
+
+/*Title*/
+#container form h1{
+  padding-top: 20vh;
+  color: var(--bubble-title);
+}
+
+#container form h2{
+  padding-left: 10vw;
+  padding-bottom: 10vmin;
+  color: var(--bubble-title);
+}
+
+/*BUBBLE*/
+.bubble{
+  position:relative;
+  flex-grow: 0;
+  margin-left: 10vw;
+  margin-right: 3%;
+  margin-bottom: 2%;
+  width: auto;
+  border-radius: 20px;
+  border: 0.5vmin solid var(--bubble-border);
+  display: inline-block;
+  height: auto;
+  justify-content: left;
+  background-color: var(--bubble-bg);
+  animation-fill-mode: both;
+  animation: floatleft 6s ease-in-out 0s 1 normal;
+}
+
+#bubble1 {
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+#bubble2 {
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
+
+#bubble3 {
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+}
+
+#bubble4 {
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+
+#bubble5 {
+  animation-delay: 2.5s;
+  animation-fill-mode: both;
+}
+
+#submit-bubble {
+  animation-delay: 3s;
+  animation-fill-mode: both;
+}
+
+fieldset.grow{
+  border: none;
+}
+
+/*set size before grow*/
+.grow{
+  width: 50vw;
+  transition: width 0.5s ease-in-out;
+}
+
+.grow:hover {
+  width: 70vw;
+}
+
+.bubble .question{
+  border-collapse: separate;
+  padding: 2vmin 3vmin 3vmin 3vmin;
+}
+.bubble legend{
+  padding-top: 3vmin;
+  padding-left: 4vmin;
+  padding-right: 4vmin;
+  color: var(--bubble-title);
+  text-align: left;
+  font-size: 3.5vmin;
+  font-family: "Google Sans", sans-serif;
+  font-weight: bold;
+}
+.bubble .content label{
+  padding: 1vmin;
+  color: var(--bubble-text);
+  font-family: "Google Sans", sans-serif;
+  font-size: 3vmin;
+}
+
+.bubble .question .content{
+  display: flex;
+  flex-direction: column;
+  float: right;
+  padding-bottom: 2vmin;
+  margin-bottom: 0;
+  color: var(--bubble-text);
+  float: left;
+  text-align: left;
+}
+
+.bubble .question .content div:not(.multiple-choice){
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#submit-bubble{
+  border-collapse: separate;
+  margin-bottom: 7vh;
+}
+
+#submit-bubble .not-grow .content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1vh 2vw 1vh 2vw;
+}
+
+#submit-bubble label{
+  font-family: "Google Sans", sans-serif;
+}
+
+input{
+  font: 2vmin "Google Sans", sans-serif;
+  border-radius: 5px;
+  border: none;
+  color: var(--);
+  padding: 1vh 2vw 1vh 2vw;
+}
+
+select{
+  font: 2vmin "Google Sans", sans-serif;
+  border-radius: 5px;
+  border: none;
+  padding: 1vh 2vw 1vh 2vw;
+}
+
+#submit-bubble input{
+  font: 2vmin "Google Sans", sans-serif;
+  padding: 1vh 2vw 1vh 2vw;
+}
+
+textarea{
+  margin-left: 2vmin;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 3vmin;
+  font: 2vmin "Google Sans", sans-serif;
+  padding: 1vh 2vw 1vh 2vw;
+}
+
+.bubble .question .content input:hover{
+  opacity: 50%;
+}
+
+/*Input size before grow*/
+.bubble .grow .content div:not(.multiple-choice) input{
+  width: 20vw;
+  transition: width 0.5s ease-in-out;
+}
+
+/*Input size after grow*/
+.bubble .grow:hover .content div:not(.multiple-choice) input{
+  width: 40vw;
+}
+
+/*Textarea size before grow*/
+.bubble .grow .content textarea{
+  transition: width 0.5s ease-in-out;
+  width: 40vw;
+}
+
+/*Textarea size after grow*/
+.bubble .grow:hover .content textarea{
+  width: 60vw;
+}
+
+/*when dark mode is selected, change set of global (color) variables*/
+/*darkmode config*/
+#toggleMode:checked ~ #container{
+  --shader: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/BG.png');
+  --bubble-bg: #272838;
+  --bubble-border: #1f2322;
+  --bubble-title: #F4FFF8;
+  --bubble-text: #F4FFF8;
+  --btn: #2962fe;
+  
+  background-color: var(--shader);
+}
+
+
+
+
+/*Responsove design*/
+/*Phone*/
+@media screen and (max-width: 512px) {
+  /*For index.html*/
+  #title{
+    padding-top: 10vh;
+  }
+
+  #subtitle{
+    font-size: 4vmin;
+  }
+
+  #learn-more{
+    font-size: 4vmin;
+    height: 10vmin;
+    width: 35vmin;
+  }
+
+
+
+  /*For topic.html & enhancements.html*/
+  #parallax-container section.parallax h1 {
+    font: bold 7.5vmin "Google Sans", sans-serif;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 10vmin;
+    padding-bottom: 10vmin;
+    z-index: 2;
+  }
+
+  #parallax-container section.parallax h2 {
+    font-size: 6.5vmin;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 10vh;
+    z-index: 2;
+  }
+
+  #parallax-container .no-parallax h2, #parallax-container .no-parallax h3, #parallax-container .no-parallax th{
+    font-size: 5vmin;
+    padding: 1.8vmin;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  #parallax-container p, #parallax-container td, #parallax-container li, #parallax-container figcaption{
+    padding: 4.5vmin;
+    font-size: 4vmin;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  #parallax-container td{
+    padding: 1.3vmin;
+  }
+
+  .no-parallax img{
+    max-width: 71.2vw;
+    height: auto;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding: 0 4.5vmin;
+  }
+
+  /*indentation spans*/
+  .citation span.indent{
+    display: inline-block;
+    width: 2em;
+  }
+
+  /*aside*/
+  aside{
+    width: 95%;
+    margin: auto;
+  }
+
+  #parallax-container .no-parallax .overflowTable table {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #parallax-container .no-parallax table{
+    margin-left: 8vw;
+    margin-right: 8vw;
+  }
+
+  .overflowTable {
+    width: 82%;
+    overflow-x: auto;
+    margin-left: 8vw;
+   }
+
+  /*For quiz.html*/
+  #container form h1{
+    padding-top: 10vh;
+  }
+
+  .grow{
+    width: 60vw;
+  }
+
+  .grow:hover{
+    width: 75vw;
+  }
+
+  /*Input size before grow*/
+  .bubble .grow .content div:not(.multiple-choice) input{
+    width: 30vw;
+  }
+
+  /*Input size after grow*/
+  .bubble .grow:hover .content div:not(.multiple-choice) input{
+    width: 55vw;
+  }
+
+  /*Textarea size before grow*/
+  .bubble .grow .content textarea{
+    width: 40vw;
+  }
+
+  /*Textarea size after grow*/
+  .bubble .grow:hover .content textarea{
+    width: 55vw;
+  }
+
+  input{
+    padding: 0.5vh 1vw 0.5vh 1vw;
+    font-size: 2vmin;
+  }
+
+  select{
+    padding: 0.5vh 1vw 0.5vh 1vw;
+    font-size: clamp(10px, 2vmin, 2vmin);
+  }
+
+  textarea{
+    font-size: 2vmin;
+  }
+}
+
+
+
+/*Tablet*/
+@media screen and (min-width: 512px) and (max-width: 1024px) {
+  /*For index.html*/
+  #title{
+    padding-top: 10vh;
+  }
+
+  #subtitle{
+    font-size: 3.5vmin;
+  }
+
+  #learn-more{
+    font-size: 3.5vmin;
+    height: 8vmin;
+    width: 32vmin;
+  }
+
+
+
+  /*For topic.html & enhancements.html*/
+  #parallax-container section.parallax h1 {
+    font: bold 10vmin "Google Sans", sans-serif;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 10vmin;
+    padding-bottom: 10vmin;
+    z-index: 2;
+  }
+
+  #parallax-container section.parallax h2 {
+    font-size: 7vmin;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 10vh;
+    z-index: 2;
+  }
+
+  #parallax-container .no-parallax h2, #parallax-container .no-parallax h3, #parallax-container .no-parallax th{
+    font-size: 4vmin;
+    padding: 1.8vmin;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  #parallax-container p, #parallax-container td, #parallax-container li, #parallax-container figcaption{
+    font-size: 3vmin;
+    padding: 1.3vmin;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  .no-parallax img{
+    max-width: 71vw;
+    height: auto;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding: 0 4.5vmin;
+  }
+
+  /*indentation spans*/
+  .citation span.indent{
+    display: inline-block;
+    width: 2em;
+  }
+
+  /*aside*/
+  aside{
+    width: 95%;
+    margin: auto;
+  }
+
+  #parallax-container .no-parallax .overflowTable table {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #parallax-container .no-parallax table{
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  .overflowTable {
+    width: 88%;
+    overflow-x: auto;
+    margin-left: 5vw;
+  }
+
+  /*For quiz.html*/
+  #container form h1{
+    padding-top: 10vh;
+  }
+
+  .grow{
+    width: 60vw;
+  }
+
+  .grow:hover{
+    width: 75vw;
+  }
+
+  /*Input size before grow*/
+  .bubble .grow .content div:not(.multiple-choice) input{
+    width: 30vw;
+  }
+
+  /*Input size after grow*/
+  .bubble .grow:hover .content div:not(.multiple-choice) input{
+    width: 50vw;
+  }
+
+  /*Textarea size before grow*/
+  .bubble .grow .content textarea{
+    width: 40vw;
+  }
+
+  /*Textarea size after grow*/
+  .bubble .grow:hover .content textarea{
+    width: 55vw;
+  }
+
+  input{
+    padding: 0.5vh 1vw 0.5vh 1vw;
+    font-size: 2vmin;
+  }
+
+  select{
+    padding: 0.5vh 1vw 0.5vh 1vw;
+    font-size: 2vmin;
+  }
+
+  textarea{
+    font-size: 2vmin;
+  }
+}
