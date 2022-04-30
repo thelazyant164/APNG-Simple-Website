@@ -58,7 +58,7 @@
 				<h2>Parallax</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>A little bit more subtle, as used on <a href="topic.html#parallax-container" target="_blank">topic page</a> and right <a href="#parallax-container" target="_blank">here</a>.</h3>
+				<h3>A little bit more subtle, as used on <a href="topic.php#parallax-container" target="_blank">topic page</a> and right <a href="#parallax-container" target="_blank">here</a>.</h3>
 				<p>
 					The idea behind a parallax scrolling effect is to shift the elements on the Z-axis, to create several layers
 					and give the impression of depth. This can be achieved through the use of the transformation function
@@ -102,7 +102,7 @@
 				<h2>Animations/Transitions</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>And obviously, animations/transitions - as used on <a href="index.html#bg-container" target="_blank">homepage</a> and <a href="quiz.html#container" target="_blank">quiz</a>.</h3>
+				<h3>And obviously, animations/transitions - as used on <a href="index.php#bg-container" target="_blank">homepage</a> and <a href="quiz.php#container" target="_blank">quiz</a>.</h3>
 				<p>
 					Using keyframes, animations in CSS is actually very simple. The transformation function will be applied
 					dynamically to the element's display, changing the element's attributes according to the pre-set parameters

@@ -26,7 +26,7 @@
                 By exploring this website you learn more about the .APNG file type and how 
                 it's used. 
             </p>
-            <a href="topic.html" id="learn-more" target="_blank">Learn more</a>
+            <a href="topic.php" id="learn-more" target="_blank">Learn more</a>
         </main>
         <?php
             require("footer.inc");
