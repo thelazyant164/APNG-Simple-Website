@@ -14,21 +14,10 @@
 
 	<body>
 		<input type="checkbox" id="toggleMode">
-		<header>
-			<nav>
-				<ul>
-					<li id="toggler">
-						<label for="toggleMode" id="toggleDark"><span class="material-icons md-32">toggle_off</span><span class="material-icons md-32">dark_mode</span></label>
-						<label for="toggleMode" id="toggleLight"><span class="material-icons md-32">toggle_on</span><span class="material-icons md-32">light_mode</span></label>
-					</li>
-					<li><a href="enhancements.html" target="_blank">Enhancements</a></li>
-                    <li><a href="quiz.html" target="_blank">Quiz</a></li>
-                    <li><a href="topic.html" target="_blank">Topic</a></li>
-                    <li><a href="index.html" target="_blank">Home</a></li>
-					<li><a href="https://youtu.be/1NSN55hGJ10"><img alt="youtube button" class="youtube" src="images/youtube.png "/></a></li>
-				</ul>
-			</nav>
-		</header>
+		<?php
+            require("header.inc");
+            createHeader();
+        ?>
 
 		<main id="parallax-container">
 			<section class="parallax parallax-bg">
@@ -137,12 +126,9 @@
 				</p>
 			</section>
 		</main>
-        <footer class="parallax-footer">
-            <a href="mailto:103936755@student.swin.edu.au" target="_blank">103936755 - Jacky Yao</a>
-            <a href="mailto:103622407@student.swin.edu.au" target="_blank">103622407 - Jack Davies</a>
-            <a href="mailto:103499753@student.swin.edu.au" target="_blank">103499753 - Thien An Ly</a>
-            <a href="mailto:103800614@student.swin.edu.au" target="_blank">103800614 - Ravish Randev Kulathanthilage</a>
-            <a href="mailto:103840759@student.swin.edu.au" target="_blank">103840759 - Jian Jia Ng</a>
-        </footer>
+        <?php
+            require("footer.inc");
+            createFooter();
+        ?>
 	</body>
 </html>
