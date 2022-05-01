@@ -35,15 +35,15 @@
 							<div class="content">
 								<div>
 									<label for="first_name">First name:</label>
-									<input type="text" id="first_name" name="first_name" placeholder="First name..." required="required" pattern="[a-zA-Z\s-]{1,30}">
+									<input type="text" id="first_name" name="first_name" placeholder="First name..." required="required" pattern="^[a-zA-Z\s-]{1,30}$">
 								</div>
 								<div>
 									<label for="last_name">Last name:</label>
-									<input type="text" id="last_name" name="last_name" placeholder="Last name..." required="required" pattern="[a-zA-Z\s-]{1,30}">
+									<input type="text" id="last_name" name="last_name" placeholder="Last name..." required="required" pattern="^[a-zA-Z\s-]{1,30}$">
 								</div>
 								<div>
 									<label for="student_id">Student ID:</label>
-									<input type="text" id="student_id" name="student_id" placeholder="Student ID..." required="required" pattern="\d{7}|\d{10}">
+									<input type="text" id="student_id" name="student_id" placeholder="Student ID..." required="required" pattern="^\d{7}|\d{10}$">
 								</div>
 							</div>
 						</div>
@@ -58,7 +58,7 @@
 							<div class="content">
 								<div>
 									<label for="question1">Answer:</label>
-									<input type="text" id="question1" name="support_for" placeholder="Your answer..." pattern="[a-z A-Z]{2,50}" required>
+									<input type="text" id="question1" name="support_for" placeholder="Your answer..." pattern="^[\w\s\d]{2,50}$" required="required">
 								</div>
 							</div>
 						</div>
