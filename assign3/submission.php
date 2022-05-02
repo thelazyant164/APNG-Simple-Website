@@ -30,7 +30,9 @@
            and validate_data($all_var["support_for"], "required")
            and validate_data($all_var["year_developed"], "required");
     }
-    validate_all($_POST);
+    if (!validate_all($_POST)) {
+        echo "<p>Data invalid. Attempt has not been recorded.</p>";
+    }
 
     #Marking
     function mark_all($support_for, $year_developed, $browser_support, $developer, $long_name) {
