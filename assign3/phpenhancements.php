@@ -1,0 +1,135 @@
+<!-- For now, this page holds a copy of enhancements.php; to be edited later when enhancements are all finalized-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="description" content="enhancements"/>
+		<meta name="keywords" content="parallax, scrolling, darkmode, accessibility, animations"/>
+		<meta name="author" content="Aly"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>APNG enhancements</title>
+		<link href="styles/style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Google+Sans" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+
+	<body>
+		<input type="checkbox" id="toggleMode">
+		<?php
+            require("header.inc");
+            createHeader();
+        ?>
+
+		<main id="parallax-container">
+			<section class="parallax parallax-bg">
+				<h1>What enhancements did you spot?</h1>
+			</section>
+			<section class="no-parallax">
+				<h2>Throughout this webpage, 4 enhancements have been used.</h2>
+				<p>If you think you can spot them all, go back and give it a chance before you scroll down further!</p>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Accessibility</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>Look up! Right on the navigation menu, the darkmode <a href="#toggler">toggler</a> is present and functional on all pages.</h3>
+				<p>
+					It is a bit more tricky to implement this without JavaScript, but it is indeed possible to accomplish with pure HTML/CSS.
+					By using the "from...to" selector (~), and by using a hidden checkbox with the pseudo-selector ":checked", we can select a scope
+					of the entire body and make changes to the variables within this scope. By storing all changeable color values as variables,
+					this simple switch can implement a drastic style change across the entire page with a simple click.
+				</p>
+				<p class="citation">
+					Morais, R. <span class="italic">Dark Mode without JavaScript.</span><br/>
+					<span class="indent"></span><a href="https://codepen.io/rafaelsnts/pen/BEzZoX" target="_blank" rel="noreferrer noopener">https://codepen.io/rafaelsnts/<wbr>pen/BEzZoX</a>
+				</p>
+				<h3>But that's not all! Try toggling darkmode. Do the background images appear to be darker/lighter?</h3>
+				<p>
+					By applying the built-in function linear-gradient(), putting the opacity to 65% and applying the image as an underneath layer, CSS automatically
+					generates a "shader" to cover over the image. Passing this entire function as a parameter to the background variable creates two corresponding
+					shaders to help aid in text visibility in both light and darkmode.
+				</p>
+				<p class="citation">
+					Trigo, A. (2021, March 25). <span class="italic">How to create a parallax effect with CSS only.</span><br/>
+					<span class="indent"></span>Alvaro Trigo’s Blog - Web Developing and Design.<br/>
+					<span class="indent"></span><a href="https://alvarotrigo.com/blog/how-to-create-a-parallax-effect-with-css-only" target="_blank" rel="noreferrer noopener">https://alvarotrigo.com/blog/<wbr>how-to-create-a-parallax-effect-with-css-only/</a>
+				</p>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Parallax</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>A little bit more subtle, as used on <a href="topic.php#parallax-container" target="_blank">topic page</a> and right <a href="#parallax-container" target="_blank">here</a>.</h3>
+				<p>
+					The idea behind a parallax scrolling effect is to shift the elements on the Z-axis, to create several layers
+					and give the impression of depth. This can be achieved through the use of the transformation function
+					translateZ(-1x) to "shift" the elements further away from the user, then apply another scale(1.5) to size it
+					back big enough to cover the width of the screen.
+				</p>
+				<h3>What are the steps to do it?</h3>
+				<ol>
+					<li>Give the parent container the {perspective: 1px;} attribute. This is so that all children of that element
+						would be placed in a 3D-simulated environment rather than the traditional 2D plane of the viewport.</li>
+					<li>Seperate the HTML into multiple segments, each within a &lt;section&gt; with either the class "parallax" or "no-parallax".
+						Give all of them the attribute {transform-style: preserve-3d;}</li>
+					<li>Apply to the parallax elements the attributes {position: absolute; top: 0; right: 0; left: 0; bottom: 0;}.
+						Apply the transformation functions above as well. Finally, give it a different Z-index to separate it to a different
+						layer than the base.</li>
+					<li>If the elements scale up bigger than the viewport, scrollbars will appear by default. To prevent this, add the
+						attributes {overflow-x: hidden} to the container.</li>
+				</ol>
+				<p class="citation">
+					Trigo, A. (2021, March 25). <span class="italic">How to create a parallax effect with CSS only.</span><br/>
+					<span class="indent"></span>Alvaro Trigo’s Blog - Web Developing and Design.<br/>
+					<span class="indent"></span><a href="https://alvarotrigo.com/blog/how-to-create-a-parallax-effect-with-css-only/" target="_blank" rel="noreferrer noopener">https://alvarotrigo.com/blog/<wbr>how-to-create-a-parallax-effect-with-css-only/</a>
+				</p>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Responsive</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>The webpage works on mobile and tablets as well!</h3>
+				<p>
+					By targeting media queries for specific device width, CSS rulesets have been established to provide users with a customized, fluid experience,
+					regardless of whatever platform they are browsing on. A custom page layout is designed to present information in the most efficient manner, taken
+					into consideration native devices' viewport width, height and system settings.
+				</p>
+				<p class="citation">
+					W3schools. (2019). <span class="italic">CSS Media query.</span><br/>
+					<span class="indent"></span><a href="https://www.w3schools.com/cssref/css3_pr_mediaquery.asp" target="_blank" rel="noreferrer noopener">https://www.w3schools.com/cssref/<wbr>css3_pr_mediaquery.asp</a>
+				</p>
+			</section>
+			<section class="parallax parallax-bg">
+				<h2>Animations/Transitions</h2>
+			</section>
+			<section class="no-parallax">
+				<h3>And obviously, animations/transitions - as used on <a href="index.php#bg-container" target="_blank">homepage</a> and <a href="quiz.php#container" target="_blank">quiz</a>.</h3>
+				<p>
+					Using keyframes, animations in CSS is actually very simple. The transformation function will be applied
+					dynamically to the element's display, changing the element's attributes according to the pre-set parameters
+					assigned by the designer. There are multiple parameters to adjust to nudge and tweak animation speed, element
+					state before and after, interpolation style, play direction and looping settings. Moreover, one animation
+					can be re-applied multiple times to many elements, so give it a try!
+				</p>
+				<p>
+					Transitions have been applied to quiz page in a way that gives the impression of interactivity: each fieldset
+					responds to being hovered on by expanding in width, demanding user's focus and improving accessibility while
+					receiving input. This is done through the use of the pseudo-selector :hover and overriding the element's default
+					width. Interpolation between the two different rulesets is done automatically.
+				</p>
+				<p class="citation">
+					W3schools. (2019). <span class="italic">CSS Animations.</span><br/>
+					<span class="indent"></span><a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank" rel="noreferrer noopener">https://www.w3schools.com/css/<wbr>css3_animations.asp</a>
+				</p>
+				<p class="citation">
+					W3schools. (2019). <span class="italic">CSS Transitions.</span><br/>
+					<span class="indent"></span><a href="https://www.w3schools.com/css/css3_transitions.asp" target="_blank" rel="noreferrer noopener">https://www.w3schools.com/css/<wbr>css3_transitions.asp</a>
+				</p>
+			</section>
+		</main>
+        <?php
+            require("footer.inc");
+            createFooter();
+        ?>
+	</body>
+</html>

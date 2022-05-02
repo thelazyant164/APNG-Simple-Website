@@ -9,6 +9,7 @@
                             <label for=\"toggleMode\" id=\"toggleDark\"><span class=\"material-icons md-32\">toggle_off</span><span class=\"material-icons md-32\">dark_mode</span></label>\n
                             <label for=\"toggleMode\" id=\"toggleLight\"><span class=\"material-icons md-32\">toggle_on</span><span class=\"material-icons md-32\">light_mode</span></label>\n
                         </li>\n
+                        <li><a href=\"manage.php\" target=\"_blank\">Manage</a></li>\n
                         <li><a href=\"enhancements.php\" target=\"_blank\">Enhancements</a></li>\n
                         <li><a href=\"quiz.php\" target=\"_blank\">Quiz</a></li>\n
                         <li><a href=\"topic.php\" target=\"_blank\">Topic</a></li>\n

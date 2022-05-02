@@ -158,7 +158,7 @@ footer.parallax-footer{
 
 
 
-/*For index.html*/
+/*For index.php*/
 /*animations*/
 @keyframes fromleft {
   from {left: 100vw;}
@@ -252,7 +252,7 @@ main#bg-container::after{
 
 
 
-/*For topic.html & enhancements.html*/
+/*For topic.php & enhancements.php*/
 /*Alternating parallax sections*/
 main#parallax-container{
   height: 100%;
@@ -445,7 +445,7 @@ text-align: left;
 
 
 
-/*For quiz.html*/
+/*For quiz.php and manage.php*/
 /*animation*/
 @keyframes floatleft {
   from {left: 100vw;}
@@ -543,7 +543,7 @@ form{
   animation-fill-mode: both;
 }
 
-#bubble3 {
+#bubble3, #submit-bubble-short {
   animation-delay: 1.5s;
   animation-fill-mode: both;
 }
@@ -616,12 +616,12 @@ fieldset.grow{
   justify-content: space-between;
 }
 
-#submit-bubble{
+#submit-bubble, #submit-bubble-short{
   border-collapse: separate;
   margin-bottom: 7vh;
 }
 
-#submit-bubble .not-grow .content{
+#submit-bubble .not-grow .content, #submit-bubble-short .not-grow .content {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -629,7 +629,7 @@ fieldset.grow{
   padding: 1vh 2vw 1vh 2vw;
 }
 
-#submit-bubble label{
+#submit-bubble label, #submit-bubble-short label {
   font-family: "Google Sans", sans-serif;
 }
 
@@ -648,7 +648,7 @@ select{
   padding: 1vh 2vw 1vh 2vw;
 }
 
-#submit-bubble input{
+#submit-bubble input, #submit-bubble-short input{
   font: 2vmin "Google Sans", sans-serif;
   padding: 1vh 2vw 1vh 2vw;
 }
@@ -707,7 +707,7 @@ textarea{
 /*Responsove design*/
 /*Phone*/
 @media screen and (max-width: 512px) {
-  /*For index.html*/
+  /*For index.php*/
   #title{
     padding-top: 10vh;
   }
@@ -724,7 +724,7 @@ textarea{
 
 
 
-  /*For topic.html & enhancements.html*/
+  /*For topic.php & enhancements.php*/
   #parallax-container section.parallax h1 {
     font: bold 7.5vmin "Google Sans", sans-serif;
     margin-left: 10vw;
@@ -796,7 +796,7 @@ textarea{
     margin-left: 8vw;
    }
 
-  /*For quiz.html*/
+  /*For quiz.php and manage.php*/
   #container form h1{
     padding-top: 10vh;
   }
@@ -848,7 +848,7 @@ textarea{
 
 /*Tablet*/
 @media screen and (min-width: 512px) and (max-width: 1024px) {
-  /*For index.html*/
+  /*For index.php*/
   #title{
     padding-top: 10vh;
   }
@@ -865,7 +865,7 @@ textarea{
 
 
 
-  /*For topic.html & enhancements.html*/
+  /*For topic.php & enhancements.php*/
   #parallax-container section.parallax h1 {
     font: bold 10vmin "Google Sans", sans-serif;
     margin-left: 10vw;
@@ -933,7 +933,7 @@ textarea{
     margin-left: 5vw;
   }
 
-  /*For quiz.html*/
+  /*For quiz.php and manage.php*/
   #container form h1{
     padding-top: 10vh;
   }
