@@ -149,20 +149,24 @@
                 #TODO: change this into marking/grading
                 echo "<table border=\"1\">\n";
                 echo "<tr>\n"
+                    ."<th scope=\"col\">Attempts Taken</th>\n"
                     ."<th scope=\"col\">First name</th>\n"
                     ."<th scope=\"col\">Last name</th>\n"
                     ."<th scope=\"col\">Student ID</th>\n"
-                    ."<th scope=\"col\">Support for</th>\n"
-                    ."<th scope=\"col\">Year developed</th>\n"
-                    ."<th scope=\"col\">Browser support</th>\n"
-                    ."<th scope=\"col\">Developer</th>\n"
-                    ."<th scope=\"col\">Long name</th>\n"
+                    ."<th scope=\"col\">Score</th>\n"
+                    ."<th scope=\"col\">1. Support for</th>\n"
+                    ."<th scope=\"col\">2. Year developed</th>\n"
+                    ."<th scope=\"col\">3. Browser support</th>\n"
+                    ."<th scope=\"col\">4. Developer</th>\n"
+                    ."<th scope=\"col\">5. Long name</th>\n"
                     ."</tr>\n";
                 while ($row = mysqli_fetch_assoc($result_insert)) {
                     echo "<tr>\n";
+                    echo "<td>", $row['attempt_no'], "</th>\n";
                     echo "<td>", $row['first_name'], "</th>\n";
                     echo "<td>", $row['last_name'], "</th>\n";
                     echo "<td>", $row['student_id'], "</th>\n";
+                    echo "<td>", $row['score'], "</th>\n";
                     echo "<td>", $row['support_for'], "</th>\n";
                     echo "<td>", $row['year_developed'], "</th>\n";
                     echo "<td>", $row['browser_support'], "</th>\n";
