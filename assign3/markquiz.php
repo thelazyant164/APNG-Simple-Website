@@ -30,7 +30,7 @@
 			<section class="no-parallax">
 				<?php
                     require("submission.php");
-                    submit();
+                    $submission = submit();
 					require("display.php");
 					display_total_grade();
 				?>
@@ -40,11 +40,11 @@
 			</section>
 			<section class="no-parallax">
 				<?php
-                    display_grades();
+                    display_grades($submission);
                 ?>
 			</section>
             <?php
-                display_answers($attempt_no);
+                display_answers($submission);
             ?>
 		</main>
         <?php

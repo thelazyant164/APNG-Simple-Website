@@ -21,10 +21,7 @@
             or !isset($all_var["last_name"])
             or !isset($all_var["student_id"])
             or !isset($all_var["support_for"])
-            or !isset($all_var["year_developed"])
-            or !isset($all_var["browser_support[]"])
-            or !isset($all_var["developer"])
-            or !isset($all_var["long_name"])) {
+            or !isset($all_var["year_developed"])) {
                 header("location: quiz.php");
             }
             return validate_data($all_var["first_name"], "name")
@@ -39,29 +36,37 @@
 
         #Marking
         function mark_all($support_for, $year_developed, $browser_support, $developer, $long_name) {
-            $score = 0;
-            if ($support_for == "transparency") {
-                $score += 10;
+            $score_answer1 = 0;
+            $score_answer2 = 0;
+            $score_answer3 = 0;
+            $score_answer4 = 0;
+            $score_answer5 = 0;
+            if (strtolower($support_for) == "transparency") {
+                $score_answer1 = 10;
             }
             if ($year_developed == 2004) {
-                $score += 20;
+                $score_answer2 = 20;
             }
             if (in_array("Chrome", $browser_support)) {
-                $score += 5;
+                $score_answer3 += 5;
             }
             if (in_array("Edge", $browser_support)) {
-                $score += 5;
+                $score_answer3 += 5;
             }
             if (in_array("Opera", $browser_support)) {
-                $score += 5;
+                $score_answer3 += 5;
             }
             if ($developer == "Mozilla") {
-                $score += 5;
+                $score_answer4 = 5;
             }
-            if ($long_name == "Animated Portable Network Graphics") {
-                $score += 50;
+            if (strtolower($long_name) == "animated portable network graphics") {
+                $score_answer5 = 50;
             }
-            return $score;
+            return ['score_answer1' => $score_answer1,
+                    'score_answer2' => $score_answer2,
+                    'score_answer3' => $score_answer3,
+                    'score_answer4' => $score_answer4,
+                    'score_answer5' => $score_answer5];
         }
 
         #Import database information, password, username and other config
@@ -80,13 +85,13 @@
 
             #Creates new table if table doesn't exist yet
             $query_create = "CREATE TABLE IF NOT EXISTS " . $sql_table . " (
-                id INT PRIMARY KEY AUTOINCREMENT NULL,
+                id INT PRIMARY KEY AUTO_INCREMENT NULL,
                 first_name VARCHAR(30) NOT NULL,
                 last_name VARCHAR(30) NOT NULL,
                 student_id VARCHAR(10) NOT NULL,
                 support_for VARCHAR(50) NOT NULL,
                 year_developed VARCHAR(4) NOT NULL,
-                browser_support SET('Chrome', 'Edge', 'Opera', 'Internet Explorer'),
+                browser_support VARCHAR(100),
                 developer VARCHAR(9),
                 long_name VARCHAR(1000),
                 attempt_no INT NOT NULL,
@@ -102,8 +107,8 @@
             $support_for = htmlspecialchars(trim($_POST["support_for"]));
             $year_developed = htmlspecialchars(trim($_POST["year_developed"]));
             $browser_support = [];
-            for ($i = 0; $i < count($_POST["browser_support[]"]); $i++) {
-                array_push($browser_support, htmlspecialchars(trim($_POST["browser_support[]"][$i])));
+            for ($i = 0; $i < count($_POST["browser_support"]); $i++) {
+                array_push($browser_support, htmlspecialchars(trim($_POST["browser_support"][$i])));
             }
             $developer = htmlspecialchars(trim($_POST["developer"]));
             $long_name = htmlspecialchars(trim($_POST["long_name"]));
@@ -124,7 +129,10 @@
             }
 
             #Determine score
-            $score = mark_all($support_for, $year_developed, $browser_support, $developer, $long_name);
+            $scores = mark_all($support_for, $year_developed, $browser_support, $developer, $long_name);
+            $score = array_sum($scores);
+
+            $stringify_browser_support = implode(", ", $browser_support);
 
             #Define INSERT query
             $query_insert = "INSERT INTO $sql_table
@@ -132,7 +140,7 @@
                     browser_support, developer, long_name, attempt_no, score, date_attempt)
                     VALUES
                     ('$first_name', '$last_name', '$student_id', '$support_for', '$year_developed',
-                    '$browser_support', '$developer', '$long_name', '$attempt_no', '$score', '$date_attempt')";
+                    '$stringify_browser_support', '$developer', '$long_name', '$attempt_no', '$score', '$date_attempt')";
             
             #Perform INSERT query
             $result_insert = mysqli_query($conn, $query_insert);
@@ -147,33 +155,34 @@
             } else {
                 #Right now, if successful submit, return what has just been submitted
                 #TODO: change this into marking/grading
-                echo "<table border=\"1\">\n";
+                echo "<div class=\"overflowTable\">\n<table border=\"1\">\n";
                 echo "<tr>\n"
                     ."<th scope=\"col\">First name</th>\n"
                     ."<th scope=\"col\">Last name</th>\n"
                     ."<th scope=\"col\">Student ID</th>\n"
-                    ."<th scope=\"col\">Support for</th>\n"
-                    ."<th scope=\"col\">Year developed</th>\n"
-                    ."<th scope=\"col\">Browser support</th>\n"
-                    ."<th scope=\"col\">Developer</th>\n"
-                    ."<th scope=\"col\">Long name</th>\n"
-                    ."</tr>\n";
-                while ($row = mysqli_fetch_assoc($result_insert)) {
-                    echo "<tr>\n";
-                    echo "<td>", $row['first_name'], "</th>\n";
-                    echo "<td>", $row['last_name'], "</th>\n";
-                    echo "<td>", $row['student_id'], "</th>\n";
-                    echo "<td>", $row['support_for'], "</th>\n";
-                    echo "<td>", $row['year_developed'], "</th>\n";
-                    echo "<td>", $row['browser_support'], "</th>\n";
-                    echo "<td>", $row['developer'], "</th>\n";
-                    echo "<td>", $row['long_name'], "</th>\n";
-                    echo "</tr>\n";
-                }
-                echo "</table>\n";
-                mysqli_free_result($result_insert);
+                    ."<th scope=\"col\">Attempt no</th>\n"
+                    ."<th scope=\"col\">Date/time</th>\n"
+                    ."<th scope=\"col\">Score</th>\n"
+                ."</tr>\n"
+                ."<tr>\n"
+                    ."<td>", $first_name, "</th>\n"
+                    ."<td>", $last_name, "</th>\n"
+                    ."<td>", $student_id, "</th>\n"
+                    ."<td>", $attempt_no, "</th>\n"
+                    ."<td>", $date_attempt, "</th>\n"
+                    ."<td>", $score, "</th>\n"
+                ."</tr>\n"
+                ."</table>\n</div>\n";
             }
             mysqli_close($conn);
         }
+        return ['score' => $score,
+                'scores' => $scores,
+                'attempt_no' => $attempt_no,
+                'support_for' => $support_for,
+                'year_developed' => $year_developed,
+                'browser_support' => $stringify_browser_support,
+                'developer' => $developer,
+                'long_name' => $long_name];
     }
 ?>

@@ -93,8 +93,8 @@
 				<div class="bubble" id="submit-bubble-short">
 					<div class="not-grow">
 						<div class="content">
-							<label for="submit">Execute</label>
-							<input type="submit" id="submit"/>
+							<label for="execute">Execute</label>
+							<input type="submit" id="execute" value="Execute"/>
 						</div>
 					</div>
 				</div>

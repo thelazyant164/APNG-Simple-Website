@@ -20,7 +20,7 @@
             }
         }
         function list_all($sql_table) {
-            return "SELECT * FROM " . $sql_table;
+            return "SELECT student_id, first_name, last_name, score, attempt_no FROM " . $sql_table;
         }
         function list_specific($all_var, $sql_table) {
             #Escape all fields and trim all whitespaces
@@ -34,11 +34,11 @@
                     OR student_id = '$student_id'";
         }
         function list_full($sql_table) {
-            return "SELECT student_id, first_name, last_name FROM " . $sql_table
+            return "SELECT student_id, first_name, last_name, score, attempt_no FROM " . $sql_table
                 . " WHERE score = 100 AND attempt_no = 1";
         }
         function list_half($sql_table) {
-            return "SELECT student_id, first_name, last_name FROM " . $sql_table
+            return "SELECT student_id, first_name, last_name, score, attempt_no FROM " . $sql_table
                 . " WHERE score < 50 AND attempt_no = 2";
         }
         function delete_attempts($all_var, $sql_table) {
@@ -121,7 +121,7 @@
             if (!$result) {
                 echo "<p>Something is wrong with $query.</p>";
             #For all list_* queries
-            } else if (startsWith($_POST["request"], "list")) {
+            } else if (substr($_POST["request"], 0, 4) == "list") {
                 #TODO: beautify this
                 echo "<table border=\"1\">\n";
                 echo "<tr>\n"
