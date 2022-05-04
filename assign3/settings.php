@@ -1,5 +1,5 @@
 <?php
-    #PRODUCTION
+    // #PRODUCTION
     // $host = "feenix-mariadb.swin.edu.au";
     // $user = "s103499753";
     // $pwd = "160403";

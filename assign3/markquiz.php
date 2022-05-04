@@ -32,7 +32,7 @@
                     require("submission.php");
                     $submission = submit();
 					require("display.php");
-					display_total_grade();
+					display_total_grade($submission);
 				?>
 			</section>
 			<section class="parallax parallax-bg">

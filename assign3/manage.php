@@ -81,8 +81,12 @@
 									<input type="text" id="student_id" name="student_id" placeholder="Student ID..." pattern="^\d{7}|\d{10}$">        
 								</div>
                                 <div>
-									<label for="attempt_no">Attempt number:</label>
+									<label for="attempt_no">Attempt:</label>
 									<input type="text" id="attempt_no" name="attempt_no" placeholder="1/2 ..." pattern="^[12]$">
+								</div>
+								<div>
+									<label for="score">New score:</label>
+									<input type="text" id="score" name="score" placeholder="50 ..." pattern="^\d{1,3}$">
 								</div>
 							</div>
 						</div>        
