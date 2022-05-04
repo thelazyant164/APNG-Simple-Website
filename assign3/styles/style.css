@@ -538,7 +538,7 @@ form{
   animation-fill-mode: both;
 }
 
-#bubble2 {
+#bubble2, #submit-bubble-shorter {
   animation-delay: 1s;
   animation-fill-mode: both;
 }
@@ -616,12 +616,12 @@ fieldset.grow{
   justify-content: space-between;
 }
 
-#submit-bubble, #submit-bubble-short{
+#submit-bubble, #submit-bubble-short, #submit-bubble-shorter{
   border-collapse: separate;
   margin-bottom: 7vh;
 }
 
-#submit-bubble .not-grow .content, #submit-bubble-short .not-grow .content {
+#submit-bubble .not-grow .content, #submit-bubble-short .not-grow .content, #submit-bubble-shorter .not-grow .content {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -648,7 +648,7 @@ select{
   padding: 1vh 2vw 1vh 2vw;
 }
 
-#submit-bubble input, #submit-bubble-short input{
+#submit-bubble input, #submit-bubble-short input, #submit-bubble-shorter input{
   font: 2vmin "Google Sans", sans-serif;
   padding: 1vh 2vw 1vh 2vw;
 }

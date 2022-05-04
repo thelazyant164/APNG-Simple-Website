@@ -16,8 +16,12 @@
 		<!--Hidden dark mode toggler-->
 		<input type="checkbox" id="toggleMode">
 		<?php
-            require("header.inc");
-            createHeader();
+			require("header.inc");
+			createHeader();
+			#Safeguard against direct php access through URL
+			if (!$_SESSION["login"]) {
+				header("location: login.php");
+			}
         ?>
 		
 		<main id="container">
@@ -25,7 +29,11 @@
 			<form action="queryresult.php" method="POST">
 
 				<h1 id="title">Management</h1>
-				<h2 id="subtitle">Welcome back, admin!</h2>
+				<h2 id="subtitle">Welcome back, 
+				<?php
+					echo $_SESSION['username'];
+				?>
+				!</h2>
 
                 <!-- Radio choice: which query admin would like to make -->
                 <div class="bubble" id="bubble1">
@@ -93,7 +101,7 @@
 					</fieldset>
 				</div>    
 
-				<!-- Submit button -->
+				<!-- Execute button -->
 				<div class="bubble" id="submit-bubble-short">
 					<div class="not-grow">
 						<div class="content">

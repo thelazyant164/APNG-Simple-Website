@@ -10,4 +10,8 @@
     $user = "sql6489905";
     $pwd = "x2dHMBHQT9";
     $sql_db = "sql6489905";
+
+    // #ADMIN credentials
+    // $username = "cos10026_assignment3";
+    // $password = "animatedportablenetworkgraphic";
 ?>
