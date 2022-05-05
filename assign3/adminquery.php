@@ -19,26 +19,33 @@
                     return false;
             }
         }
-        function list_all($sql_table) {
-            return "SELECT student_id, first_name, last_name, score, attempt_no FROM " . $sql_table;
+        function list_all($sql_table1, $sql_table2) {
+            return "SELECT " . $sql_table2 . ".student_id, first_name, last_name, score, attempt_no
+                FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+                . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id";
         }
-        function list_specific($all_var, $sql_table) {
+        function list_specific($all_var, $sql_table1, $sql_table2) {
             #Escape all fields and trim all whitespaces
             $first_name = htmlspecialchars(trim($all_var["first_name"]));
             $last_name = htmlspecialchars(trim($all_var["last_name"]));
             $student_id = htmlspecialchars(trim($all_var["student_id"]));
 
-            return "SELECT * FROM " . $sql_table
-            . " WHERE first_name = '$first_name'
-                    AND last_name = '$last_name'
-                    OR student_id = '$student_id'";
+            return "SELECT * FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+            . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
+                . " WHERE first_name = '$first_name'
+                AND last_name = '$last_name'
+                OR " . $sql_table1. ".student_id = '$student_id'";
         }
-        function list_full($sql_table) {
-            return "SELECT student_id, first_name, last_name, score, attempt_no FROM " . $sql_table
+        function list_full($sql_table1, $sql_table2) {
+            return "SELECT " . $sql_table2 . ".student_id, first_name, last_name, score, attempt_no
+                FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+                . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
                 . " WHERE score = 100 AND attempt_no = 1";
         }
-        function list_half($sql_table) {
-            return "SELECT student_id, first_name, last_name, score, attempt_no FROM " . $sql_table
+        function list_half($sql_table1, $sql_table2) {
+            return "SELECT " . $sql_table2 . ".student_id, first_name, last_name, score, attempt_no
+                FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+                . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
                 . " WHERE score < 50 AND attempt_no = 2";
         }
         function delete_attempts($all_var, $sql_table) {
@@ -88,27 +95,27 @@
 
         #Connection succeeds
         } else {
-            $sql_table = "attempts";
-
+            $sql_table1 = "students";
+            $sql_table2 = "attempts";
             #Determine query
             switch ($_POST["request"]) {
                 case "list_all":
-                    $query = list_all($sql_table);
+                    $query = list_all($sql_table1, $sql_table2);
                     break;
                 case "list_specific":
-                    $query = list_specific($_POST, $sql_table);
+                    $query = list_specific($_POST, $sql_table1, $sql_table2);
                     break;
                 case "list_full":
-                    $query = list_full($sql_table);
+                    $query = list_full($sql_table1, $sql_table2);
                     break;
                 case "list_half":
-                    $query = list_half($sql_table);
+                    $query = list_half($sql_table1, $sql_table2);
                     break;
                 case "delete_attempts":
-                    $query = delete_attempts($_POST, $sql_table);
+                    $query = delete_attempts($_POST, $sql_table1);
                     break;
                 case "update_score":
-                    $query = update_score($_POST, $sql_table);
+                    $query = update_score($_POST, $sql_table2);
                     break;
                 default:
                     header("location: manage.php");

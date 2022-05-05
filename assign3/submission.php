@@ -81,13 +81,18 @@
 
         #Connection succeeds
         } else {
-            $sql_table = "attempts";
+            $sql_table1 = "students";
+            $sql_table2 = "attempts";
 
-            #Creates new table if table doesn't exist yet
-            $query_create = "CREATE TABLE IF NOT EXISTS " . $sql_table . " (
-                id INT PRIMARY KEY AUTO_INCREMENT NULL,
+            #Creates new "students" table if table doesn't exist yet
+            $query_create1 = "CREATE TABLE IF NOT EXISTS " . $sql_table1 . " (
+                student_id VARCHAR(10) PRIMARY KEY NOT NULL,
                 first_name VARCHAR(30) NOT NULL,
-                last_name VARCHAR(30) NOT NULL,
+                last_name VARCHAR(30) NOT NULL
+            )";
+            #Creates new "attempts" table if table doesn't exist yet
+            $query_create2 = "CREATE TABLE IF NOT EXISTS " . $sql_table2 . " (
+                attempt_id INT PRIMARY KEY AUTO_INCREMENT NULL,
                 student_id VARCHAR(10) NOT NULL,
                 support_for VARCHAR(50) NOT NULL,
                 year_developed VARCHAR(4) NOT NULL,
@@ -96,9 +101,11 @@
                 long_name VARCHAR(1000),
                 attempt_no INT NOT NULL,
                 score INT NOT NULL,
-                date_attempt DATETIME NOT NULL
+                date_attempt DATETIME NOT NULL,
+                FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
             )";
-            $result_create = mysqli_query($conn, $query_create);
+            $result_create1 = mysqli_query($conn, $query_create1);
+            $result_create2 = mysqli_query($conn, $query_create2);
 
             #Escape all fields and trim all whitespaces
             $first_name = htmlspecialchars(trim($_POST["first_name"]));
@@ -115,10 +122,7 @@
             $date_attempt = date('Y-m-d H:i:s');
 
             #Determine attempt count
-            $query_find = "SELECT * FROM $sql_table
-                        WHERE first_name = '$first_name'
-                            AND last_name = '$last_name'
-                            AND student_id = '$student_id'";
+            $query_find = "SELECT * FROM $sql_table2 WHERE student_id = '$student_id'";
             $result_find = mysqli_query($conn, $query_find);
             if (mysqli_num_rows($result_find) == 0) {
                 $attempt_no = 1;
@@ -134,24 +138,39 @@
 
             $stringify_browser_support = implode(", ", $browser_support);
 
-            #Define INSERT query
-            $query_insert = "INSERT INTO $sql_table
-                    (first_name, last_name, student_id, support_for, year_developed,
-                    browser_support, developer, long_name, attempt_no, score, date_attempt)
-                    VALUES
-                    ('$first_name', '$last_name', '$student_id', '$support_for', '$year_developed',
-                    '$stringify_browser_support', '$developer', '$long_name', '$attempt_no', '$score', '$date_attempt')";
-            
-            #Perform INSERT query
-            $result_insert = mysqli_query($conn, $query_insert);
+            #Define INSERT query into students table
+            $query_insert1 = "INSERT INTO $sql_table1
+                (first_name, last_name, student_id)
+                VALUES
+                ('$first_name', '$last_name', '$student_id')";
+            #Define INSERT query into attempts table
+            $query_insert2 = "INSERT INTO $sql_table2
+                (student_id, support_for, year_developed,
+                browser_support, developer, long_name, attempt_no, score, date_attempt)
+                VALUES
+                ('$student_id', '$support_for', '$year_developed',
+                '$stringify_browser_support', '$developer', '$long_name', '$attempt_no', '$score', '$date_attempt')";
+
+            #Perform INSERT query into students table (only on first attempt)
+            if ($attempt_no == 1) {
+                $result_insert1 = mysqli_query($conn, $query_insert1);
+            } else {
+                $result_insert1 = true;
+            }
+            #Perform INSERT query into attempts table
+            $result_insert2 = mysqli_query($conn, $query_insert2);
 
             #Server responds
-            if (!$result_create) {
-                echo "<p>Something is wrong with $query_create.</p>";
+            if (!$result_create1) {
+                echo "<p>Something is wrong with $query_create1.</p>";
+            } else if (!$result_create2) {
+                echo "<p>Something is wrong with $query_create2.</p>";
             } else if (!$result_find) {
                 echo "<p>Something is wrong with $query_find.</p>";
-            } else if (!$result_insert) {
-                echo "<p>Something is wrong with $query_insert.</p>";
+            } else if (!$result_insert1) {
+                echo "<p>Something is wrong with $query_insert1.</p>";
+            } else if (!$result_insert2) {
+                echo "<p>Something is wrong with $query_insert2.</p>";
             } else {
                 #Right now, if successful submit, return what has just been submitted
                 #TODO: change this into marking/grading
