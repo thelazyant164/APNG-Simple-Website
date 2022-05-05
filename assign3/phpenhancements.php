@@ -1,4 +1,4 @@
-<!-- For now, this page holds a copy of enhancements.php; to be edited later when enhancements are all finalized-->
+<!-- To be edited when enhancements are all finalized-->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -25,46 +25,16 @@
 				<h1>What enhancements did you (not) spot?</h1>
 			</section>
 			<section class="no-parallax">
-				<h2>Throughout this webpage, 4 enhancements have been used.</h2>
-				<p>If you think you can spot them all, go back and give it a chance before you scroll down further!</p>
+				<h2>Via connection with the backend, 3 enhancements have been used.</h2>
+				<p>Two should be immediately visible, but the last one is a hidden implementation detail.</p>
 			</section>
 			<section class="parallax parallax-bg">
-				<h2>Accessibility</h2>
+				<h2>Data visualization</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>Look up! Right on the navigation menu, the darkmode <a href="#toggler">toggler</a> is present and functional on all pages.</h3>
+				<h3>Using (external library name)</h3>
 				<p>
-					It is a bit more tricky to implement this without JavaScript, but it is indeed possible to accomplish with pure HTML/CSS.
-					By using the "from...to" selector (~), and by using a hidden checkbox with the pseudo-selector ":checked", we can select a scope
-					of the entire body and make changes to the variables within this scope. By storing all changeable color values as variables,
-					this simple switch can implement a drastic style change across the entire page with a simple click.
-				</p>
-				<p class="citation">
-					Morais, R. <span class="italic">Dark Mode without JavaScript.</span><br/>
-					<span class="indent"></span><a href="https://codepen.io/rafaelsnts/pen/BEzZoX" target="_blank" rel="noreferrer noopener">https://codepen.io/rafaelsnts/<wbr>pen/BEzZoX</a>
-				</p>
-				<h3>But that's not all! Try toggling darkmode. Do the background images appear to be darker/lighter?</h3>
-				<p>
-					By applying the built-in function linear-gradient(), putting the opacity to 65% and applying the image as an underneath layer, CSS automatically
-					generates a "shader" to cover over the image. Passing this entire function as a parameter to the background variable creates two corresponding
-					shaders to help aid in text visibility in both light and darkmode.
-				</p>
-				<p class="citation">
-					Trigo, A. (2021, March 25). <span class="italic">How to create a parallax effect with CSS only.</span><br/>
-					<span class="indent"></span>Alvaro Trigo’s Blog - Web Developing and Design.<br/>
-					<span class="indent"></span><a href="https://alvarotrigo.com/blog/how-to-create-a-parallax-effect-with-css-only" target="_blank" rel="noreferrer noopener">https://alvarotrigo.com/blog/<wbr>how-to-create-a-parallax-effect-with-css-only/</a>
-				</p>
-			</section>
-			<section class="parallax parallax-bg">
-				<h2>Parallax</h2>
-			</section>
-			<section class="no-parallax">
-				<h3>A little bit more subtle, as used on <a href="topic.php#parallax-container" target="_blank">topic page</a> and right <a href="#parallax-container" target="_blank">here</a>.</h3>
-				<p>
-					The idea behind a parallax scrolling effect is to shift the elements on the Z-axis, to create several layers
-					and give the impression of depth. This can be achieved through the use of the transformation function
-					translateZ(-1x) to "shift" the elements further away from the user, then apply another scale(1.5) to size it
-					back big enough to cover the width of the screen.
+					Placeholder text
 				</p>
 				<h3>What are the steps to do it?</h3>
 				<ol>
@@ -81,49 +51,39 @@
 				<p class="citation">
 					Trigo, A. (2021, March 25). <span class="italic">How to create a parallax effect with CSS only.</span><br/>
 					<span class="indent"></span>Alvaro Trigo’s Blog - Web Developing and Design.<br/>
-					<span class="indent"></span><a href="https://alvarotrigo.com/blog/how-to-create-a-parallax-effect-with-css-only/" target="_blank" rel="noreferrer noopener">https://alvarotrigo.com/blog/<wbr>how-to-create-a-parallax-effect-with-css-only/</a>
+					<span class="indent"></span><a href="https://alvarotrigo.com/blog/how-to-create-a-parallax-effect-with-css-only" target="_blank" rel="noreferrer noopener">https://alvarotrigo.com/blog/<wbr>how-to-create-a-parallax-effect-with-css-only/</a>
 				</p>
 			</section>
 			<section class="parallax parallax-bg">
-				<h2>Responsive</h2>
+				<h2>Login/logout</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>The webpage works on mobile and tablets as well!</h3>
+				<h3>Using PHP superglobal "$_SESSION"</h3>
 				<p>
-					By targeting media queries for specific device width, CSS rulesets have been established to provide users with a customized, fluid experience,
-					regardless of whatever platform they are browsing on. A custom page layout is designed to present information in the most efficient manner, taken
-					into consideration native devices' viewport width, height and system settings.
+					State management within a user's session is implemented using PHP's built-in session_start() and the superglobal $_SESSION.
+					Conditional rendering is then applied to the header to display a "Log out" button whenever a user is logged in. Administrator's
+					credentials is saved to the database in a separate table, and supervisors are required to login before they are allowed to make
+					queries and potentially alter database records.
 				</p>
 				<p class="citation">
-					W3schools. (2019). <span class="italic">CSS Media query.</span><br/>
-					<span class="indent"></span><a href="https://www.w3schools.com/cssref/css3_pr_mediaquery.asp" target="_blank" rel="noreferrer noopener">https://www.w3schools.com/cssref/<wbr>css3_pr_mediaquery.asp</a>
+					JavaTPoint. (n.d.). <span class="italic">PHP MySQL Login System.</span><br/>
+					<span class="indent"></span><a href="https://www.javatpoint.com/php-mysql-login-system" target="_blank" rel="noreferrer noopener">https://www.javatpoint.com/<wbr/>php-mysql-login-system</a>
 				</p>
 			</section>
 			<section class="parallax parallax-bg">
-				<h2>Animations/Transitions</h2>
+				<h2>Data normalisation</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>And obviously, animations/transitions - as used on <a href="index.php#bg-container" target="_blank">homepage</a> and <a href="quiz.php#container" target="_blank">quiz</a>.</h3>
+				<h3>Using two separate tables interlinked with primary/foreign key</h3>
 				<p>
-					Using keyframes, animations in CSS is actually very simple. The transformation function will be applied
-					dynamically to the element's display, changing the element's attributes according to the pre-set parameters
-					assigned by the designer. There are multiple parameters to adjust to nudge and tweak animation speed, element
-					state before and after, interpolation style, play direction and looping settings. Moreover, one animation
-					can be re-applied multiple times to many elements, so give it a try!
-				</p>
-				<p>
-					Transitions have been applied to quiz page in a way that gives the impression of interactivity: each fieldset
-					responds to being hovered on by expanding in width, demanding user's focus and improving accessibility while
-					receiving input. This is done through the use of the pseudo-selector :hover and overriding the element's default
-					width. Interpolation between the two different rulesets is done automatically.
+					Rather than storing all data in a single table, data normalisation has been applied to separate data and reduce coupling.
+					"Students" table has been elected as the parent table, using "Student ID" as each entry's unique primary key. The interlinked
+					"attempts" table is then linked back via "student ID" as a foreign key, enforced with the "DELETE CASCADE" rule to ensure
+					data remain consistent and cohesive across the database.
 				</p>
 				<p class="citation">
-					W3schools. (2019). <span class="italic">CSS Animations.</span><br/>
-					<span class="indent"></span><a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank" rel="noreferrer noopener">https://www.w3schools.com/css/<wbr>css3_animations.asp</a>
-				</p>
-				<p class="citation">
-					W3schools. (2019). <span class="italic">CSS Transitions.</span><br/>
-					<span class="indent"></span><a href="https://www.w3schools.com/css/css3_transitions.asp" target="_blank" rel="noreferrer noopener">https://www.w3schools.com/css/<wbr>css3_transitions.asp</a>
+					W3schools. (2019). <span class="italic">SQL FOREIGN KEY Constraint.</span><br/>
+					<span class="indent"></span><a href="https://www.w3schools.com/sql/sql_foreignkey.asp" target="_blank" rel="noreferrer noopener">https://www.w3schools.com/<wbr/>sql/sql_foreignkey.asp</a>
 				</p>
 			</section>
 		</main>
