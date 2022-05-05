@@ -5,7 +5,7 @@
         echo "
             <h3>Your grades:</h3>\n
             <p>\n
-                ", $submission['score'], "/100 - ", $submission['score']/100, "%\n
+                ", $submission['score'], "/100 - ", $submission['score'], "%\n
             </p>\n
             <p>\n
                 Pie chart representing score components for each question - JPgraph\n

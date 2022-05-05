@@ -3,11 +3,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<meta name="description" content="enhancements"/>
-		<meta name="keywords" content="parallax, scrolling, darkmode, accessibility, animations"/>
+		<meta name="description" content="php, mysql, enhancements"/>
+		<meta name="keywords" content="login, credentials, session, normalise, relation, primary, foreign"/>
 		<meta name="author" content="Aly"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>APNG enhancements</title>
+		<title>APNG PHP/MySQL enhancements</title>
 		<link href="styles/style.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Google+Sans" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,7 +22,7 @@
 
 		<main id="parallax-container">
 			<section class="parallax parallax-bg">
-				<h1>What enhancements did you spot?</h1>
+				<h1>What enhancements did you (not) spot?</h1>
 			</section>
 			<section class="no-parallax">
 				<h2>Throughout this webpage, 4 enhancements have been used.</h2>

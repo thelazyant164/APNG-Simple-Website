@@ -114,8 +114,10 @@
             $support_for = htmlspecialchars(trim($_POST["support_for"]));
             $year_developed = htmlspecialchars(trim($_POST["year_developed"]));
             $browser_support = [];
-            for ($i = 0; $i < count($_POST["browser_support"]); $i++) {
-                array_push($browser_support, htmlspecialchars(trim($_POST["browser_support"][$i])));
+            if (isset($_POST["browser_support"])) {
+                for ($i = 0; $i < count($_POST["browser_support"]); $i++) {
+                    array_push($browser_support, htmlspecialchars(trim($_POST["browser_support"][$i])));
+                }
             }
             $developer = htmlspecialchars(trim($_POST["developer"]));
             $long_name = htmlspecialchars(trim($_POST["long_name"]));
