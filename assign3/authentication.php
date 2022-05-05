@@ -1,4 +1,5 @@
 <?php
+    require("sanitise.php");
     #Helper function authenticate to perform field validation on admin's credentials,
     #perform authentication queries on administrator database, and redirect to manage.php when authorized
     #redirects to error page with notice of incorrect credentials when unauthorized
@@ -39,8 +40,8 @@
             $sql_table = "admin_credentials";
             
             #Escape all fields and trim all whitespaces
-            $username = htmlspecialchars(trim($_POST["username"]));
-            $password = htmlspecialchars(trim($_POST["password"]));
+            $username = sanitise($_POST["username"]);
+            $password = sanitise($_POST["password"]);
             
             #Determine query
             $query = "SELECT * FROM " . $sql_table . " WHERE username = '$username' AND password = '$password'";

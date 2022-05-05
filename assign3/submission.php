@@ -1,4 +1,5 @@
 <?php
+    require("sanitise.php");
     #Helper function submit; to be called inside markquiz.php to record new attempt to database
     #and perform marking/grading functions as well as field validation
     function submit() {
@@ -108,19 +109,20 @@
             $result_create2 = mysqli_query($conn, $query_create2);
 
             #Escape all fields and trim all whitespaces
-            $first_name = htmlspecialchars(trim($_POST["first_name"]));
-            $last_name = htmlspecialchars(trim($_POST["last_name"]));
-            $student_id = htmlspecialchars(trim($_POST["student_id"]));
-            $support_for = htmlspecialchars(trim($_POST["support_for"]));
-            $year_developed = htmlspecialchars(trim($_POST["year_developed"]));
+            $first_name = sanitise($_POST["first_name"]);
+            $last_name = sanitise($_POST["last_name"]);
+            $student_id = sanitise($_POST["student_id"]);
+            $support_for = sanitise($_POST["support_for"]);
+            $year_developed = sanitise($_POST["year_developed"]);
             $browser_support = [];
             if (isset($_POST["browser_support"])) {
                 for ($i = 0; $i < count($_POST["browser_support"]); $i++) {
-                    array_push($browser_support, htmlspecialchars(trim($_POST["browser_support"][$i])));
+                    array_push($browser_support, sanitise($_POST["browser_support"][$i]));
                 }
             }
-            $developer = htmlspecialchars(trim($_POST["developer"]));
-            $long_name = htmlspecialchars(trim($_POST["long_name"]));
+            $developer = sanitise($_POST["developer"]);
+            $long_name = sanitise($_POST["long_name"]);
+            date_default_timezone_set("Australia/Melbourne");
             $date_attempt = date('Y-m-d H:i:s');
 
             #Determine attempt count

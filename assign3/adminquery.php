@@ -1,4 +1,5 @@
 <?php
+    require("sanitise.php");
     #Helper function admin_query to perform field validation on admin's query,
     #perform queries on database, and return tabular results/(un)successful messages
     function admin_query() {
@@ -26,9 +27,9 @@
         }
         function list_specific($all_var, $sql_table1, $sql_table2) {
             #Escape all fields and trim all whitespaces
-            $first_name = htmlspecialchars(trim($all_var["first_name"]));
-            $last_name = htmlspecialchars(trim($all_var["last_name"]));
-            $student_id = htmlspecialchars(trim($all_var["student_id"]));
+            $first_name = sanitise($all_var["first_name"]);
+            $last_name = sanitise($all_var["last_name"]);
+            $student_id = sanitise($all_var["student_id"]);
 
             return "SELECT * FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
             . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
@@ -50,7 +51,7 @@
         }
         function delete_attempts($all_var, $sql_table) {
             #Escape all fields and trim all whitespaces
-            $student_id = htmlspecialchars(trim($all_var["student_id"]));
+            $student_id = sanitise($all_var["student_id"]);
             #Validate student_id to be deleted
             $valid = validate_data($student_id, "id");
 
@@ -63,9 +64,9 @@
         }
         function update_score($all_var, $sql_table) {
             #Escape all fields and trim all whitespaces
-            $student_id = htmlspecialchars(trim($all_var["student_id"]));
-            $attempt_no = htmlspecialchars(trim($all_var["attempt_no"]));
-            $score = htmlspecialchars(trim($all_var["score"]));
+            $student_id = sanitise($all_var["student_id"]);
+            $attempt_no = sanitise($all_var["attempt_no"]);
+            $score = sanitise($all_var["score"]);
             #Validate score to be updated
             $valid = validate_data($score, "score");
 
