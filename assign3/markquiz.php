@@ -42,6 +42,9 @@
 				<?php
                     display_grades($submission);
                 ?>
+                
+                <!-- Test example0 JP graph -->
+                <img src='jpgraph/src/example0.php'>
 			</section>
             <?php
                 display_answers($submission);
