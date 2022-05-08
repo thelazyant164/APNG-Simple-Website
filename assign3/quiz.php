@@ -43,7 +43,7 @@
 								</div>
 								<div>
 									<label for="student_id">Student ID:</label>
-									<input type="text" id="student_id" name="student_id" placeholder="Student ID..." required="required" pattern="^\d{7}|\d{10}$">
+									<input type="text" id="student_id" name="student_id" placeholder="Student ID..." required="required" pattern="^\d{7,10}$">
 								</div>
 							</div>
 						</div>
@@ -147,7 +147,7 @@
 							
 							<div class="content">
 								<label for="textarea">Answer: </label>
-								<textarea id="textarea" name="long_name" rows="5" cols="120">Write your answer...</textarea>
+								<textarea id="textarea" name="long_name" rows="5" cols="120" placeholder="Write your answer..."></textarea>
 							</div>
 						</div>
 					</fieldset>
