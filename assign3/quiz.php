@@ -147,7 +147,7 @@
 							
 							<div class="content">
 								<label for="textarea">Answer: </label>
-								<textarea id="textarea" name="long_name" rows="5" cols="120">Write your answer...</textarea>
+								<textarea id="textarea" name="long_name" rows="5" cols="120" placeholder="Write your answer..."></textarea>
 							</div>
 						</div>
 					</fieldset>
