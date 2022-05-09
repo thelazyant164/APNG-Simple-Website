@@ -26,14 +26,33 @@
             echo "<p>You failed!</p>\n";
         }
         echo "<h3>Overview:</h3>\n
-            <ul>\n
-                <li>Total: ", $submission['score'], "%</li>\n
-                <li>For Question 1: ", $submission['scores']['score_answer1'], "/10</li>\n
-                <li>For Question 2: ", $submission['scores']['score_answer2'], "/20</li>\n
-                <li>For Question 3: ", $submission['scores']['score_answer3'], "/15</li>\n
-                <li>For Question 4: ", $submission['scores']['score_answer4'], "/5</li>\n
-                <li>For Question 5: ", $submission['scores']['score_answer5'], "/50</li>\n
-            </ul>\n
+            <div>\n
+            <table border=\"2\">\n
+                <tr>
+                    <th>Total:</th>
+                    <td>" , $submission['score'], "%</td>
+                </tr>
+                <tr>
+                    <th>Question 1:</th>
+                    <td>" , $submission['scores']['score_answer1'], "/10</td>
+                </tr>
+                <tr>
+                    <th>Question 2:</th>
+                    <td>" , $submission['scores']['score_answer2'], "/20</td>
+                </tr>
+                <tr>
+                    <th>Question 3:</th>
+                    <td>" ,$submission['scores']['score_answer3'], "/15</td>
+                </tr>
+                <tr>
+                    <th>Question 4:</th>
+                    <td>",$submission['scores']['score_answer4'], "/5 </td>
+                </tr>
+                <tr>
+                    <th>Question 5:</th>
+                    <td>", $submission['scores']['score_answer5'], "/50</td>
+                </tr>
+            </table>\n
         ";
     }
     function display_answers($submission) {
