@@ -9,7 +9,7 @@
                 case "name":
                     return preg_match("/^[\w\s-]{1,30}$/", $data);
                 case "id":
-                    return preg_match("/^[\d]{7}|[\d]{10}$/", $data);
+                    return preg_match("/^\d{7}$|^\d{10}$/", $data);
                 case "required":
                     return !empty($data);
                 default:
@@ -31,7 +31,8 @@
             }
             if (!validate_data($all_var["student_id"], "id")) {
                 $_SESSION["error"] = [
-                    "content" => "Invalid field: Student ID (input: \"" . $_POST['student_id'] . "\")"
+                    "content" => "Invalid field: Student ID (input: \"" . $_POST['student_id'] . "\").<br/>
+                    Student ID must comprise of either 7 or 10 digits."
                 ];
                 return false;
             }
@@ -213,8 +214,7 @@
             } else if (!$result_insert2) {
                 echo "<p>Something is wrong with $query_insert2.</p>";
             } else {
-                #Right now, if successful submit, return what has just been submitted
-                #TODO: change this into marking/grading
+                #If successful submit, return what has just been submitted
                 echo "<div class=\"overflowTable\">\n<table border=\"1\">\n";
                 echo "<tr>\n"
                     ."<th scope=\"col\">First name</th>\n"
@@ -235,6 +235,7 @@
                 ."</table>\n</div>\n";
             }
             mysqli_close($conn);
+            unset($_POST);
         }
         return ['score' => $score,
                 'scores' => $scores,

@@ -9,7 +9,7 @@
                 case "name":
                     return preg_match("/^[\w\s-]{1,30}$/", $data);
                 case "id":
-                    return preg_match("/^[\d]{7}|[\d]{10}$/", $data);
+                    return preg_match("/^\d{7}$|^\d{10}$/", $data);
                 case "no":
                     return $data == 1 or $data == 2;
                 case "score":
@@ -56,10 +56,12 @@
             $valid = validate_data($student_id, "id");
 
             if (!$valid) {
+                session_start();
                 $_SESSION["error"] = [
                     "title" => "Delete query request rejected",
                     "msg" => "invalid field detected when trying to query. Delete attempt unsuccessful",
-                    "content" => "Invalid field: Student ID (input: \"" . $_POST['student_id'] . "\")",
+                    "content" => "Invalid field: Student ID (input: \"" . $_POST['student_id'] . "\").<br/>
+                    Student ID must comprise of either 7 or 10 digits.",
                     "retry" => "manage.php"
                 ];
                 header("location: notification.php");
@@ -77,6 +79,7 @@
             $valid = validate_data($score, "score");
 
             if (!$valid) {
+                session_start();
                 $_SESSION["error"] = [
                     "title" => "Update query request rejected",
                     "msg" => "invalid field detected when trying to query. Update attempt unsuccessful",
@@ -94,7 +97,14 @@
 
         #Safeguard against direct php access through URL
         if (!isset($_POST["request"])) {
-            header("location: manage.php");
+            session_start();
+            $_SESSION["error"] = [
+                "title" => "Unknown query request",
+                "msg" => "no query selected",
+                "content" => "Please choose from the list of available queries you would like to perform on database.",
+                "retry" => "manage.php"
+            ];
+            header("location: notification.php");
             exit("Direct access through URL detected. Script execution aborted.");
         }
 
@@ -105,6 +115,7 @@
 
         #Connection fails
         if (!$conn) {
+            session_start();
             $_SESSION["error"] = [
                 "title" => "Database connection rejected",
                 "msg" => "database timeout",

@@ -87,7 +87,7 @@
 								</div>    
 								<div>
 									<label for="student_id">Student ID:</label>
-									<input type="text" id="student_id" name="student_id" placeholder="Student ID..." pattern="^\d{7}|\d{10}$">        
+									<input type="text" id="student_id" name="student_id" placeholder="Student ID..." pattern="^\d{7}$|^\d{10}$">        
 								</div>
                                 <div>
 									<label for="attempt_no">Attempt:</label>
