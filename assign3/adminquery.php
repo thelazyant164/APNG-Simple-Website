@@ -56,7 +56,13 @@
             $valid = validate_data($student_id, "id");
 
             if (!$valid) {
-                echo "<p>Invalid field detected when trying to query. Delete attempt unsuccessful.</p>";
+                $_SESSION["error"] = [
+                    "title" => "Delete query request rejected",
+                    "msg" => "invalid field detected when trying to query. Delete attempt unsuccessful",
+                    "content" => "Invalid field: Student ID (input: \"" . $_POST['student_id'] . "\")",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
                 exit("Please go back and try again.");
             }
 
@@ -71,8 +77,14 @@
             $valid = validate_data($score, "score");
 
             if (!$valid) {
-                echo "<p>Invalid field detected when trying to query. Update attempt unsuccessful.</p>";
-                exit("Invalid field detected when trying to query. Please go back and try again.");
+                $_SESSION["error"] = [
+                    "title" => "Update query request rejected",
+                    "msg" => "invalid field detected when trying to query. Update attempt unsuccessful",
+                    "content" => "Invalid field: Updated score (input: \"" . $_POST['score'] . "\")",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
+                exit("Please go back and try again.");
             }
 
             return "UPDATE " . $sql_table. " SET score = '$score'
@@ -83,6 +95,7 @@
         #Safeguard against direct php access through URL
         if (!isset($_POST["request"])) {
             header("location: manage.php");
+            exit("Direct access through URL detected. Script execution aborted.");
         }
 
         #Import database information, password, username and other config
@@ -92,8 +105,14 @@
 
         #Connection fails
         if (!$conn) {
-            echo "<p>Database connection failure</p>";
-
+            $_SESSION["error"] = [
+                "title" => "Database connection rejected",
+                "msg" => "database timeout",
+                "content" => "The server is inaccessible at the moment. Please try again at a different time",
+                "retry" => "manage.php"
+            ];
+            header("location: notification.php");
+            exit("Database connection failure.");
         #Connection succeeds
         } else {
             $sql_table1 = "students";
@@ -120,6 +139,7 @@
                     break;
                 default:
                     header("location: manage.php");
+                    exit("Direct access through URL detected. Script execution aborted.");
             }
 
             #Queries to database server

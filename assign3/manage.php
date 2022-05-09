@@ -21,15 +21,16 @@
 			#Safeguard against direct php access through URL
 			if (!$_SESSION["login"]) {
 				header("location: login.php");
+				exit("Direct access through URL detected. Script execution aborted.");
 			}
         ?>
 		
 		<main id="container">
 
-			<form action="queryresult.php" method="POST">
+			<form action="queryresult.php" method="POST" novalidate="novalidate">
 
 				<h1 id="title">Management</h1>
-				<h2 id="subtitle">Welcome back, 
+				<h2 id="subtitle">Welcome back,
 				<?php
 					echo $_SESSION['username'];
 				?>

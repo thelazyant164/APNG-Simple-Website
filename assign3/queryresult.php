@@ -39,7 +39,6 @@
 				<h2>Assessments</h2>
 			</section>
 			<section class="no-parallax">
-				<!-- TODO: perform grading on singular retrieved result -->
 				<h3>How did user abcxyz do?</h3>
 				<p>
 					User abcxyz performed poorly...

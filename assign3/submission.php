@@ -17,22 +17,46 @@
             }
         }
         function validate_all($all_var) {
-            #If access without going through quiz.php, redirects back
-            if (!isset($all_var["first_name"])
-            or !isset($all_var["last_name"])
-            or !isset($all_var["student_id"])
-            or !isset($all_var["support_for"])
-            or !isset($all_var["year_developed"])) {
-                header("location: quiz.php");
+            if (!validate_data($all_var["first_name"], "name")) {
+                $_SESSION["error"] = [
+                    "content" => "Invalid field: First name (input: \"" . $_POST['first_name'] . "\")"
+                ];
+                return false;
             }
-            return validate_data($all_var["first_name"], "name")
-            and validate_data($all_var["last_name"], "name")
-            and validate_data($all_var["student_id"], "id")
-            and validate_data($all_var["support_for"], "required")
-            and validate_data($all_var["year_developed"], "required");
+            if (!validate_data($all_var["last_name"], "name")) {
+                $_SESSION["error"] = [
+                    "content" => "Invalid field: Last name (input: \"" . $_POST['last_name'] . "\")"
+                ];
+                return false;
+            }
+            if (!validate_data($all_var["student_id"], "id")) {
+                $_SESSION["error"] = [
+                    "content" => "Invalid field: Student ID (input: \"" . $_POST['student_id'] . "\")"
+                ];
+                return false;
+            }
+            if (!validate_data($all_var["support_for"], "required")) {
+                $_SESSION["error"] = [
+                    "content" => "Missing answer for required Question 1: \"Support for what sets APNG apart from GIF?\""
+                ];
+                return false;
+            }
+            if (!validate_data($all_var["year_developed"], "required")) {
+                $_SESSION["error"] = [
+                    "content" => "Missing answer for required Question 2: \"When was APNG first developed?\""
+                ];
+                return false;
+            }
+            return true;
         }
         if (!validate_all($_POST)) {
-            echo "<p>Data invalid. Attempt has not been recorded.</p>";
+            $_SESSION["error"] += [
+                "title" => "Submission rejected",
+                "msg" => "invalid field detected during validation. Submission attempt rejected",
+                "retry" => "quiz.php"
+            ];
+            header("location: notification.php");
+            exit("Please go back and try again.");
         }
 
         #Marking
@@ -132,7 +156,20 @@
                 $attempt_no = 1;
             } else if (mysqli_num_rows($result_find) == 1) {
                 $attempt_no = 2;
+                mysqli_free_result($result_find);
             } else {
+                while ($row = mysqli_fetch_assoc($result_find)) {
+                    $date1 = $row["date_attempt"];
+                }
+                mysqli_free_result($result_find);
+                $date2 = $date_attempt;
+                $_SESSION["error"] = [
+                    "title" => "Quiz submission rejected",
+                    "msg" => "maximum attempt count (2) detected. Submission attempt unsuccessful",
+                    "content" => "Previous 2 attempts have been recorded: first on $date1 and later on $date2",
+                    "retry" => "quiz.php"
+                ];
+                header("location: notification.php");
                 exit("Max attempt count exceeded.");
             }
 

@@ -18,12 +18,33 @@
         #Safeguard against direct php access through URL
         if (!isset($_POST["username"]) or !isset($_POST["password"])) {
             header("location: login.php");
+            exit("Direct access through URL detected. Script execution aborted.");
         }
 
         #Validate username and password fields
-        if (!validate_data($_POST["username"], "username") or !validate_data($_POST["password"], "password")) {
-            echo "<p>Invalid fields detected. Login attempt failed.</p>";
-            exit();
+        if (!validate_data($_POST["username"], "username")) {
+            session_start();
+            $_SESSION["error"] = [
+                "title" => "Authentication failed",
+                "msg" => "invalid fields detected. Login attempt unsuccessful",
+                "content" => "Invalid field: Username (input: \"" . $_POST['username'] . "\").<br/>
+                Username must only contains alphanumeric characters, dashes and/or underscores, and be between 10 and 30 characters long",
+                "retry" => "login.php"
+            ];
+            header("location: notification.php");
+            exit("Please go back and try again.");
+        }
+        if (!validate_data($_POST["password"], "password")) {
+            session_start();
+            $_SESSION["error"] = [
+                "title" => "Authentication failed",
+                "msg" => "invalid fields detected. Login attempt unsuccessful",
+                "content" => "Invalid field: Password (input: \"" . $_POST['password'] . "\").<br/>
+                Password must be between 10 and 30 characters long",
+                "retry" => "login.php"
+            ];
+            header("location: notification.php");
+            exit("Please go back and try again.");
         }
 
         #Import database information, password, username and other config
@@ -33,7 +54,15 @@
         
         #Connection fails
         if (!$conn) {
-            echo "<p>Database connection failure</p>";
+            session_start();
+            $_SESSION["error"] = [
+                "title" => "Database connection rejected",
+                "msg" => "database timeout",
+                "content" => "The server is inaccessible at the moment. Please try again at a different time",
+                "retry" => "login.php"
+            ];
+            header("location: notification.php");
+            exit("Database connection failure.");
             
             #Connection succeeds
         } else {
@@ -53,7 +82,15 @@
             if (!$result) {
                 echo "<p>Something is wrong with $query.</p>";
             } else if (!mysqli_fetch_array($result)) {
-                echo "<p>Wrong credentials. Access denied.</p>";
+                session_start();
+                $_SESSION["error"] = [
+                    "title" => "Authentication failed",
+                    "msg" => "credentials mismatched",
+                    "content" => "Either your username or password is incorrect",
+                    "retry" => "login.php"
+                ];
+                header("location: notification.php");
+                exit("Authentication failure.");
             } else {
                 session_start();
                 $_SESSION["login"] = true;

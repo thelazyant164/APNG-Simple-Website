@@ -22,7 +22,7 @@
 		
 		<main id="container">
 
-			<form action="authentication.php" method="POST">
+			<form action="authentication.php" method="POST" novalidate="novalidate">
 
 				<h1 id="title">Management login</h1>
 				<h2 id="subtitle">In order to query database, your identity needs to be verified.</h2>
@@ -35,11 +35,11 @@
                             <div class="content">
 								<div>
 									<label for="username">Username:</label>
-									<input type="text" id="username" name="username" placeholder="Username..." pattern="^[\w\d\-_]{10,30}$" oninvalid="alert('Username must only contains alphanumeric characters, dashes and/or underscores, and be between 10 and 30 characters long.')" required="required" >
+									<input type="text" id="username" name="username" placeholder="Username..." pattern="^[\w\d\-_]{10,30}$" required="required" >
 								</div>    
 								<div>
 									<label for="password">Password:</label>
-									<input type="text" id="password" name="password" placeholder="Password..." pattern="^.{10,30}$" oninvalid="alert('Password must be between 10 and 30 characters long.')" required="required" >
+									<input type="text" id="password" name="password" placeholder="Password..." pattern="^.{10,30}$" required="required" >
 								</div>
                             </div>
                         </div>

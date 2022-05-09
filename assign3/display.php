@@ -57,4 +57,11 @@
             ";
         }
     }
+    function display_retry_prompt($submission) {
+        if ($submission['attempt_no'] == 1) {
+            echo "
+                <h3>Would you like to <a href=\"quiz.php\">try again?</a></h3>
+            ";
+        }
+    }
 ?>

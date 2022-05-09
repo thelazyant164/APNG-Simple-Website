@@ -41,10 +41,12 @@
 			<section class="no-parallax">
 				<?php
                     display_grades($submission);
+					echo "
+						<!-- Test example JP graph -->
+						<img src='jpgraph/src/example0.php'>
+					";
+					display_retry_prompt($submission);
                 ?>
-                
-                <!-- Test example0 JP graph -->
-                <img src='jpgraph/src/example0.php'>
 			</section>
             <?php
                 display_answers($submission);

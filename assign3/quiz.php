@@ -22,7 +22,7 @@
 		
 		<main id="container">
 
-			<form action="markquiz.php" method="POST">
+			<form action="markquiz.php" method="POST" novalidate="novalidate">
 
 				<h1 id="title">Quiz time!</h1>
 				<h2 id="subtitle">Test your knowledge by filling out these reinforcement questions!</h2>
