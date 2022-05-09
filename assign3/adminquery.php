@@ -75,15 +75,46 @@
             $student_id = sanitise($all_var["student_id"]);
             $attempt_no = sanitise($all_var["attempt_no"]);
             $score = sanitise($all_var["score"]);
-            #Validate score to be updated
-            $valid = validate_data($score, "score");
 
+            #Validate student_id to be updated
+            $valid = validate_data($student_id, "id");
             if (!$valid) {
                 session_start();
                 $_SESSION["error"] = [
                     "title" => "Update query request rejected",
                     "msg" => "invalid field detected when trying to query. Update attempt unsuccessful",
-                    "content" => "Invalid field: Updated score (input: \"" . $_POST['score'] . "\")",
+                    "content" => "Invalid field: Student ID (input: \"" . $student_id . "\").<br/>
+                    Student ID must comprise of either 7 or 10 digits.",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
+                exit("Please go back and try again.");
+            }
+
+            #Validate attempt_no to be updated
+            $valid = validate_data($attempt_no, "no");
+            if (!$valid) {
+                session_start();
+                $_SESSION["error"] = [
+                    "title" => "Update query request rejected",
+                    "msg" => "invalid field detected when trying to query. Update attempt unsuccessful",
+                    "content" => "Invalid field: Attempt (input: \"" . $attempt_no . "\").<br/>
+                    Attempt number must be either \"1\" or \"2\"",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
+                exit("Please go back and try again.");
+            }
+
+            #Validate score to be updated
+            $valid = validate_data($score, "score");
+            if (!$valid) {
+                session_start();
+                $_SESSION["error"] = [
+                    "title" => "Update query request rejected",
+                    "msg" => "invalid field detected when trying to query. Update attempt unsuccessful",
+                    "content" => "Invalid field: New score (input: \"" . $score . "\").<br/>
+                    New score must be greater than \"0\" and lesser than \"100\"",
                     "retry" => "manage.php"
                 ];
                 header("location: notification.php");
