@@ -158,20 +158,24 @@
             } else if (mysqli_num_rows($result_find) == 1) {
                 $attempt_no = 2;
                 mysqli_free_result($result_find);
+            #DEVELOPMENT
             } else {
-                while ($row = mysqli_fetch_assoc($result_find)) {
-                    $date1 = $row["date_attempt"];
-                }
-                mysqli_free_result($result_find);
-                $date2 = $date_attempt;
-                $_SESSION["error"] = [
-                    "title" => "Quiz submission rejected",
-                    "msg" => "maximum attempt count (2) detected. Submission attempt unsuccessful",
-                    "content" => "Previous 2 attempts have been recorded: first on $date1 and later on $date2",
-                    "retry" => "quiz.php"
-                ];
-                header("location: notification.php");
-                exit("Max attempt count exceeded.");
+                $attempt_no = mysqli_num_rows($result_find) + 1;
+            #PRODUCTION
+            // } else {
+            //     while ($row = mysqli_fetch_assoc($result_find)) {
+            //         $date1 = $row["date_attempt"];
+            //     }
+            //     mysqli_free_result($result_find);
+            //     $date2 = $date_attempt;
+            //     $_SESSION["error"] = [
+            //         "title" => "Quiz submission rejected",
+            //         "msg" => "maximum attempt count (2) detected. Submission attempt unsuccessful",
+            //         "content" => "Previous 2 attempts have been recorded: first on $date1 and later on $date2",
+            //         "retry" => "quiz.php"
+            //     ];
+            //     header("location: notification.php");
+            //     exit("Max attempt count exceeded.");
             }
 
             #Determine score
