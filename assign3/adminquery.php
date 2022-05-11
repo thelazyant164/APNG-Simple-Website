@@ -20,16 +20,54 @@
                     return false;
             }
         }
-        function list_all($sql_table1, $sql_table2) {
+        function list_all($sql_table1, $sql_table2, $conn) {
+            #Check to make sure record exists in database
+            $query_find = "SELECT " . $sql_table2 . ".student_id
+                FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+                . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id";
+            $result = mysqli_query($conn, $query_find);
+            if (!mysqli_fetch_array($result)) {
+                session_start();
+                $_SESSION["error"] = [
+                    "title" => "Select query failed",
+                    "msg" => "no existing entry exists in record",
+                    "content" => "No entry in database found",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
+                exit("Select failure: no existing entry in database found.");
+            } else {
+                mysqli_free_result($result);
+            }
+
             return "SELECT " . $sql_table2 . ".student_id, first_name, last_name, score, attempt_no
                 FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
                 . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id";
         }
-        function list_specific($all_var, $sql_table1, $sql_table2) {
+        function list_specific($all_var, $sql_table1, $sql_table2, $conn) {
             #Escape all fields and trim all whitespaces
             $first_name = sanitise($all_var["first_name"]);
             $last_name = sanitise($all_var["last_name"]);
             $student_id = sanitise($all_var["student_id"]);
+
+            #Check to make sure record exists in database
+            $query_find = "SELECT " . $sql_table2 . ".student_id
+                FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+                . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id";
+            $result = mysqli_query($conn, $query_find);
+            if (!mysqli_fetch_array($result)) {
+                session_start();
+                $_SESSION["error"] = [
+                    "title" => "Select query failed",
+                    "msg" => "no existing entry exists in record",
+                    "content" => "No entry in database found",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
+                exit("Select failure: no existing entry in database found.");
+            } else {
+                mysqli_free_result($result);
+            }
 
             return "SELECT * FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
             . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
@@ -37,19 +75,57 @@
                 AND last_name = '$last_name'
                 OR " . $sql_table1. ".student_id = '$student_id'";
         }
-        function list_full($sql_table1, $sql_table2) {
+        function list_full($sql_table1, $sql_table2, $conn) {
+            #Check to make sure record exists in database
+            $query_find = "SELECT " . $sql_table2 . ".student_id
+                FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+                . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id";
+            $result = mysqli_query($conn, $query_find);
+            if (!mysqli_fetch_array($result)) {
+                session_start();
+                $_SESSION["error"] = [
+                    "title" => "Select query failed",
+                    "msg" => "no existing entry exists in record",
+                    "content" => "No entry in database found",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
+                exit("Select failure: no existing entry in database found.");
+            } else {
+                mysqli_free_result($result);
+            }
+
             return "SELECT " . $sql_table2 . ".student_id, first_name, last_name, score, attempt_no
                 FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
                 . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
                 . " WHERE score = 100 AND attempt_no = 1";
         }
-        function list_half($sql_table1, $sql_table2) {
+        function list_half($sql_table1, $sql_table2, $conn) {
+            #Check to make sure record exists in database
+            $query_find = "SELECT " . $sql_table2 . ".student_id
+                FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+                . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id";
+            $result = mysqli_query($conn, $query_find);
+            if (!mysqli_fetch_array($result)) {
+                session_start();
+                $_SESSION["error"] = [
+                    "title" => "Select query failed",
+                    "msg" => "no existing entry exists in record",
+                    "content" => "No entry in database found",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
+                exit("Select failure: no existing entry in database found.");        
+            } else {
+                mysqli_free_result($result);
+            }
+
             return "SELECT " . $sql_table2 . ".student_id, first_name, last_name, score, attempt_no
                 FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
                 . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
                 . " WHERE score < 50 AND attempt_no = 2";
         }
-        function delete_attempts($all_var, $sql_table) {
+        function delete_attempts($all_var, $sql_table, $conn) {
             #Escape all fields and trim all whitespaces
             $student_id = sanitise($all_var["student_id"]);
             #Validate student_id to be deleted
@@ -68,9 +144,29 @@
                 exit("Please go back and try again.");
             }
 
+            #Check to make sure record exists in database
+            $query_find = "SELECT " . $sql_table2 . ".student_id, score, attempt_no
+                FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+                . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
+                . " WHERE " . $sql_table2 . ".student_id = " . $student_id;
+            $result = mysqli_query($conn, $query_find);
+            if (!mysqli_fetch_array($result)) {
+                session_start();
+                $_SESSION["error"] = [
+                    "title" => "Delete query failed",
+                    "msg" => "no existing entry exists in record",
+                    "content" => "No entry in database with student ID \"$student_id\" found",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
+                exit("Delete failure: no existing entry in database found.");
+            } else {
+                mysqli_free_result($result);
+            }
+
             return "DELETE FROM " . $sql_table . " WHERE student_id = '$student_id'";
         }
-        function update_score($all_var, $sql_table) {
+        function update_score($all_var, $sql_table, $conn) {
             #Escape all fields and trim all whitespaces
             $student_id = sanitise($all_var["student_id"]);
             $attempt_no = sanitise($all_var["attempt_no"]);
@@ -121,6 +217,28 @@
                 exit("Please go back and try again.");
             }
 
+            #Check to make sure record exists in database
+            $query_find = "SELECT " . $sql_table2 . ".student_id, score, attempt_no
+                FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+                . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
+                . " WHERE " . $sql_table2 . ".student_id = " . $student_id
+                . " AND attempt_no = " . $attempt_no;
+            $result = mysqli_query($conn, $query_find);
+            if (!mysqli_fetch_array($result)) {
+                session_start();
+                $_SESSION["error"] = [
+                    "title" => "Update query failed",
+                    "msg" => "no existing entry exists in record",
+                    "content" => "No entry in database with attempt number \"$attempt_no\"
+                    and student ID \"$student_id\" found",
+                    "retry" => "manage.php"
+                ];
+                header("location: notification.php");
+                exit("Update failure: no existing entry in database found.");
+            } else {
+                mysqli_free_result($result);
+            }
+            
             return "UPDATE " . $sql_table. " SET score = '$score'
                 WHERE student_id = '$student_id'
                 AND attempt_no = '$attempt_no'";
@@ -162,22 +280,22 @@
             #Determine query
             switch ($_POST["request"]) {
                 case "list_all":
-                    $query = list_all($sql_table1, $sql_table2);
+                    $query = list_all($sql_table1, $sql_table2, $conn);
                     break;
                 case "list_specific":
-                    $query = list_specific($_POST, $sql_table1, $sql_table2);
+                    $query = list_specific($_POST, $sql_table1, $sql_table2, $conn);
                     break;
                 case "list_full":
-                    $query = list_full($sql_table1, $sql_table2);
+                    $query = list_full($sql_table1, $sql_table2, $conn);
                     break;
                 case "list_half":
-                    $query = list_half($sql_table1, $sql_table2);
+                    $query = list_half($sql_table1, $sql_table2, $conn);
                     break;
                 case "delete_attempts":
-                    $query = delete_attempts($_POST, $sql_table1);
+                    $query = delete_attempts($_POST, $sql_table1, $conn);
                     break;
                 case "update_score":
-                    $query = update_score($_POST, $sql_table2);
+                    $query = update_score($_POST, $sql_table2, $conn);
                     break;
                 default:
                     header("location: manage.php");
