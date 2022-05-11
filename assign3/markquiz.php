@@ -41,10 +41,8 @@
 			<section class="no-parallax">
 				<?php
                     display_grades($submission);
-					echo "
-						<!-- Test example JP graph -->
-						<img src='jpgraph/src/example0.php'>
-					";
+					require('userstatistics.php');
+					assess_single_student($submission);
 					display_retry_prompt($submission);
                 ?>
 			</section>

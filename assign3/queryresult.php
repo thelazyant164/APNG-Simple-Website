@@ -57,27 +57,10 @@
 				<h2>Statistics</h2>
 			</section>
 			<section class="no-parallax">
-				<!-- TODO: display chart statistics on all retrieved results -->
-				<h3>Here are some useful insights:</h3>
-				<p>
-					Quiz Question 1 accuracy: (JPgraph chart)
-				</p>
-				<p>
-					Quiz Question 2 accuracy: (JPgraph chart)
-				</p>
-				<p>
-					Quiz Question 3 accuracy: (JPgraph chart)
-				</p>
-				<p>
-					Quiz Question 4 accuracy: (JPgraph chart)
-				</p>
-				<p>
-					Quiz Question 5 accuracy: (JPgraph chart)
-				</p>
-				<h3>Quiz attempts in real-time</h3>
-				<p>
-					Placeholder: (graph showing attempt quiz trends)
-				</p>
+				<?php
+					require('adminstatistics.php');
+					assess_all();
+				?>
 			</section>
 		</main>
         <?php

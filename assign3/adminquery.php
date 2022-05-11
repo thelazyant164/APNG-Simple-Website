@@ -192,7 +192,6 @@
                 echo "<p>Something is wrong with $query.</p>";
             #For all list_* queries
             } else if (substr($_POST["request"], 0, 4) == "list") {
-                #TODO: beautify this
                 echo "<table border=\"1\">\n";
                 echo "<tr>\n"
                     ."<th scope=\"col\">First name</th>\n"
@@ -220,5 +219,5 @@
             }
             mysqli_close($conn);
         }
-    }  
+    }
 ?>

@@ -82,6 +82,9 @@
             if (in_array("Opera", $browser_support)) {
                 $score_answer3 += 5;
             }
+            if (in_array("Internet Explorer", $browser_support)) {
+                $score_answer3 -= 5;
+            }
             if ($developer == "Mozilla") {
                 $score_answer4 = 5;
             }
@@ -248,6 +251,8 @@
                 'year_developed' => $year_developed,
                 'browser_support' => $stringify_browser_support,
                 'developer' => $developer,
-                'long_name' => $long_name];
+                'long_name' => $long_name,
+                'student_id' => $student_id
+            ];
     }
 ?>
