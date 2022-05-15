@@ -144,6 +144,10 @@
             $year_developed = sanitise($_POST["year_developed"]);
             $browser_support = [];
             if (isset($_POST["browser_support"])) {
+                #When only 1 checkbox is chosen and field is string instead of array, turn into array with single element
+                if (is_string($_POST["browser_support"])) {
+                    $_POST["browser_support"] = [$_POST["browser_support"]];
+                }
                 for ($i = 0; $i < count($_POST["browser_support"]); $i++) {
                     array_push($browser_support, sanitise($_POST["browser_support"][$i]));
                 }

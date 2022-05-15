@@ -14,7 +14,7 @@
 	<body>
 		<input type="checkbox" id="toggleMode">
 		<?php
-            require("header.inc");
+            include("header.inc");
             createHeader();
         ?>
 		<main id="parallax-container">
@@ -51,7 +51,7 @@
             ?>
 		</main>
         <?php
-            require("footer.inc");
+            include("footer.inc");
             createFooter();
         ?>
 	</body>

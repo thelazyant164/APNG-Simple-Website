@@ -16,7 +16,7 @@
 		<!--Hidden dark mode toggler-->
 		<input type="checkbox" id="toggleMode">
 		<?php
-			require("header.inc");
+			include("header.inc");
 			createHeader();
 			#Safeguard against direct php access through URL
 			if (!$_SESSION["login"]) {
@@ -116,7 +116,7 @@
 
 		<!-- Footer -->
 		<?php
-            require("footer.inc");
+            include("footer.inc");
             createFooter();
         ?>
 	</body>

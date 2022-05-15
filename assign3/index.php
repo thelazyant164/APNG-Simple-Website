@@ -14,7 +14,7 @@
     <body>
         <input type="checkbox" id="toggleMode">
         <?php
-            require("header.inc");
+            include("header.inc");
             createHeader();
         ?>
         <main id="bg-container">
@@ -29,7 +29,7 @@
             <a href="topic.php" id="learn-more">Learn more</a>
         </main>
         <?php
-            require("footer.inc");
+            include("footer.inc");
             createFooter();
         ?>
     </body>
