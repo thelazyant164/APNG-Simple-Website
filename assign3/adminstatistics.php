@@ -142,9 +142,13 @@
 			#Attempt time summary (bar/line chart)
 			plot_bar($all_dates);
 			#Error plot graphs for range of score for each attempts
+            // echo '<img src="all_attempt_scores.php" alt="Line graph of both">';
+            // echo '<img src="perquestionscore.php" alt="Per question score">';
+           
+
 			plot_error($all_attempt1_scores);
 			plot_error($all_attempt2_scores);
-			#Error plot graphs for range of score for each question
+			// #Error plot graphs for range of score for each question
 			plot_error($all_attempt1_question1_scores);
 		} else {
 			echo "<p>Unable to connect to database for statistics.</p>";

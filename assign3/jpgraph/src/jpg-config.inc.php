@@ -99,7 +99,7 @@ define('CATCH_PHPERRMSG',true);
 // error handler to generate a graphic error mesage. This is useful
 // during development to be able to see the error message as an image
 // instead as a 'red-cross' in a page where an image is expected.
-define('INSTALL_PHP_ERR_HANDLER',false);
+define('INSTALL_PHP_ERR_HANDLER',true);
 
 // Should usage of deprecated functions and parameters give a fatal error?
 // (Useful to check if code is future proof.)
