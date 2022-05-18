@@ -85,6 +85,9 @@
             if (in_array("Internet Explorer", $browser_support)) {
                 $score_answer3 -= 5;
             }
+            if ($score_answer3 < 0) {
+                $score_answer3 = 0;
+            }
             if ($developer == "Mozilla") {
                 $score_answer4 = 5;
             }

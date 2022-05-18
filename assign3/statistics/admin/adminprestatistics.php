@@ -42,7 +42,13 @@
 	}
     
 	#Import database information, password, username and other config
-	require("../../../env/settings.php");
+	#For when jpgraph files (as <img>) import settings
+	try {
+		require("../../../env/settings.php");
+	} catch (Exception $e) {
+		require("../../env/settings.php");
+	}
+	#For when other traditional php files import settings
 	#Establish connection with database
 	$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 	if ($conn) {
@@ -90,14 +96,6 @@
 		$all_attempt2_question5_scores = extract_grade_percentage($all_attempts2, 'long_name', 'animated portable network graphics');
 		#Extract_data: collect all attempt dates
 		$all_dates = extract_data($all_attempts, 'date_attempt');
-		#Highlight table (contains average score 1&2&total, how many attempts 1&2 taken, easiest & hardest question)
-		#TODO: complete highlight table
-		#Score distribution graph (bar/line chart)
-		#Attempt time summary (bar/line chart)
-		#Error plot graphs for range of score for each attempts
-        // echo '<img src="adminstatistics.php" alt="Line graph of both">';
-        // echo '<img src="perquestionscore.php" alt="Per question score">';
-		// #Error plot graphs for range of score for each question
 	} else {
 		echo "<p>Unable to connect to database for statistics.</p>";
 	}

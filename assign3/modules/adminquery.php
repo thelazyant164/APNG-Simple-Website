@@ -117,7 +117,7 @@
             . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
             . " WHERE score < 50 AND attempt_no = 2";
     }
-    function delete_attempts($all_var, $sql_table, $conn) {
+    function delete_attempts($all_var, $sql_table1, $sql_table2, $conn) {
         #Escape all fields and trim all whitespaces
         $student_id = sanitise($all_var["student_id"]);
         #Validate student_id to be deleted
@@ -137,7 +137,8 @@
         $query_find = "SELECT " . $sql_table2 . ".student_id, score, attempt_no
             FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
             . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
-            . " WHERE " . $sql_table2 . ".student_id = " . $student_id;
+            . " WHERE " . $sql_table1 . ".student_id = " . $student_id;
+
         $result = mysqli_query($conn, $query_find);
         if (!mysqli_fetch_array($result)) {
             $_SESSION["error"] = [
@@ -151,9 +152,9 @@
         } else {
             mysqli_free_result($result);
         }
-        return "DELETE FROM " . $sql_table . " WHERE student_id = '$student_id'";
+        return "DELETE FROM " . $sql_table1 . " WHERE student_id = '$student_id'";
     }
-    function update_score($all_var, $sql_table, $conn) {
+    function update_score($all_var, $sql_table1, $sql_table2, $conn) {
         #Escape all fields and trim all whitespaces
         $student_id = sanitise($all_var["student_id"]);
         $attempt_no = sanitise($all_var["attempt_no"]);
@@ -218,7 +219,7 @@
             mysqli_free_result($result);
         }
         
-        return "UPDATE " . $sql_table. " SET score = '$score'
+        return "UPDATE " . $sql_table2. " SET score = '$score'
             WHERE student_id = '$student_id'
             AND attempt_no = '$attempt_no'";
     }
@@ -266,10 +267,10 @@
                 $query = list_half($sql_table1, $sql_table2, $conn);
                 break;
             case "delete_attempts":
-                $query = delete_attempts($_POST, $sql_table1, $conn);
+                $query = delete_attempts($_POST, $sql_table1, $sql_table2, $conn);
                 break;
             case "update_score":
-                $query = update_score($_POST, $sql_table2, $conn);
+                $query = update_score($_POST, $sql_table1, $sql_table2, $conn);
                 break;
             default:
                 header("location: ../manage.php");
