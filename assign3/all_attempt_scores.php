@@ -113,6 +113,8 @@
     $graph->SetScale("textlin");
     $graph->SetY2Scale("lin",0,100);
     $graph->SetShadow();
+    // $graph->xaxis->scale->SetAutoMin(0);
+    // $graph->yaxis->scale->SetAutoMax(100);
     
     // Create the linear plot
     $lineplot=new LinePlot($ydata);
@@ -125,8 +127,8 @@
     $lineplot2->SetWeight(2);
     $graph->y2axis->SetColor("orange");
     
-    $graph->title->Set("Scores Attempt 1, 2");
-    $graph->xaxis->title->Set("");
+    $graph->title->Set("All Scores, Attempt 1 & 2");
+    $graph->xaxis->title->Set("Submission #");
     $graph->yaxis->title->Set("Score");
     
     $graph->title->SetFont(FF_FONT1,FS_BOLD);
@@ -141,6 +143,9 @@
     
     $graph->yaxis->SetColor("blue");
     
+    $lineplot->SetLegend('Attempt 1');
+    $lineplot2->SetLegend('Attempt 2');
+    $graph->legend->Pos(0.0,0.5,'right','bottom');
 
 
 

@@ -66,7 +66,7 @@
                 echo '<img src="all_attempt_scores.php" alt="Line graph of both">';
                 
                 echo '<img src="perquestionscore.php" alt="Per question score">';
-                echo '<img src="example6.php" alt="Per question score">';
+                
 
                 ?>
             </p>
