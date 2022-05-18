@@ -17,12 +17,11 @@
 		<input type="checkbox" id="toggleMode">
 		<?php
             include("header.inc");
-            createHeader();
         ?>
 		
 		<main id="container">
 
-			<form action="lib/authentication.php" method="POST" novalidate="novalidate">
+			<form action="modules/authentication.php" method="POST" novalidate="novalidate">
 
 				<h1 id="title">Management login</h1>
 				<h2 id="subtitle">In order to query database, your identity needs to be verified.</h2>
@@ -61,7 +60,6 @@
 		<!-- Footer -->
 		<?php
             include("footer.inc");
-            createFooter();
         ?>
 	</body>
 </html>

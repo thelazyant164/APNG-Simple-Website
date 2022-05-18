@@ -16,18 +16,16 @@
 		<input type="checkbox" id="toggleMode">
 		<?php
             include("header.inc");
-            createHeader();
         ?>
 		<main id="parallax-container">
 			<?php
-                require("lib/errorhandling.php");
+                require("modules/errorhandling.php");
                 display_error($_SESSION["error"]["title"], $_SESSION["error"]["msg"], $_SESSION["error"]["content"], $_SESSION["error"]["retry"]);
                 unset($_SESSION["error"]);
             ?>
 		</main>
         <?php
             include("footer.inc");
-            createFooter();
         ?>
 	</body>
 </html>

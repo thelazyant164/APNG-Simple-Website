@@ -16,7 +16,6 @@
 		<input type="checkbox" id="toggleMode" />
 		<?php
             include("header.inc");
-            createHeader();
         ?>
 		<main id="parallax-container">
 			<section class="parallax parallax-bg">
@@ -656,7 +655,6 @@
 		</main>
 		<?php
             include("footer.inc");
-            createFooter();
         ?>
 	</body>
 </html>

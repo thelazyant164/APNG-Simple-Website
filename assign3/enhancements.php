@@ -16,9 +16,7 @@
 		<input type="checkbox" id="toggleMode">
 		<?php
             include("header.inc");
-            createHeader();
         ?>
-
 		<main id="parallax-container">
 			<section class="parallax parallax-bg">
 				<h1>What enhancements did you spot?</h1>
@@ -128,7 +126,6 @@
 		</main>
         <?php
             include("footer.inc");
-            createFooter();
         ?>
 	</body>
 </html>

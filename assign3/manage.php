@@ -17,7 +17,6 @@
 		<input type="checkbox" id="toggleMode">
 		<?php
 			include("header.inc");
-			createHeader();
 			#Safeguard against direct php access through URL
 			if (!$_SESSION["login"]) {
 				header("location: login.php");
@@ -117,7 +116,6 @@
 		<!-- Footer -->
 		<?php
             include("footer.inc");
-            createFooter();
         ?>
 	</body>
 </html>

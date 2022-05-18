@@ -17,7 +17,6 @@
 		<input type="checkbox" id="toggleMode">
 		<?php
             include("header.inc");
-            createHeader();
         ?>
 		
 		<main id="container">
@@ -168,7 +167,6 @@
 		<!-- Footer -->
 		<?php
             include("footer.inc");
-            createFooter();
         ?>
 	</body>
 	

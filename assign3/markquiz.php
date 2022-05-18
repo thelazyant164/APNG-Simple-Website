@@ -15,7 +15,6 @@
 		<input type="checkbox" id="toggleMode">
 		<?php
             include("header.inc");
-            createHeader();
         ?>
 		<main id="parallax-container">
 			<section class="parallax parallax-bg">
@@ -29,9 +28,9 @@
 			</section>
 			<section class="no-parallax">
 				<?php
-                    require("lib/submission.php");
+                    require("modules/submission.php");
                     $submission = submit();
-					require("lib/display.php");
+					require("modules/display.php");
 					display_total_grade($submission);
 				?>
 			</section>
@@ -41,8 +40,7 @@
 			<section class="no-parallax">
 				<?php
                     display_grades($submission);
-					require('statistics/userstatistics.php');
-					assess_single_student($submission);
+					require('statistics/user/userstatistics.php');
 					display_retry_prompt($submission);
                 ?>
 			</section>
@@ -52,7 +50,6 @@
 		</main>
         <?php
             include("footer.inc");
-            createFooter();
         ?>
 	</body>
 </html>

@@ -16,7 +16,6 @@
 		<input type="checkbox" id="toggleMode">
 		<?php
             include("header.inc");
-            createHeader();
         ?>
 		<main id="parallax-container">
 			<section class="parallax parallax-bg">
@@ -31,8 +30,7 @@
 			<section class="no-parallax">
 				<h3>Query returned:</h3>
 				<?php
-					require("lib/adminquery.php");
-					admin_query();
+					require("modules/adminquery.php");
 				?>
 			</section>
 			<section class="parallax parallax-bg">
@@ -58,23 +56,12 @@
 			</section>
 			<section class="no-parallax">
                 <?php
-					require('statistics/adminstatistics.php');
-					assess_all();
-                    ?>
-            <p>
-                <?php
-                echo '<img src="statistics/adminstatistics.php" alt="Line graph of both">';
-                
-                echo '<img src="statistics/perquestionscore.php" alt="Per question score">';
-                
-
+					require('statistics/admin/adminstatistics.php');
                 ?>
-            </p>
 			</section>
 		</main>
         <?php
             include("footer.inc");
-            createFooter();
         ?>
 	</body>
 </html>

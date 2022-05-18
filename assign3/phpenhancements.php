@@ -17,7 +17,6 @@
 		<input type="checkbox" id="toggleMode">
 		<?php
             include("header.inc");
-            createHeader();
         ?>
 
 		<main id="parallax-container">
@@ -32,7 +31,7 @@
 				<h2>Data visualization</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>Using (external library name)</h3>
+				<h3>Using (external modulesrary name)</h3>
 				<p>
 					Placeholder text
 				</p>
@@ -89,7 +88,6 @@
 		</main>
         <?php
             include("footer.inc");
-            createFooter();
         ?>
 	</body>
 </html>

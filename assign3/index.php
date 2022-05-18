@@ -15,7 +15,6 @@
         <input type="checkbox" id="toggleMode">
         <?php
             include("header.inc");
-            createHeader();
         ?>
         <main id="bg-container">
             <h1 id="title">Animated Portable Network Graphics</h1>
@@ -30,7 +29,6 @@
         </main>
         <?php
             include("footer.inc");
-            createFooter();
         ?>
     </body>
 </html>
