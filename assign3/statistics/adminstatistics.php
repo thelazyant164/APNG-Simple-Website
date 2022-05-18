@@ -77,7 +77,7 @@
         #For queryresult.php
 
 		#Import database information, password, username and other config
-		include("settings.php");
+		include("../env/settings.php");
 		#Establish connection with database
 		$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
@@ -142,7 +142,7 @@
 			#Attempt time summary (bar/line chart)
 			plot_bar($all_dates);
 			#Error plot graphs for range of score for each attempts
-            // echo '<img src="all_attempt_scores.php" alt="Line graph of both">';
+            // echo '<img src="adminstatistics.php" alt="Line graph of both">';
             // echo '<img src="perquestionscore.php" alt="Per question score">';
            
 

@@ -23,7 +23,7 @@
             #Retrieve score data of first attempt from database and plot pie chart
 
             #Import database information, password, username and other config
-            include("settings.php");
+            include("../env/settings.php");
             #Establish connection with database
             $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
             if ($conn) {

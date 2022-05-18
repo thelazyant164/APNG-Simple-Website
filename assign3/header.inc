@@ -11,7 +11,7 @@
                             <label for=\"toggleMode\" id=\"toggleLight\"><span class=\"material-icons md-32\">toggle_on</span><span class=\"material-icons md-32\">light_mode</span></label>\n
                         </li>\n";
         if (isset($_SESSION["login"])) {
-            echo "<li><a href=\"logout.php\">Log out</a></li>\n";
+            echo "<li><a href=\"lib/logout.php\">Log out</a></li>\n";
             echo "<li><a href=\"manage.php\">Manage</a></li>\n";
         } else {
             echo "<li><a href=\"login.php\">Manage</a></li>\n";

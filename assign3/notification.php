@@ -20,7 +20,7 @@
         ?>
 		<main id="parallax-container">
 			<?php
-                require("errorhandling.php");
+                require("lib/errorhandling.php");
                 display_error($_SESSION["error"]["title"], $_SESSION["error"]["msg"], $_SESSION["error"]["content"], $_SESSION["error"]["retry"]);
                 unset($_SESSION["error"]);
             ?>

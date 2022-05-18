@@ -22,7 +22,7 @@
 		
 		<main id="container">
 
-			<form action="authentication.php" method="POST" novalidate="novalidate">
+			<form action="lib/authentication.php" method="POST" novalidate="novalidate">
 
 				<h1 id="title">Management login</h1>
 				<h2 id="subtitle">In order to query database, your identity needs to be verified.</h2>

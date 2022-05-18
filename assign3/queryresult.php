@@ -31,7 +31,7 @@
 			<section class="no-parallax">
 				<h3>Query returned:</h3>
 				<?php
-					require("adminquery.php");
+					require("lib/adminquery.php");
 					admin_query();
 				?>
 			</section>
@@ -58,14 +58,14 @@
 			</section>
 			<section class="no-parallax">
                 <?php
-					require('adminstatistics.php');
+					require('statistics/adminstatistics.php');
 					assess_all();
                     ?>
             <p>
                 <?php
-                echo '<img src="all_attempt_scores.php" alt="Line graph of both">';
+                echo '<img src="statistics/adminstatistics.php" alt="Line graph of both">';
                 
-                echo '<img src="perquestionscore.php" alt="Per question score">';
+                echo '<img src="statistics/perquestionscore.php" alt="Per question score">';
                 
 
                 ?>

@@ -56,7 +56,7 @@
                 "msg" => "invalid field detected during validation. Submission attempt rejected",
                 "retry" => "quiz.php"
             ];
-            header("location: notification.php");
+            header("location: ../notification.php");
             exit("Please go back and try again.");
         }
 
@@ -99,7 +99,7 @@
         }
 
         #Import database information, password, username and other config
-        require_once("settings.php");
+        require_once("../env/settings.php");
 
         #Establish connection with database
         $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
@@ -181,7 +181,7 @@
             //         "content" => "Previous 2 attempts have been recorded: first on $date1 and later on $date2",
             //         "retry" => "quiz.php"
             //     ];
-            //     header("location: notification.php");
+            //     header("location: ../notification.php");
             //     exit("Max attempt count exceeded.");
             }
 

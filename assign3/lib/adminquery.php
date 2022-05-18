@@ -32,9 +32,9 @@
                     "title" => "Select query failed",
                     "msg" => "no existing entry exists in record",
                     "content" => "No entry in database found",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Select failure: no existing entry in database found.");
             } else {
                 mysqli_free_result($result);
@@ -61,9 +61,9 @@
                     "title" => "Select query failed",
                     "msg" => "no existing entry exists in record",
                     "content" => "No entry in database found",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Select failure: no existing entry in database found.");
             } else {
                 mysqli_free_result($result);
@@ -87,9 +87,9 @@
                     "title" => "Select query failed",
                     "msg" => "no existing entry exists in record",
                     "content" => "No entry in database found",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Select failure: no existing entry in database found.");
             } else {
                 mysqli_free_result($result);
@@ -112,9 +112,9 @@
                     "title" => "Select query failed",
                     "msg" => "no existing entry exists in record",
                     "content" => "No entry in database found",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Select failure: no existing entry in database found.");        
             } else {
                 mysqli_free_result($result);
@@ -138,9 +138,9 @@
                     "msg" => "invalid field detected when trying to query. Delete attempt unsuccessful",
                     "content" => "Invalid field: Student ID (input: \"" . $_POST['student_id'] . "\").<br/>
                     Student ID must comprise of either 7 or 10 digits.",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Please go back and try again.");
             }
 
@@ -156,9 +156,9 @@
                     "title" => "Delete query failed",
                     "msg" => "no existing entry exists in record",
                     "content" => "No entry in database with student ID \"$student_id\" found",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Delete failure: no existing entry in database found.");
             } else {
                 mysqli_free_result($result);
@@ -181,9 +181,9 @@
                     "msg" => "invalid field detected when trying to query. Update attempt unsuccessful",
                     "content" => "Invalid field: Student ID (input: \"" . $student_id . "\").<br/>
                     Student ID must comprise of either 7 or 10 digits.",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Please go back and try again.");
             }
 
@@ -196,9 +196,9 @@
                     "msg" => "invalid field detected when trying to query. Update attempt unsuccessful",
                     "content" => "Invalid field: Attempt (input: \"" . $attempt_no . "\").<br/>
                     Attempt number must be either \"1\" or \"2\"",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Please go back and try again.");
             }
 
@@ -211,9 +211,9 @@
                     "msg" => "invalid field detected when trying to query. Update attempt unsuccessful",
                     "content" => "Invalid field: New score (input: \"" . $score . "\").<br/>
                     New score must be greater than \"0\" and lesser than \"100\"",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Please go back and try again.");
             }
 
@@ -231,9 +231,9 @@
                     "msg" => "no existing entry exists in record",
                     "content" => "No entry in database with attempt number \"$attempt_no\"
                     and student ID \"$student_id\" found",
-                    "retry" => "manage.php"
+                    "retry" => "../manage.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Update failure: no existing entry in database found.");
             } else {
                 mysqli_free_result($result);
@@ -251,14 +251,14 @@
                 "title" => "Unknown query request",
                 "msg" => "no query selected",
                 "content" => "Please choose from the list of available queries you would like to perform on database.",
-                "retry" => "manage.php"
+                "retry" => "../manage.php"
             ];
-            header("location: notification.php");
+            header("location: ../notification.php");
             exit("Direct access through URL detected. Script execution aborted.");
         }
 
         #Import database information, password, username and other config
-        require_once("settings.php");
+        require_once("../env/settings.php");
         #Establish connection with database
         $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
@@ -269,9 +269,9 @@
                 "title" => "Database connection rejected",
                 "msg" => "database timeout",
                 "content" => "The server is inaccessible at the moment. Please try again at a different time",
-                "retry" => "manage.php"
+                "retry" => "../manage.php"
             ];
-            header("location: notification.php");
+            header("location: ../notification.php");
             exit("Database connection failure.");
         #Connection succeeds
         } else {
@@ -298,7 +298,7 @@
                     $query = update_score($_POST, $sql_table2, $conn);
                     break;
                 default:
-                    header("location: manage.php");
+                    header("location: ../manage.php");
                     exit("Direct access through URL detected. Script execution aborted.");
             }
 

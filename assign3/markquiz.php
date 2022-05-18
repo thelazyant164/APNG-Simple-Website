@@ -29,9 +29,9 @@
 			</section>
 			<section class="no-parallax">
 				<?php
-                    require("submission.php");
+                    require("lib/submission.php");
                     $submission = submit();
-					require("display.php");
+					require("lib/display.php");
 					display_total_grade($submission);
 				?>
 			</section>
@@ -41,7 +41,7 @@
 			<section class="no-parallax">
 				<?php
                     display_grades($submission);
-					require('userstatistics.php');
+					require('statistics/userstatistics.php');
 					assess_single_student($submission);
 					display_retry_prompt($submission);
                 ?>

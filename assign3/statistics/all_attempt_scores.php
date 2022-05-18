@@ -43,7 +43,7 @@
 			}
 		}
 	}
-	require_once "settings.php";
+	require_once "../env/settings.php";
 	// Connect to the database
 	$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 	if ($conn) {

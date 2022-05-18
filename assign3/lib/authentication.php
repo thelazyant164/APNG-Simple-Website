@@ -1,7 +1,7 @@
 <?php
     require("sanitise.php");
     #Helper function authenticate to perform field validation on admin's credentials,
-    #perform authentication queries on administrator database, and redirect to manage.php when authorized
+    #perform authentication queries on administrator database, and redirect to ../manage.php when authorized
     #redirects to error page with notice of incorrect credentials when unauthorized
     function authenticate() {
         #Field validation (for unsafe requests - update, delete)
@@ -31,7 +31,7 @@
                 Username must only contains alphanumeric characters, dashes and/or underscores, and be between 10 and 30 characters long",
                 "retry" => "login.php"
             ];
-            header("location: notification.php");
+            header("location: ../notification.php");
             exit("Please go back and try again.");
         }
         if (!validate_data($_POST["password"], "password")) {
@@ -43,12 +43,12 @@
                 Password must be between 10 and 30 characters long",
                 "retry" => "login.php"
             ];
-            header("location: notification.php");
+            header("location: ../notification.php");
             exit("Please go back and try again.");
         }
 
         #Import database information, password, username and other config
-        require_once("settings.php");
+        require_once("../env/settings.php");
         #Establish connection with database
         $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
         
@@ -61,7 +61,7 @@
                 "content" => "The server is inaccessible at the moment. Please try again at a different time",
                 "retry" => "login.php"
             ];
-            header("location: notification.php");
+            header("location: ../notification.php");
             exit("Database connection failure.");
             
             #Connection succeeds
@@ -89,13 +89,13 @@
                     "content" => "Either your username or password is incorrect",
                     "retry" => "login.php"
                 ];
-                header("location: notification.php");
+                header("location: ../notification.php");
                 exit("Authentication failure.");
             } else {
                 session_start();
                 $_SESSION["login"] = true;
                 $_SESSION["username"] = $username;
-                header("location: manage.php");
+                header("location: ../manage.php");
             }
             mysqli_free_result($result);
             mysqli_close($conn);
