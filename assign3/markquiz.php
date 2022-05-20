@@ -40,7 +40,6 @@
 			<section class="no-parallax">
 				<?php
                     display_grades($submission);
-					require('statistics/user/userstatistics.php');
 					display_retry_prompt($submission);
                 ?>
 			</section>

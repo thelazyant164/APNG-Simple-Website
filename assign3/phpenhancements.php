@@ -31,26 +31,26 @@
 				<h2>Data visualization</h2>
 			</section>
 			<section class="no-parallax">
-				<h3>Using (external modulesrary name)</h3>
+				<h3>Using JPgraph, a PHP library for visualization</h3>
 				<p>
-					Placeholder text
+					Once an administrator has received the result for their query, they also receive an overview and statistics visualization 
+					generated from all entry in the database. Data retrieval for this is done separately after the supervisor's original query 
+					has been executed, which means in case of network congestion or other connection issues, the main functionality of the site 
+					will be prioritized.
 				</p>
 				<h3>What are the steps to do it?</h3>
 				<ol>
-					<li>Give the parent container the {perspective: 1px;} attribute. This is so that all children of that element
-						would be placed in a 3D-simulated environment rather than the traditional 2D plane of the viewport.</li>
-					<li>Seperate the HTML into multiple segments, each within a &lt;section&gt; with either the class "parallax" or "no-parallax".
-						Give all of them the attribute {transform-style: preserve-3d;}</li>
-					<li>Apply to the parallax elements the attributes {position: absolute; top: 0; right: 0; left: 0; bottom: 0;}.
-						Apply the transformation functions above as well. Finally, give it a different Z-index to separate it to a different
-						layer than the base.</li>
-					<li>If the elements scale up bigger than the viewport, scrollbars will appear by default. To prevent this, add the
-						attributes {overflow-x: hidden} to the container.</li>
+					<li>Create a file to plot the visualization.</li>
+					<li>Include the main JPgraph library module (jpgraph.php), and the specific module required depending on use case 
+						(in this instance, jpgraph_line.php).</li>
+					<li>Query to the database to retrieve real-time data.</li>
+					<li>Create a new Graph object and pass in the relevant data as an array.</li>
+					<li>Create an &ltimg&gt tag with the "src" attribute pointing to the location of the file.</li>
 				</ol>
 				<p class="citation">
-					Trigo, A. (2021, March 25). <span class="italic">How to create a parallax effect with CSS only.</span><br/>
-					<span class="indent"></span>Alvaro Trigo’s Blog - Web Developing and Design.<br/>
-					<span class="indent"></span><a href="https://alvarotrigo.com/blog/how-to-create-a-parallax-effect-with-css-only" target="_blank" rel="noreferrer noopener">https://alvarotrigo.com/blog/<wbr>how-to-create-a-parallax-effect-with-css-only/</a>
+					<span class="italic">Chapter 15. Different types of linear (cartesian) graph types.</span> (n.d.).<br/>
+					<span class="indent"></span>Jpgraph.net.<br/>
+					<span class="indent"></span><a href="https://jpgraph.net/download/manuals/chunkhtml/ch15.html#sec2.creating-line-graph" target="_blank" rel="noreferrer noopener">https://jpgraph.net/download/manuals/<wbr/>chunkhtml/ch15.html#sec2.creating-line-graph</a>
 				</p>
 			</section>
 			<section class="parallax parallax-bg">
