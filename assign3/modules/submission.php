@@ -32,7 +32,7 @@
             if (!validate_data($all_var["student_id"], "id")) {
                 $_SESSION["error"] = [
                     "content" => "Invalid field: Student ID (input: \"" . $_POST['student_id'] . "\").<br/>
-                    Student ID must comprise of either 7 or 10 digits."
+                    Student ID must comprise of either 7 or 10 digits"
                 ];
                 return false;
             }
@@ -169,23 +169,23 @@
                 $attempt_no = 2;
                 mysqli_free_result($result_find);
             #DEVELOPMENT
-            } else {
-                $attempt_no = mysqli_num_rows($result_find) + 1;
-            #PRODUCTION
             // } else {
-            //     while ($row = mysqli_fetch_assoc($result_find)) {
-            //         $date1 = $row["date_attempt"];
-            //     }
-            //     mysqli_free_result($result_find);
-            //     $date2 = $date_attempt;
-            //     $_SESSION["error"] = [
-            //         "title" => "Quiz submission rejected",
-            //         "msg" => "maximum attempt count (2) detected. Submission attempt unsuccessful",
-            //         "content" => "Previous 2 attempts have been recorded: first on $date1 and later on $date2",
-            //         "retry" => "quiz.php"
-            //     ];
-            //     header("location: notification.php");
-            //     exit("Max attempt count exceeded.");
+            //     $attempt_no = mysqli_num_rows($result_find) + 1;
+            #PRODUCTION
+            } else {
+                while ($row = mysqli_fetch_assoc($result_find)) {
+                    $date1 = $row["date_attempt"];
+                }
+                mysqli_free_result($result_find);
+                $date2 = $date_attempt;
+                $_SESSION["error"] = [
+                    "title" => "Quiz submission rejected",
+                    "msg" => "maximum attempt count (2) detected. Submission attempt unsuccessful",
+                    "content" => "Previous 2 attempts have been recorded: first on $date1 and later on $date2",
+                    "retry" => "quiz.php"
+                ];
+                header("location: notification.php");
+                exit("Max attempt count exceeded.");
             }
 
             #Determine score
@@ -229,7 +229,7 @@
                 echo "<p>Something is wrong with $query_insert2.</p>";
             } else {
                 #If successful submit, return what has just been submitted
-                echo "<div class=\"overflowTable\">\n<table border=\"1\">\n";
+                echo "<div class=\"overflowTable\">\n<table>\n";
                 echo "<tr>\n"
                     ."<th scope=\"col\">First name</th>\n"
                     ."<th scope=\"col\">Last name</th>\n"
@@ -239,12 +239,12 @@
                     ."<th scope=\"col\">Score</th>\n"
                 ."</tr>\n"
                 ."<tr>\n"
-                    ."<td>", $first_name, "</th>\n"
-                    ."<td>", $last_name, "</th>\n"
-                    ."<td>", $student_id, "</th>\n"
-                    ."<td>", $attempt_no, "</th>\n"
-                    ."<td>", $date_attempt, "</th>\n"
-                    ."<td>", $score, "</th>\n"
+                    ."<td>", $first_name, "</td>\n"
+                    ."<td>", $last_name, "</td>\n"
+                    ."<td>", $student_id, "</td>\n"
+                    ."<td>", $attempt_no, "</td>\n"
+                    ."<td>", $date_attempt, "</td>\n"
+                    ."<td>", $score, "</td>\n"
                 ."</tr>\n"
                 ."</table>\n</div>\n";
             }

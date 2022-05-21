@@ -45,7 +45,7 @@
 						(in this instance, jpgraph_line.php).</li>
 					<li>Query to the database to retrieve real-time data.</li>
 					<li>Create a new Graph object and pass in the relevant data as an array.</li>
-					<li>Create an &ltimg&gt tag with the "src" attribute pointing to the location of the file.</li>
+					<li>Create an &lt;img&gt; tag with the "src" attribute pointing to the location of the file.</li>
 				</ol>
 				<p class="citation">
 					<span class="italic">Chapter 15. Different types of linear (cartesian) graph types.</span> (n.d.).<br/>

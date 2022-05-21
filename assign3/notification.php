@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+	<!-- Error page -->
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="description" content="error message"/>
@@ -19,9 +20,12 @@
         ?>
 		<main id="parallax-container">
 			<?php
+				if (!isset($_SESSION['error'])) {
+					header('location: index.php');
+					exit('Direct URL access detected. Script execution terminated.');
+				}
                 require("modules/errorhandling.php");
                 display_error($_SESSION["error"]["title"], $_SESSION["error"]["msg"], $_SESSION["error"]["content"], $_SESSION["error"]["retry"]);
-                unset($_SESSION["error"]);
             ?>
 		</main>
         <?php

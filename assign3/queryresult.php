@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+	<!-- Returns admin's query results -->
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="description" content="query results"/>
@@ -15,6 +16,10 @@
 	<body>
 		<input type="checkbox" id="toggleMode">
 		<?php
+			if (!isset($_POST)) {
+				header('location: manage.php');
+				exit('Direct URL access detected. Script execution terminated.');
+			}
             include("header.inc");
         ?>
 		<main id="parallax-container">
@@ -34,27 +39,10 @@
 				?>
 			</section>
 			<section class="parallax parallax-bg">
-				<h2>Assessments</h2>
-			</section>
-			<section class="no-parallax">
-				<h3>How did user abcxyz do?</h3>
-				<p>
-					User abcxyz performed poorly...
-				</p>
-				<h3>Overall ranking</h3>
-				<ol>
-					<li>Overall: 2/5</li>
-					<li>For Question 1: 3/5</li>
-					<li>For Question 2: 1/5</li>
-					<li>For Question 3: 2/5</li>
-					<li>For Question 4: 5/5</li>
-					<li>For Question 5: 0/5</li>
-				</ol>
-			</section>
-			<section class="parallax parallax-bg">
 				<h2>Statistics</h2>
 			</section>
 			<section class="no-parallax">
+				<h3>Highlights & trends</h3>
                 <?php
 					require('statistics/admin/adminstatistics.php');
                 ?>

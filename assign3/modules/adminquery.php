@@ -72,7 +72,7 @@
             OR " . $sql_table1. ".student_id = '$student_id'";
     }
     function list_full($sql_table1, $sql_table2, $conn) {
-        #Check to make sure record exists in database
+        #Check to make sure any record exists in database
         $query_find = "SELECT " . $sql_table2 . ".student_id
             FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
             . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id";
@@ -89,13 +89,31 @@
         } else {
             mysqli_free_result($result);
         }
+        #Check to make sure desired record exists in database
+        $query_find = "SELECT " . $sql_table2 . ".student_id, first_name, last_name, score, attempt_no
+            FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+            . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
+            . " WHERE score = 100 AND attempt_no = 1";
+        $result = mysqli_query($conn, $query_find);
+        if (!mysqli_fetch_array($result)) {
+            $_SESSION["error"] = [
+                "title" => "Select query failed",
+                "msg" => "no existing entry matching required criteria exists in record",
+                "content" => "No entry matching required criteria in database found",
+                "retry" => "manage.php"
+            ];
+            header("location: notification.php");
+            exit("Select failure: no existing entry in database found.");
+        } else {
+            mysqli_free_result($result);
+        }
         return "SELECT " . $sql_table2 . ".student_id, first_name, last_name, score, attempt_no
             FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
             . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
             . " WHERE score = 100 AND attempt_no = 1";
     }
     function list_half($sql_table1, $sql_table2, $conn) {
-        #Check to make sure record exists in database
+        #Check to make sure any record exists in database
         $query_find = "SELECT " . $sql_table2 . ".student_id
             FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
             . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id";
@@ -109,6 +127,24 @@
             ];
             header("location: notification.php");
             exit("Select failure: no existing entry in database found.");        
+        } else {
+            mysqli_free_result($result);
+        }
+        #Check to make sure desired record exists in database
+        $query_find = "SELECT " . $sql_table2 . ".student_id, first_name, last_name, score, attempt_no
+            FROM " . $sql_table1 . " INNER JOIN " . $sql_table2
+            . " ON " . $sql_table1 . ".student_id = " . $sql_table2 . ".student_id"
+            . " WHERE score < 50 AND attempt_no = 2";
+        $result = mysqli_query($conn, $query_find);
+        if (!mysqli_fetch_array($result)) {
+            $_SESSION["error"] = [
+                "title" => "Select query failed",
+                "msg" => "no existing entry matching required criteria exists in record",
+                "content" => "No entry matching required criteria in database found",
+                "retry" => "manage.php"
+            ];
+            header("location: notification.php");
+            exit("Select failure: no existing entry in database found.");
         } else {
             mysqli_free_result($result);
         }
@@ -127,7 +163,7 @@
                 "title" => "Delete query request rejected",
                 "msg" => "invalid field detected when trying to query. Delete attempt unsuccessful",
                 "content" => "Invalid field: Student ID (input: \"" . $_POST['student_id'] . "\").<br/>
-                Student ID must comprise of either 7 or 10 digits.",
+                Student ID must comprise of either 7 or 10 digits",
                 "retry" => "manage.php"
             ];
             header("location: notification.php");
@@ -166,7 +202,7 @@
                 "title" => "Update query request rejected",
                 "msg" => "invalid field detected when trying to query. Update attempt unsuccessful",
                 "content" => "Invalid field: Student ID (input: \"" . $student_id . "\").<br/>
-                Student ID must comprise of either 7 or 10 digits.",
+                Student ID must comprise of either 7 or 10 digits",
                 "retry" => "manage.php"
             ];
             header("location: notification.php");
@@ -283,7 +319,7 @@
             echo "<p>Something is wrong with $query.</p>";
         #For all list_* queries
         } else if (substr($_POST["request"], 0, 4) == "list") {
-            echo "<table border=\"1\">\n";
+            echo "<table>\n";
             echo "<tr>\n"
                 ."<th scope=\"col\">First name</th>\n"
                 ."<th scope=\"col\">Last name</th>\n"
@@ -293,11 +329,11 @@
                 ."</tr>\n";
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>\n";
-                echo "<td>", $row['first_name'], "</th>\n";
-                echo "<td>", $row['last_name'], "</th>\n";
-                echo "<td>", $row['student_id'], "</th>\n";
-                echo "<td>", $row['score'], "</th>\n";
-                echo "<td>", $row['attempt_no'], "</th>\n";
+                echo "<td>", $row['first_name'], "</td>\n";
+                echo "<td>", $row['last_name'], "</td>\n";
+                echo "<td>", $row['student_id'], "</td>\n";
+                echo "<td>", $row['score'], "</td>\n";
+                echo "<td>", $row['attempt_no'], "</td>\n";
                 echo "</tr>\n";
             }
             echo "</table>\n";

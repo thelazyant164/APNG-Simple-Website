@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+	<!-- Where admin performs query on database -->
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="description" content="APNG manage"/>

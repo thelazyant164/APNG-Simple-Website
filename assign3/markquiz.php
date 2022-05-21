@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+	<!-- Grade student's quiz attempt and display result -->
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="description" content="APNG markquiz"/>
@@ -14,6 +15,10 @@
 	<body>
 		<input type="checkbox" id="toggleMode">
 		<?php
+			if (!isset($_POST)) {
+				header('location: quiz.php');
+				exit('Direct URL access detected. Script execution terminated.');
+			}
             include("header.inc");
         ?>
 		<main id="parallax-container">

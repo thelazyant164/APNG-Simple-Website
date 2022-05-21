@@ -7,9 +7,6 @@
             <p>\n
                 ", $submission['score'], "/100 - ", $submission['score'], "%\n
             </p>\n
-            <p>\n
-                Pie chart representing score components for each question - JPgraph\n
-            </p>\n
         ";
     }
     function display_grades($submission) {
@@ -26,8 +23,7 @@
             echo "<p>You failed!</p>\n";
         }
         echo "<h3>Overview:</h3>\n
-            <div>\n
-            <table border=\"2\">\n
+            <table>\n
                 <tr>
                     <th>Total:</th>
                     <td>" , $submission['score'], "%</td>
@@ -62,6 +58,7 @@
                     <h2>Answers</h2>\n
                 </section>\n
                 <section class=\"no-parallax\">\n
+                    <h3>Below are side-by-side comparisons of correct answers and what you inputted on your second attempt:</h3>\n
                     <p>Question 1: <span class=\"bold\">Transparency</span>
                     - Your answer was: <span class=\"bold\">", $submission['support_for'], "</span></p>\n
                     <p>Question 2: <span class=\"bold\">2004</span>

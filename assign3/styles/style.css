@@ -14,7 +14,7 @@ Purpose: to style 4 pages (index, topic, quiz, enhancements)
 }
 
 /*remove underline from anchors*/
-*:link{
+*:link, *:visited{
   text-decoration: none;
 }
 
@@ -331,7 +331,16 @@ th {
   text-decoration: underline;
 }
 
+#parallax-container section p a{
+  color: var(--title);
+  text-decoration: underline;
+}
+
 #parallax-container section h3 a:hover{
+  opacity: 50%;
+}
+
+#parallax-container section p a:hover{
   opacity: 50%;
 }
 
