@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="multiple-choice">
                                     <input type="radio" id="list_specific" name="request" value="list_specific">
-                                    <label for="list_specific">List all attempts for a particular student (using student ID or name)</label>
+                                    <label for="list_specific">List all attempts for a particular student (Enter student ID or name below)</label>
                                 </div>
                                 <div class="multiple-choice">
                                     <input type="radio" id="list_full" name="request" value="list_full">
@@ -60,11 +60,11 @@
                                 </div>
                                 <div class="multiple-choice">
                                     <input type="radio" id="delete_attempts" name="request" value="delete_attempts">
-                                    <label for="delete_attempts">Delete all attempts for a particular student (using student ID)</label>
+                                    <label for="delete_attempts">Delete all attempts for a particular student (Enter student ID below)</label>
                                 </div>
                                 <div class="multiple-choice">
                                     <input type="radio" id="update_score" name="request" value="update_score">
-                                    <label for="update_score">Change score for an attempt (using student ID and attempt number)</label>
+                                    <label for="update_score">Change score for an attempt (Enter student ID and attempt number below)</label>
                                 </div>
                             </div>
                         </div>
