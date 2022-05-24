@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="multiple-choice">
                                     <input type="radio" id="update_score" name="request" value="update_score">
-                                    <label for="update_score">Change score for an attempt (Enter student ID and attempt number below)</label>
+                                    <label for="update_score">Change score for an attempt (Enter student ID, attempt number and new score below)</label>
                                 </div>
                             </div>
                         </div>
