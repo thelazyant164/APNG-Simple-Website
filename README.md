@@ -8,18 +8,18 @@ Should load without issue on any modern browser supporting the sufficient techno
 
 ### Installing
 
-Clone everything in [assign1/](https://github.com/thelazyant164/COS10026-APNG-Group-Assignment/tree/master/assign1) for the static version, without PHP backend logic or database integration.
-OR, run straight from the GitHub page URL for the [index page](https://thelazyant164.github.io/COS10026-APNG-Group-Assignment/assign1/index.html).
+Clone everything in [assign1/](https://github.com/thelazyant164/APNG-Simple-Website/tree/master/assign1) for the static version, without PHP backend logic or database integration.
+OR, run straight from the GitHub page URL for the [index page](https://thelazyant164.github.io/APNG-Simple-Website/assign1/index.html).
 
-Clone everything in [assign3/](https://github.com/thelazyant164/COS10026-APNG-Group-Assignment/tree/master/assign3) for the extended version, which requires additional configuration to get running.
+Clone everything in [assign3/](https://github.com/thelazyant164/APNG-Simple-Website/tree/master/assign3) for the extended version, which requires additional configuration to get running.
 
 ## Deployment
 
-The static version, found in [assign1/](https://github.com/thelazyant164/COS10026-APNG-Group-Assignment/tree/master/assign1), can be run out-of-the-box from localhost as only vanilla HTML5 and CSS3 are used. Any modern browser with proper support should suffice.
+The static version, found in [assign1/](https://github.com/thelazyant164/APNG-Simple-Website/tree/master/assign1), can be run out-of-the-box from localhost as only vanilla HTML5 and CSS3 are used. Any modern browser with proper support should suffice.
 
-The extended version, found in [assign3/](https://github.com/thelazyant164/COS10026-APNG-Group-Assignment/tree/master/assign3), is a bit more tricky.
+The extended version, found in [assign3/](https://github.com/thelazyant164/APNG-Simple-Website/tree/master/assign3), is a bit more tricky.
 Website can be hosted on an Apache server with sufficient PHP support.
-Database credentials are read from [env/settings.php](https://github.com/thelazyant164/COS10026-APNG-Group-Assignment/blob/master/assign3/env/settings.php) - change this to a working database for the website to run properly.
+Database credentials are read from [env/settings.php](https://github.com/thelazyant164/APNG-Simple-Website/blob/master/assign3/env/settings.php) - change this to a working database for the website to run properly.
 
 ## Built With
 
